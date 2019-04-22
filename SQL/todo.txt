@@ -1,0 +1,6 @@
+SQL muutokset:
+
+"Keräilykori"
+"Seurantalista"
+
+Tuotetiedot laajemmin (merkki, koko)
