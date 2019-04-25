@@ -1,0 +1,199 @@
+h1, h2, h3 {
+    color:darkcyan;
+    font-size: large;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#banner {
+    max-width: 100%;
+    max-height: 300px;
+}
+
+ul {
+    list-style-type: none;
+}
+a:link, a:visited {
+    text-decoration:none;
+    color:aliceblue;
+    font-weight:bold;
+}
+img {
+    max-width: 150px;
+    display: block;
+}
+a:hover {
+    color: darkblue;
+}
+
+figure {
+    margin: 0;
+}
+figure img{
+    width: 100%;
+    max-width: 320px;
+    max-height: 320px;
+}
+picture {
+    margin: 0;
+}
+picture img{
+    width: 100%;
+    height: 100%;
+    max-width: 780px;
+    max-height: 700px;
+}
+figcaption {
+    text-align: center;
+}
+.wallFigure{
+    float:right;
+    margin-top: 90px;
+    margin-left:10px;
+}
+header {
+    background-color: darkslategray;
+    height: 9rem;
+}
+header h1 {
+    color: aliceblue;
+    margin-left:2rem;
+    margin-top:2rem;
+    font-size:40px;
+}
+footer {
+    width: 100%;
+    margin: auto;
+    background-color: darkslategray;
+    height: 6rem;
+}
+footer h1{
+    color: aliceblue;
+    font-size:20px;
+    margin-top: 0;
+    margin-left:2rem;
+    margin-bottom:2rem;
+
+}
+.clear{clear:both}
+
+* { box-sizing: border-box; }
+
+html,body {
+    margin: 0;
+    height: 100%;
+}
+
+.logo {
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-nav {
+    height: 48px;
+    background-color: #FFF;
+    border-bottom: 1px solid #ccc;
+    line-height: 48px;
+    padding: 0 16px;
+}
+
+.menu {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu li > a {
+    text-decoration: none;
+    color: #404040;
+    font-weight: bold;
+    padding: 0 14px;
+    display: block;
+    height: 48px;
+}
+
+.menu li > a:hover {
+    color: #7cb228;
+    border-bottom: 4px solid #7cb228;
+}
+
+.menu li.close {
+    display: none;
+    font-size: 36px;
+    color: #646464;
+    cursor: pointer;
+}
+
+.mobile-btn {
+    display: none;
+    float: right;
+    cursor: pointer;
+}
+
+/*
+This media query hides the horizontal menu and makes the mobile menu button visible
+Play around with the max-width for a width that best fits your design
+*/
+@media (max-width: 768px) {
+    .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        background-color: #FFF;
+        width: 300px;
+        height: 100%;
+        z-index: 3;
+        transform: translateX(300px);
+    }
+
+    .menu.open {
+        transform: translateX(0);
+    }
+
+    .menu li {
+        display: block;
+        padding: 0 14px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .menu li > a {
+        border: none;
+        border-left: 2px solid transparent;
+    }
+
+    .menu li > a:hover {
+        border: none;
+        border-left: 2px solid #7cb228;
+    }
+
+    .menu li.close {
+        display: block;
+        text-align: right;
+    }
+
+    .mobile-btn {
+        display: inline-block;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0,.4);
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .overlay.open {
+        z-index: 1;
+        opacity: 1;
+    }
+}
