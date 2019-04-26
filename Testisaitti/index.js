@@ -4,10 +4,10 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
-  host: localhost,
-  user: iliasd,
-  password: Kanta13,
-  database: kirppis
+  host: 'localhost',
+  user: 'iliasd',
+  password: 'Kanta13',
+  database: 'kirppis'
 });
 const fs      = require('fs');
 const https   = require('https');
