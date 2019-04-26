@@ -1,6 +1,8 @@
 'use strict';
-const select = (connection, res) => {
-    // simple query
+
+
+const selectImages = (connection, res) => {
+    // selects all images
     connection.query(
         'SELECT * FROM Image',
         (err, results, fields) => {
@@ -16,7 +18,7 @@ const select = (connection, res) => {
 };
 
 const insertImage = (data, connection, res) => {
-    // INSERT PROPER TABLE HERE
+    // Inserts the data to Image table in the Database
     connection.execute(
         'INSERT INTO Image (iID, Title, Location, Alt, Thumb, Medium) VALUES (?, ?, ?, ?, ?, ?);',
         data,
@@ -52,7 +54,7 @@ const updateImage = (data, connection, res) => {
 const delImage = (data, connection, res) => {
     // simple query
     connection.execute(
-        'DELETE FROM Image JOIN Product ON iID = ? AND Product.userID = ?;', // can delete only current user's images
+        'DELETE FROM Image join Where iID = ? AND Product.userID = ?;', // can delete only current user's images
         data,
         (err, results, fields) => {
             console.log(results); // results contains rows returned by server

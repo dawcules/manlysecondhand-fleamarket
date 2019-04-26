@@ -3,14 +3,19 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const passport = require('passport');
+const db = require('./utils/database');
 const LocalStrategy = require('passport-local').Strategy;
-const mysql = require('mysql2');
+
+//Database Connection. use .env or modify DBConnection.js to use your own login information
+const connection = db.connect();
+/*
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'iliasd',
   password: 'Kanta13',
   database: 'kirppis'
 });
+*/
 const fs      = require('fs');
 const https   = require('https');
 const bodyParser = require('body-parser');
@@ -18,7 +23,7 @@ const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
 const options = {
   key: sslkey,
-  cert: sslcert
+  cert: sslcertg
 };
 
 app.use(require('serve-static')(__dirname + '/public'));
