@@ -2,7 +2,7 @@
 const select = (connection, res) => {
     // simple query
     connection.query(
-        'SELECT * FROM "INSERT PROPER TABLE HERE"',
+        'SELECT * FROM Image',
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
@@ -15,10 +15,10 @@ const select = (connection, res) => {
     );
 };
 
-const insert = (data, connection, res) => {
-    // simple query
+const insertImage = (data, connection, res) => {
+    // INSERT PROPER TABLE HERE
     connection.execute(
-        'INSERT INTO "INSERT PROPER TABLE HERE" (category, title, details, thumbnail, image, original, coordinates, userID) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
+        'INSERT INTO Image (iID, Title, Location, Alt, Thumb, Medium) VALUES (?, ?, ?, ?, ?, ?);',
         data,
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
@@ -32,10 +32,10 @@ const insert = (data, connection, res) => {
     );
 };
 
-const update = (data, connection, res) => {
+const updateImage = (data, connection, res) => {
     // simple query
     connection.execute(
-        'UPDATE "INSERT PROPER TABLE HERE" SET category = ?, title = ?, details = ? WHERE mID = ? AND userID = ?;',
+        'UPDATE Image SET Title = ?, title = ?, details = ? WHERE iID = ? AND userID = ?;',
         data,
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
@@ -49,10 +49,10 @@ const update = (data, connection, res) => {
     );
 };
 
-const del = (data, connection, res) => {
+const delImage = (data, connection, res) => {
     // simple query
     connection.execute(
-        'DELETE FROM "INSERT PROPER TABLE HERE" WHERE mID = ? AND userID = ?;', // can delete only current user's images
+        'DELETE FROM Image JOIN Product ON iID = ? AND Product.userID = ?;', // can delete only current user's images
         data,
         (err, results, fields) => {
             console.log(results); // results contains rows returned by server
