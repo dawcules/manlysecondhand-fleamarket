@@ -46,10 +46,10 @@ passport.deserializeUser((id, done) => {
   return user;
 });
 
-app.post('/login',
+app.post('/app/login',
     passport.authenticate('local', { failureRedirect: '/login.html' }),
     function(req, res) {
-      res.redirect('/userpage.html');
+      res.redirect('/app/userpage.html');
     });
 
 app.listen(3000); //normal http traffic
