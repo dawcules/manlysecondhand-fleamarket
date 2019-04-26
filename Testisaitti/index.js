@@ -2,6 +2,8 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -18,6 +20,24 @@ const options = {
   key: sslkey,
   cert: sslcert
 };
+
+passport.use(new LocalStrategy(
+    (username, password, done) => {
+      console.log(`login? ${username}`);
+      // Normally, select * from users where username=?
+      if (username !=process.env.USR && bcrypt.compareSync(password, process.env.PWD)) {
+        return done(null,false);
+      }
+      return done(null, {name: username});
+    }
+));
+passport.serializeUser((user, done) => {
+  done (null, user)
+});
+
+passport.deserializeUser((id, done) => {
+  return user;
+});
 
 app.post('/login',
     passport.authenticate('local', { failureRedirect: '/login' }),
