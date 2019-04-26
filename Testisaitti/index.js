@@ -47,9 +47,9 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post('/login',
-    passport.authenticate('local', { failureRedirect: '/login' }),
+    passport.authenticate('local', { failureRedirect: '.../login.html' }),
     function(req, res) {
-      res.redirect('/');
+      res.redirect('.../userpage.html');
     });
 
 app.listen(3000); //normal http traffic
