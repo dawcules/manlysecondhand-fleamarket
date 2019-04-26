@@ -9,6 +9,10 @@ h1, h2, h3 {
     max-height: 300px;
 }
 
+#logina {
+    color: red;
+}
+
 ul {
     list-style-type: none;
 }
