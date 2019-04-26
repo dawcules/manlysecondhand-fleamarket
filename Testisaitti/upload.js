@@ -1,9 +1,18 @@
 'use strict';
-require('dotenv').config();
+
 const express = require('express');
 const multer = require('multer');
-const bodyParser = require('body-parser');
-
 const app = Express();
 
-app.
+const upload = multer({dest: 'public/uploads/'
+});
+
+app.get('/image', (req, res) => {
+  res.sendFile(__dirname + 'index.html');
+});
+
+app.post('/image', upload.single('my-img'), (req, res) => {
+
+  res.redirect('/image')
+});
+app.listen(3000);
