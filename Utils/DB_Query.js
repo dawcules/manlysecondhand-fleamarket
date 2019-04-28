@@ -1,5 +1,83 @@
 'use strict';
+const selectUserInfo = (connection, res) => {
+    // Selects your user information (When you login)
+    connection.query(
+        'SELECT UserName,Email,Phone,Location FROM User WHERE userID = ?;',
+        (err, results, fields) => {
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            if (err == null) {
+                res.send(results);
+            } else {
+                console.log(err);
+            }
+        },
+    );
+};
+const insertUser = (data, connection, res) => {
+    // For adding new users (Register)
+    connection.execute(
+        'INSERT INTO User (UserName, Password, Email, Phone, Location, uID,typeID) VALUES (?, ?, ?, ?, ?, ?, ?);',
+        data,
+        (err, results, fields) => {
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            if (err == null) {
+                res.send(results);
+            } else {
+                console.log(err);
+            }
+        },
+    );
+};
 
+const updateUserInfo = (data, connection, res) => {
+    // Updating the account user information
+    connection.execute(
+        'UPDATE User SET Email = ?, Phone = ?, Location = ? WHERE userID = ?;',
+        data,
+        (err, results, fields) => {
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            if (err == null) {
+                res.send(results);
+            } else {
+                console.log(err);
+            }
+        },
+    );
+};
+const changePassword = (data, connection, res) => {
+    // Changing the password, this is done separately from changing the other user information because additional checks are needed
+    connection.execute(
+        'UPDATE User SET Password = ? WHERE userID = ?;',
+        data,
+        (err, results, fields) => {
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            if (err == null) {
+                res.send(results);
+            } else {
+                console.log(err);
+            }
+        },
+    );
+};
+const oldPassword = (connection,res)=>{
+    // This is used for getting the old password, so we can do a check when user is changing the password
+    connection.query(
+        'SELECT Password FROM User WHERE userID = ?;',
+        (err, results, fields) => {
+            // console.log(results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            if (err == null) {
+                res.send(results);
+            } else {
+                console.log(err);
+            }
+        },
+    );
+}
 
 const selectImages = (connection, res) => {
     // selects all images
@@ -34,27 +112,10 @@ const insertImage = (data, connection, res) => {
     );
 };
 
-const updateImage = (data, connection, res) => {
-    // simple query
-    connection.execute(
-        'UPDATE Image SET Title = ?, title = ?, details = ? WHERE iID = ? AND userID = ?;',
-        data,
-        (err, results, fields) => {
-            // console.log(results); // results contains rows returned by server
-            // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
-                console.log(err);
-            }
-        },
-    );
-};
-
 const delImage = (data, connection, res) => {
     // simple query
     connection.execute(
-        'DELETE FROM Image join Where iID = ? AND Product.userID = ?;', // can delete only current user's images
+        'DELETE FROM Image where iID = ?;',
         data,
         (err, results, fields) => {
             console.log(results); // results contains rows returned by server
