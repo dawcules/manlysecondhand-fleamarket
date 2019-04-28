@@ -91,6 +91,19 @@ const selectProductInfo = (data,connection, res) => {
     },
 );
 };
+const selectUserProducts = (data,connection,res)=>{
+    //Shows all products selected user has listed
+    connection.query(
+        'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE uID = ?',data,
+        (err,results,fieds)=>{
+            if(err == null){
+                res.send(results);
+            }else{
+                console.log(err);
+            }
+        },
+    );
+};
 const insertProduct = (data, connection, res) => {
     // Used for adding a new product to database
     connection.execute(
@@ -106,6 +119,7 @@ const insertProduct = (data, connection, res) => {
     );
 };
 const deleteProduct = (data,connection,res) =>{
+    //Used for deleting the unwanted products
     connection.execute(
         'DELETE FROM Product Where pID = ? AND uID = ?',data,
         (err,results,fields)=> {
@@ -132,6 +146,34 @@ const updateProductInfo = (data, connection, res) => {
         },
     );
 };
+const productSoldStatus = (data,connection,res) => {
+    //Updates the products sold state
+    connection.execute(
+    'UPDATE Product SET soldStatus = SOLD WHERE pID = ?;',
+        data,
+        (err,results,fields) =>{
+            if(err == null){
+                res.send(results);
+            }else{
+                console.log(err);
+            }
+        },
+    );
+};
+const productSoldTime = (data,connection,res) => {
+    // updates the products sold timestamp
+    connection.execute(
+        'UPDATE Product SET ProductSold = ? where pID = ?;',data,
+        (err,results,fields) =>{
+        if (err == null) {
+            res.send(results);
+        } else {
+            console.log(err);
+        }
+    },
+    );
+};
+
 
 
 
@@ -194,9 +236,13 @@ module.exports = {
     changePassword: changePassword,
     oldPassword : oldPassword,
     selectProductInfo: selectProductInfo,
+    selectUserProducts: selectUserProducts,
     insertProduct: insertProduct,
     deleteProduct: deleteProduct,
     updateProductInfo: updateProductInfo,
+    productSoldStatus: productSoldStatus,
+    productSoldTime: productSoldTime,
+
 
     /*
     selectAllImages: selectAllImages,
