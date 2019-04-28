@@ -79,7 +79,7 @@ const oldPassword = (connection,res)=>{
     );
 }
 
-const selectImages = (connection, res) => {
+const selectAllImages = (connection, res) => {
     // selects all images
     connection.query(
         'SELECT * FROM Image',
@@ -130,8 +130,14 @@ const delImage = (data, connection, res) => {
 };
 
 module.exports = {
-    select: select,
-    insert: insert,
-    update: update,
-    del: del,
+    selectUserInfo: selectUserInfo,
+    insertUser: insertUser,
+    updateUserInfo: updateUserInfo,
+    changePassword: changePassword,
+    oldPassword : oldPassword,
+    selectAllImages: selectAllImages,
+    insertImage: insertImage,
+    delImage: delImage,
+
+
 };
