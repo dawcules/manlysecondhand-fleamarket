@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "/projekti/kirppis/manlysecondhand/Testisaitti/index.js"
+    "start": "Testisaitti/index.js"
   },
   "repository": {
     "type": "git",
