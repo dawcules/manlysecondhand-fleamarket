@@ -23,7 +23,7 @@ const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
 const options = {
   key: sslkey,
-  cert: sslcertg
+  cert: sslcert
 };
 
 app.use(require('serve-static')(__dirname + '/public'));
