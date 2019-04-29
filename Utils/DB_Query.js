@@ -234,7 +234,6 @@ const delImage = (data, connection, res) => {
         },
     );
 };
-*/
 
 module.exports = {
     selectUserInfo: selectUserInfo,
