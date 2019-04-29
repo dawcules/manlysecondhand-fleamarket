@@ -1,0 +1,28 @@
+{
+  "name": "manlysecondhand",
+  "version": "1.0.0",
+  "description": "Miesten kirpputori",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawcules/manlysecondhand.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dawcules/manlysecondhand/issues"
+  },
+  "homepage": "https://github.com/dawcules/manlysecondhand#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
