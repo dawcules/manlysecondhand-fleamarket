@@ -81,7 +81,7 @@ const oldPassword = (connection,res)=>{
 const selectProductInfo = (data,connection, res) => {
     // Used for selecting specific Product information
     connection.query(
-        'SELECT pName,pBrand,Description,Condition,pTYpe,Price,ProductAdded FROM Product WHERE pID = ?',data,
+        'SELECT pName,pBrand,Description,Condition,pTYpe,Price,ProductAdded FROM Product WHERE pID = ?;',data,
         (err, results, fields) => {
         if (err == null) {
             res.send(results);
@@ -94,7 +94,7 @@ const selectProductInfo = (data,connection, res) => {
 const selectUserProducts = (data,connection,res)=>{
     //Shows all products selected user has listed
     connection.query(
-        'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE uID = ?',data,
+        'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE uID = ?;',data,
         (err,results,fieds)=>{
             if(err == null){
                 res.send(results);
@@ -121,7 +121,7 @@ const insertProduct = (data, connection, res) => {
 const deleteProduct = (data,connection,res) =>{
     //Used for deleting the unwanted products
     connection.execute(
-        'DELETE FROM Product Where pID = ? AND uID = ?',data,
+        'DELETE FROM Product Where pID = ? AND uID = ?;',data,
         (err,results,fields)=> {
             if(err = null){
                 res.send(results)
@@ -174,17 +174,11 @@ const productSoldTime = (data,connection,res) => {
     );
 };
 
-
-
-
-/*
-const selectImage = (data ,connection, res) => {
-    // selects all images
+const selectAllImages = (data ,connection, res) => {
+    // selects all images for the product
     connection.query(
-        'SELECT * FROM Image WHERE iID = ? ', data
+        'SELECT * FROM Image WHERE iID = ? and pID = ?', data,
         (err, results, fields) => {
-            // console.log(results); // results contains rows returned by server
-            // console.log(fields); // fields contains extra meta data about results, if available
             if (err == null) {
                 res.send(results);
             } else {
@@ -194,10 +188,23 @@ const selectImage = (data ,connection, res) => {
     );
 };
 
+const selectTopImage = (data,connection,res) => {
+    connection.query(
+        'SELECT * FROM Image WHERE iID = ? and pID = ? ORDER BY iID DESC LIMIT 1;', data,
+        (err, results, fields) =>{
+            if(err == null){
+                res.send(results);
+            }else{
+                console.log(err);
+            }
+        },
+    );
+};
+
 const insertImage = (data, connection, res) => {
     // Inserts the data to Image table in the Database
     connection.execute(
-        'INSERT INTO Image (iID, Title, Location, Alt, Thumb, Medium) VALUES (?, ?, ?, ?, ?, ?);',
+        'INSERT INTO Image (Title, Location, Alt, Thumb, Medium, pID) VALUES (?, ?, ?, ?, ?, ?);',
         data,
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
@@ -214,7 +221,7 @@ const insertImage = (data, connection, res) => {
 const delImage = (data, connection, res) => {
     // simple query
     connection.execute(
-        'DELETE FROM Image where iID = ?;',
+        'DELETE FROM Image where iID = ? and pID = ?;',
         data,
         (err, results, fields) => {
             console.log(results); // results contains rows returned by server
@@ -242,11 +249,8 @@ module.exports = {
     updateProductInfo: updateProductInfo,
     productSoldStatus: productSoldStatus,
     productSoldTime: productSoldTime,
-
-
-    /*
     selectAllImages: selectAllImages,
     insertImage: insertImage,
     delImage: delImage,
-    */
+    selectTopImage: selectTopImage,
 };
