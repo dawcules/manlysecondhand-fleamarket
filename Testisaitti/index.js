@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const passport = require('passport');
-const db = require('./utils/DBConnection.js');
+const db = require('../Utils/DBConnection');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
@@ -23,7 +23,7 @@ const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
 const options = {
   key: sslkey,
-  cert: sslcertg
+  cert: sslcert
 };
 
 app.use(require('serve-static')(__dirname + '/public'));
