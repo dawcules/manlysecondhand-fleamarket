@@ -2,6 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const multer = require('multer');
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
 const LocalStrategy = require('passport-local').Strategy;
@@ -56,6 +57,24 @@ app.post('/login',
     function(req, res) {
       res.redirect('/userpage.html');
     });
+
+const upload = multer({dest: '/uploads'});
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  //res.sendFile('view/public/index.html');
+  res.send('Very likely we will never print that message if we already send stuff back to user\'s browser...');
+});
+
+app.post('/public/uploads', upload.single('myImages') , (req, res) =>{
+  const data = {
+    message: 'File upload successful',
+    file: req.file,
+  };
+  res.send(data);
+});
+
 
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic

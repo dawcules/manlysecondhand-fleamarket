@@ -1,28 +1,23 @@
-'use strict';
+/*'use strict';
 
 const express = require('express');
 const multer = require('multer');
-const app = Express();
+const app = express();
 
-const upload = multer({dest: 'public/uploads/'});
+const upload = multer({dest: 'Testisaitti/public/uploads'});
+
+app.use(express.static('Testisaitti/public'));
 
 app.get('/', (req, res) => {
-  res.sendFile('view/public/index.html');
-  res.json({message: 'Toimiiko?'})
+  //res.sendFile('view/public/index.html');
+  res.send('Very likely we will never print that message if we already send stuff back to user\'s browser...');
 });
 
-app.post('public/uploads', upload.multiple('myImages', 10), (req, res, next) => {
-  const files = req.files;
-  if (!files) {
-    const error = new Error('Please choose files');
-    error.httpStatusCode = 400;
-    return next(error)
-  }
-  res.send(files);
-
-  res.redirect('/app')
-
+app.post('/test', upload.single('myImages') , (req, res) =>{
+  const data = {
+    message: 'File upload successful',
+    file: req.file,
+  };
 });
 
-
-app.listen(3000);
+app.listen(3000); */
