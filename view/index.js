@@ -61,7 +61,7 @@ app.post('/login',
       //const useri = dbquery.getusername(unamedata,connection,res);
       const passu = dbquery.getpassword(unamedata,connection,res);
       //console.log(useri);
-      console.log(passu);
+      console.log(dbquery.getpassword(unamedata,connection,res));
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
       if (req.body.password == passu) {
   res.redirect('userpage.html');
