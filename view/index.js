@@ -62,7 +62,10 @@ app.post('/login',
       //const passu = dbquery.getpassword(unamedata,connection,res);
       //console.log(useri);
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
-      console.log(connection.query('SELECT * FROM User;'));
+      console.log(connection.query('SELECT * FROM User;', (error, results, fields) => {
+        if (error) throw error;
+        console.log('The query is: ', results[0])
+      }));
 
       if (req.body.password === "moi") {
   res.redirect('userpage.html');
