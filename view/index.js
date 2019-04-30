@@ -36,7 +36,7 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveU
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
     (username, password, done) => {
       console.log(`login? ${username}`);
       // Normally, select * from users where username=?
@@ -45,7 +45,7 @@ passport.use(new LocalStrategy(
       }
       return done(null, {name: username});
     }
-));
+));*/
 
 passport.serializeUser((user, done) => {
   done (null, user)
