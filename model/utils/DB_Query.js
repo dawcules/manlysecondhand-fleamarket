@@ -266,4 +266,5 @@ module.exports = {
     insertImage: insertImage,
     delImage: delImage,
     selectTopImage: selectTopImage,
+    selectEmail: selectEmail,
 };
