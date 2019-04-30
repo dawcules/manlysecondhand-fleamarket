@@ -83,9 +83,15 @@ const getpassword = (data,connection)=>{
         'SELECT Password FROM User WHERE UserName = ?;',
         data,
         (err, results, fields) => {
+          if (err == null) {
+            res.send(results);
+          } else {
+            console.log(err);
+          }
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
         },
+
     );
 };
 
@@ -95,6 +101,11 @@ const getusername = (data,connection)=>{
       'SELECT UserName FROM User WHERE UserName = ?;',
       data,
       (err, results, fields) => {
+        if (err == null) {
+          res.send(results);
+        } else {
+          console.log(err);
+        }
         // console.log(results); // results contains rows returned by server
         // console.log(fields); // fields contains extra meta data about results, if available
       },
