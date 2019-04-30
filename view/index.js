@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
+const dbquery = require('../model/utils/DB_Query');
 const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -62,7 +63,9 @@ app.post('/login',
 
 app.post('/register',
     (req, res) => {
-      console.log(req.body.name);
+    //'INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);'
+      dbquery.insertUser(req.body.username,);
+      console.log(req.body.username);
       console.log(req.body.email);
     });
 
