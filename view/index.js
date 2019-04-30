@@ -62,7 +62,7 @@ app.post('/login',
       //const passu = dbquery.getpassword(unamedata,connection,res);
       //console.log(useri);
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
-      const passe = connection.query(`SELECT Password FROM User WHERE UserName = ${req.user.password}?;`);
+      const passe = connection.query(`SELECT Password FROM User WHERE UserName = ${req.user.password};`);
       console.log(passe);
 
 
