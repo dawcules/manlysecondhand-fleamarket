@@ -77,7 +77,7 @@ const changePassword = (data, connection, res) => {
         },
     );
 };
-const getpassword = (data,connection,res)=>{
+const getpassword = (data,connection)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
         'SELECT Password FROM User WHERE userID = ?;',
@@ -85,16 +85,11 @@ const getpassword = (data,connection,res)=>{
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
-                console.log(err);
-            }
         },
     );
 };
 
-const getusername = (data,connection,res)=>{
+const getusername = (data,connection)=>{
   // This is used for getting the old password, so we can do a check when user is changing the password
   connection.query(
       'SELECT UserName FROM User WHERE userID = ?;',
@@ -102,11 +97,6 @@ const getusername = (data,connection,res)=>{
       (err, results, fields) => {
         // console.log(results); // results contains rows returned by server
         // console.log(fields); // fields contains extra meta data about results, if available
-        if (err == null) {
-          res.send(results);
-        } else {
-          console.log(err);
-        }
       },
   );
 };

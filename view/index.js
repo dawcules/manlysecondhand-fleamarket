@@ -40,7 +40,7 @@ passport.use(new LocalStrategy(
     (username, password, done) => {
       console.log(`login? ${username}`);
       // Normally, select * from users where username=?
-      if (username !=dbquery.getusername(username,connection,res) && password !=dbquery.getpassword(username,connection,res)) {
+      if (username !=dbquery.getusername(username,connection) && password !=dbquery.getpassword(username,connection)) {
         return done(null,false);
       }
       return done(null, {name: username});
