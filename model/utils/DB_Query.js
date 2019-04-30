@@ -83,8 +83,9 @@ const getpassword = (data,connection)=>{
         'SELECT Password FROM User WHERE UserName = ?;',
         data,
         (err, results, fields) => {
+          console.log(results);
           if (err == null) {
-            return(results[0]);
+            res.send(results[0]);
           } else {
             console.log(err);
           }
@@ -101,6 +102,7 @@ const getusername = (data, connection) =>{
       'SELECT UserName FROM User WHERE UserName = ?;',
       data,
       (err, results, fields) => {
+        console.log(results);
         if (err == null) {
           return(results[0]);
         } else {
