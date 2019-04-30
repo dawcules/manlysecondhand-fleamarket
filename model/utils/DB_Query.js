@@ -77,7 +77,7 @@ const changePassword = (data, connection, res) => {
         },
     );
 };
-const getpassword = (data,connection)=>{
+const getpassword = (data,connection, res)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
         'SELECT Password FROM User WHERE UserName = ?;',
@@ -85,7 +85,7 @@ const getpassword = (data,connection)=>{
         (err, results, fields) => {
           console.log(results);
           if (err == null) {
-            return(results);
+            res.send(results);
           } else {
             console.log(err);
           }
