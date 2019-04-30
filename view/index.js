@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
+const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
@@ -62,7 +63,7 @@ app.post('/login',
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.doResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    resize.makeResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
     then(data => {
         next();
     });
@@ -71,11 +72,12 @@ app.use('/image', (req, res, next) => {
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.doResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    resize.makeResize(req.file.path, 640, './public/medium/' + req.file.filename).
     then(data => {
         next();
     });
 });
+
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 

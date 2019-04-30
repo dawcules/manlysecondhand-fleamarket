@@ -13,5 +13,5 @@ const doResize = (file, size, newPath) => {
 };
 
 module.exports = {
-    resize: resize,
+    makeResize: makeResize,
 };
