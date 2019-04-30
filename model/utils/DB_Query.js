@@ -14,6 +14,20 @@ const selectUserInfo = (data,connection, res) => {
         },
     );
 };
+const selectEmail = (data,connection,res) => {
+    //used for checking if teh selected email exists, this prevents creation of duplicate accounts
+    connection.query(
+        'SELECT Email FROM USER where Email = ?;',data,
+        (err,results,fields) => {
+            if(err == null){
+                res.send(results);
+            }else{
+                console.log(err);
+            }
+        },
+    );
+};
+
 const insertUser = (data, connection, res) => {
     // For adding new users (Register)
     connection.execute(
