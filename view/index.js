@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const passport = require('passport');
-const db = require('../Utils/DBConnection');
+const db = require('../utils/DBConnection');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
