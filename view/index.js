@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
+const query = require('../model/utils/DB_Query');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
@@ -50,6 +51,16 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   return user;
 });
+
+app.post ('/register',
+    function(req, res) {
+    console.log()
+      }
+    //query.insertUser()
+
+
+
+    )
 
 app.post('/login',
     passport.authenticate('local', { failureRedirect: 'login.html' }),
