@@ -5,6 +5,8 @@ const app = express();
 const multer = require('multer');
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
+const dbquery = require('../model/utils/DB_Query');
+const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
@@ -22,6 +24,7 @@ const https   = require('https');
 const bodyParser = require('body-parser');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
+
 const options = {
   key: sslkey,
   cert: sslcert
@@ -34,16 +37,17 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveU
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(
+/*passport.use(new LocalStrategy(
     (username, password, done) => {
       console.log(`login? ${username}`);
       // Normally, select * from users where username=?
-      if (username !='tester' && password !='test123') {
+      if (dbquery.getusername(username,connection && password==dbquery.getpassword(username,connection)) {
         return done(null,false);
       }
       return done(null, {name: username});
     }
-));
+));*/
+
 passport.serializeUser((user, done) => {
   done (null, user)
 });
@@ -53,11 +57,35 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post('/login',
-    passport.authenticate('local', { failureRedirect: 'login.html' }),
-    function(req, res) {
-      res.redirect('/userpage.html');
+    (req, res) => {
+      const unamedata = [req.body.username];
+      //const useri = dbquery.getusername(unamedata,connection,res);
+      //const passu = dbquery.getpassword(unamedata,connection,res);
+      //console.log(useri);
+      //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
+
+      connection.query('SELECT * FROM User;', (error, results, fields) => {
+        if (error) throw error;
+        console.log('The query is: ', results[0])
+      });
+
+      if (req.body.password === "moi") {
+  res.redirect('userpage.html');
+}
+      else {
+        console.log("Ei toimi login")
+      }
     });
 
+app.post('/register',
+    (req, res) => {
+    //'INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);'
+      const data = [req.body.username, req.body.password, req.body.email, req.body.phone, req.body.location, 0];
+      dbquery.insertUser(data, connection, res);
+      console.log(req.body.email);
+    });
+
+<<<<<<< HEAD
 const upload = multer({dest: '/uploads'});
 
 app.use(express.static('public'));
@@ -76,6 +104,25 @@ app.post('/public/uploads', upload.single('myImages') , (req, res) =>{
 });
 
 
+=======
+
+app.use('/image', (req, res, next) => {
+    // tee pieni thumbnail
+    resize.makeResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
+
+app.use('/image', (req, res, next) => {
+    // tee iso thumbnail
+    resize.makeResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
+
+>>>>>>> 86fb9bc7a0ee6a35075f0eaf4920aeefe796c61b
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 

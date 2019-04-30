@@ -77,21 +77,43 @@ const changePassword = (data, connection, res) => {
         },
     );
 };
-const oldPassword = (connection,res)=>{
+const getpassword = (data,connection, res)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
-        'SELECT Password FROM User WHERE userID = ?;',
+        'SELECT Password FROM User WHERE UserName = ?;',
+        data,
         (err, results, fields) => {
+          console.log(results);
+          if (err == null) {
+            res.send(results);
+          } else {
+            console.log(err);
+          }
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
-                console.log(err);
-            }
         },
+
     );
-}
+};
+
+const getusername = (data, connection, res) =>{
+  // This is used for getting the old password, so we can do a check when user is changing the password
+  connection.query(
+      'SELECT UserName FROM User WHERE UserName = ?;',
+      data,
+      (err, results, fields) => {
+        console.log(results);
+        if (err == null) {
+          res.send(results);
+        } else {
+          console.log(err);
+        }
+        // console.log(results); // results contains rows returned by server
+        // console.log(fields); // fieldds contains extra meta data about results, if available
+      },
+  );
+};
+
 const selectProductInfo = (data,connection, res) => {
     // Used for selecting specific Product information
     connection.query(
@@ -254,7 +276,7 @@ module.exports = {
     insertUser: insertUser,
     updateUserInfo: updateUserInfo,
     changePassword: changePassword,
-    oldPassword : oldPassword,
+    getpassword : getpassword,
     selectProductInfo: selectProductInfo,
     selectUserProducts: selectUserProducts,
     insertProduct: insertProduct,
@@ -267,4 +289,5 @@ module.exports = {
     delImage: delImage,
     selectTopImage: selectTopImage,
     selectEmail: selectEmail,
+    getusername: getusername,
 };
