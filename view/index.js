@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const passport = require('passport');
 const db = require('../model/utils/DBConnection');
-const query = require('../model/utils/DB_Query');
+const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
 //Database Connection. use .env or modify DBConnection.js to use your own login information
@@ -22,6 +22,7 @@ const https   = require('https');
 const bodyParser = require('body-parser');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
+
 const options = {
   key: sslkey,
   cert: sslcert
@@ -44,6 +45,7 @@ passport.use(new LocalStrategy(
       return done(null, {name: username});
     }
 ));
+
 passport.serializeUser((user, done) => {
   done (null, user)
 });
@@ -52,22 +54,29 @@ passport.deserializeUser((id, done) => {
   return user;
 });
 
-app.post ('/register',
-    function(req, res) {
-    console.log(req.body.name);
-      console.log(req.body.email);
-      }
-    //query.insertUser()
-
-
-
-    )
-
 app.post('/login',
     passport.authenticate('local', { failureRedirect: 'login.html' }),
     function(req, res) {
       res.redirect('/userpage.html');
     });
+
+
+app.use('/image', (req, res, next) => {
+    // tee pieni thumbnail
+    resize.makeResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    then(data => {
+        next();
+    });
+
+});
+
+app.use('/image', (req, res, next) => {
+    // tee iso thumbnail
+    resize.makeResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
 
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
