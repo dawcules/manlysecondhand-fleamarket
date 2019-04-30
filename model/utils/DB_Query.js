@@ -107,7 +107,7 @@ const getusername = (data, connection) =>{
           console.log(err);
         }
         // console.log(results); // results contains rows returned by server
-        // console.log(fields); // fields contains extra meta data about results, if available
+        // console.log(fields); // fieldds contains extra meta data about results, if available
       },
   );
 };
