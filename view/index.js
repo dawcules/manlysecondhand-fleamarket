@@ -56,7 +56,7 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post('/login',
-    function(req, res) {
+    (req, res) => {
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
       if (req.body.username === dbquery.getusername(username,connection,res) && req.body.password === dbquery.getpassword(username,connection,res)) {
   res.redirect('userpage.html');
