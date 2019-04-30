@@ -54,7 +54,8 @@ passport.deserializeUser((id, done) => {
 
 app.post ('/register',
     function(req, res) {
-    console.log()
+    console.log(req.body.name);
+      console.log(req.body.email);
       }
     //query.insertUser()
 
