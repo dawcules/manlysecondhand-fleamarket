@@ -66,7 +66,7 @@ app.post('/login',
       console.log(passe);
 
 
-      if (req.body.password === "moi")
+      if (req.body.password === "moi") {
   res.redirect('userpage.html');
 }
       else {
