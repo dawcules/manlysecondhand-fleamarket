@@ -37,10 +37,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(
-    (username, password, done, res) => {
+    (username, password, done) => {
       console.log(`login? ${username}`);
       // Normally, select * from users where username=?
-      if (dbquery.getusername(username,connection, res) && password==dbquery.getpassword(username,connection, res)) {
+      if (dbquery.getusername(username,connection && password==dbquery.getpassword(username,connection)) {
         return done(null,false);
       }
       return done(null, {name: username});
@@ -56,9 +56,11 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post('/login',
-    passport.authenticate('local', { failureRedirect: 'login.html' }),
     function(req, res) {
-      res.redirect('userpage.html');
+      //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
+      if (req.body.username === dbquery.getusername(username,connection,res) && req.body.password === dbquery.getpassword(username,connection,res)) {
+  res.redirect('userpage.html');
+}
     });
 
 app.post('/register',
