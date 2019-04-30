@@ -58,9 +58,12 @@ passport.deserializeUser((id, done) => {
 app.post('/login',
     (req, res) => {
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
-      if (req.body.username === dbquery.getusername(username,connection,res) && req.body.password === dbquery.getpassword(username,connection,res)) {
+      if (req.body.username === dbquery.getusername(req.body.username,connection,res) && req.body.password === dbquery.getpassword(req.body.username,connection,res)) {
   res.redirect('userpage.html');
 }
+      else {
+        console.log("Ei toimi login")
+      }
     });
 
 app.post('/register',
