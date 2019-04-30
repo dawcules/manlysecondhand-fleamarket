@@ -57,7 +57,7 @@ passport.deserializeUser((id, done) => {
 
 app.post('/login',
     (req, res) => {
-      const unamedata = [req.body.password];
+      const unamedata = [req.body.username];
       //const useri = dbquery.getusername(unamedata,connection,res);
       //const passu = dbquery.getpassword(unamedata,connection,res);
       //console.log(useri);
