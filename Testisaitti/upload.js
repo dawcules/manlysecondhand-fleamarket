@@ -12,8 +12,8 @@ app.get('/image', (req, res) => {
   res.json({message: 'Toimiiko?'})
 });
 
-app.post('/image', upload.single('my-img'), (req, res) => {
+app.post('public/uploads', upload.single('my-img'), (req, res) => {
 
-  res.redirect('/image')
+  res.redirect('/app')
 });
 app.listen(3000);
