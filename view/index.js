@@ -21,6 +21,7 @@ const https   = require('https');
 const bodyParser = require('body-parser');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
+
 const options = {
   key: sslkey,
   cert: sslcert
@@ -43,6 +44,7 @@ passport.use(new LocalStrategy(
       return done(null, {name: username});
     }
 ));
+
 passport.serializeUser((user, done) => {
   done (null, user)
 });
@@ -56,6 +58,24 @@ app.post('/login',
     function(req, res) {
       res.redirect('/userpage.html');
     });
+
+
+app.use('/image', (req, res, next) => {
+    // tee pieni thumbnail
+    resize.doResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    then(data => {
+        next();
+    });
+
+});
+
+app.use('/image', (req, res, next) => {
+    // tee iso thumbnail
+    resize.doResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
 
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
