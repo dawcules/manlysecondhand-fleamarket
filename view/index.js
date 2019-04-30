@@ -76,7 +76,6 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
-
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 
