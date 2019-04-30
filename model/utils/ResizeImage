@@ -1,7 +1,7 @@
 'use strict';
 const sharp = require('sharp');
 
-const doResize = (file, size, newPath) => {
+const makeResize = (file, size, newPath) => {
     return sharp(file)
         .resize(size)
         .toFile(newPath).then((data) => {

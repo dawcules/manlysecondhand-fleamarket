@@ -67,7 +67,6 @@ app.use('/image', (req, res, next) => {
     then(data => {
         next();
     });
-
 });
 
 app.use('/image', (req, res, next) => {
