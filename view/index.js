@@ -60,6 +60,12 @@ app.post('/login',
       res.redirect('/userpage.html');
     });
 
+app.post('/register',
+    (req, res) => {
+      console.log(req.body.name);
+      console.log(req.body.email);
+    });
+
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
