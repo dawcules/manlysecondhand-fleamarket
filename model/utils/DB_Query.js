@@ -84,7 +84,7 @@ const getpassword = (data,connection)=>{
         data,
         (err, results, fields) => {
           if (err == null) {
-            return(results);
+            return(results[0]);
           } else {
             console.log(err);
           }
@@ -102,7 +102,7 @@ const getusername = (data, connection) =>{
       data,
       (err, results, fields) => {
         if (err == null) {
-          return(results);
+          return(results[0]);
         } else {
           console.log(err);
         }
