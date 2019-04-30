@@ -64,7 +64,7 @@ app.post('/login',
 app.post('/register',
     (req, res) => {
     //'INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);'
-      dbquery.insertUser(req.body.username,);
+      dbquery.insertUser(req.body.username, req.body.password, req.body.email, req.body.phone, req.body.location, 0);
       console.log(req.body.username);
       console.log(req.body.email);
     });
