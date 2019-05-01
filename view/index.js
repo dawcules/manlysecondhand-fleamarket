@@ -65,7 +65,7 @@ app.post('/login',
       //console.log(useri);
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
 
-      passi = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata, (error, results, fields) => {
+      passi = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata[0], (error, results, fields) => {
         passi = results[0].Password;
         return passi;
         if (error) throw error;
