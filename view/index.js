@@ -85,7 +85,6 @@ app.post('/register',
       console.log(req.body.email);
     });
 
-<<<<<<< HEAD
 const upload = multer({dest: '/uploads'});
 
 app.use(express.static('public'));
@@ -104,7 +103,6 @@ app.post('/public/uploads', upload.single('myImages') , (req, res) =>{
 });
 
 
-=======
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
@@ -122,7 +120,6 @@ app.use('/image', (req, res, next) => {
     });
 });
 
->>>>>>> 86fb9bc7a0ee6a35075f0eaf4920aeefe796c61b
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 
