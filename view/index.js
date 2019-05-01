@@ -58,6 +58,7 @@ passport.deserializeUser((id, done) => {
 
 app.post('/login',
     (req, res) => {
+      let passi;
       const unamedata = [req.body.username];
       //const useri = dbquery.getusername(unamedata,connection,res);
       //const passu = dbquery.getpassword(unamedata,connection,res);
@@ -65,7 +66,7 @@ app.post('/login',
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
 
       connection.query('SELECT * FROM User WHERE UserName =?;', unamedata, (error, results, fields) => {
-        const passi = results[0].Password;
+        passi = results[0].Password;
         if (error) throw error;
         console.log('The query is: ', passi)
       });
