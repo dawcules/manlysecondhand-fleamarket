@@ -65,11 +65,13 @@ app.post('/login',
       //console.log(useri);
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
 
-      connection.query('SELECT * FROM User WHERE UserName =?;', unamedata, (error, results, fields) => {
+      passi = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata, (error, results, fields) => {
         passi = results[0].Password;
+        return passi;
         if (error) throw error;
-        console.log('The query is: ', passi)
       });
+      console.log('bodypassu: ' + req.body.password);
+      console.log('The query is: ', passi);
 
       if (req.body.password === passi) {
   res.redirect('userpage.html');
