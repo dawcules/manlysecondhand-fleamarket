@@ -66,7 +66,7 @@ app.post('/login',
 
       connection.query('SELECT * FROM User;', (error, results, fields) => {
         if (error) throw error;
-        console.log('The query is: ', results[0])
+        console.log('The query is: ', results[0].Password)
       });
 
       if (req.body.password === "moi") {
