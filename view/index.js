@@ -67,13 +67,14 @@ app.post('/login',
 
       const loginatt = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata[0], (error, results, fields) => {
         if (results[0].Password === req.body.password) {
-        return true;
+          console.log()
+        return 'true';
         }
         if (error) throw error;
       });
       console.log(' Kirjautumistilanne = ' + loginatt);
 
-      if (loginatt) {
+      if (loginatt == 'true') {
   res.redirect('userpage.html');
 }
       else {
