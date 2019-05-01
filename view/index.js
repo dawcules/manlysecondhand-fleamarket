@@ -85,7 +85,7 @@ app.post('/register',
       console.log(req.body.email);
     });
 
-const upload = multer({dest: '/uploads'});
+const upload = multer({dest: 'uploads/'});
 
 app.use(express.static('public'));
 
@@ -94,7 +94,7 @@ app.get('/', (req, res) => {
   res.send('Very likely we will never print that message if we already send stuff back to user\'s browser...');
 });
 
-app.post('/public/uploads', upload.single('myImages') , (req, res) =>{
+app.post('/upload', upload.single('myImages') , (req, res) =>{
   const data = {
     message: 'File upload successful',
     file: req.file,
