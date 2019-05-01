@@ -65,15 +65,15 @@ app.post('/login',
       //console.log(useri);
       //passport.authenticate('local', { failureRedirect: 'login.html' }, res);
 
-      passi = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata[0], (error, results, fields) => {
-        passi = results[0].Password;
-        return passi;
+      const loginatt = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata[0], (error, results, fields) => {
+        if (results[0].Password === req.body.password) {
+        return true;
+        }
         if (error) throw error;
       });
-      console.log('bodypassu: ' + req.body.password);
-      console.log('The query is: ', passi);
+      console.log(' Kirjautumistilanne = ' + loginatt);
 
-      if (req.body.password === passi) {
+      if (loginatt) {
   res.redirect('userpage.html');
 }
       else {
