@@ -3,13 +3,14 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const multer = require('multer');
+const bodyParser = require('body-parser');
+const path = require('path');
 const passport = require('passport');
 const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
 const fs      = require('fs');
 const https   = require('https');
-const bodyParser = require('body-parser');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
 
@@ -20,10 +21,11 @@ const options = {
 
 app.use(require('serve-static')(__dirname + '/public'));
 app.use(require('cookie-parser')());
-app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 /*passport.use(new LocalStrategy(
     (username, password, done) => {
@@ -55,7 +57,7 @@ app.post('/login',
 
       const loginatt = connection.query('SELECT * FROM User WHERE UserName =?;', unamedata[0], (error, results, fields) => {
         if (results[0].Password === req.body.password) {
-          console.log()
+          console.log();
         return 'true';
         }
         if (error) throw error;
@@ -77,22 +79,37 @@ app.post('/register',
       dbquery.insertUser(data, connection, res);
       console.log(req.body.email);
     });
+//Setting storage to store the files
+const storage = multer.diskStorage({
+  destination: '/.public/uploads/',
+  filename: (req, res, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+//Uploading file
+const upload = multer({storage: storage}).single('myImages');
 
-const upload = multer({dest: 'uploads/'});
-
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 app.get('/', (req, res) => {
   //res.sendFile('view/public/index.html');
-  res.send('Very likely we will never print that message if we already send stuff back to user\'s browser...');
+  res.send('This is a test!');
 });
 
-app.post('/upload', upload.single('myImages') , (req, res) =>{
-  const data = {
+app.post('/upload', (req, res) =>{
+  upload(req, res, (err) => {
+    if (err) {
+      console.log('Error')
+    } else {
+      res.send('Upload successful');
+      console.log(req.file);
+    }
+  });
+ /* const data = {
     message: 'File upload successful',
-    file: req.file,
-  };
-  res.send(data);
+    file: req.file
+  }; */
+  res.send('TEST');
 });
 
 

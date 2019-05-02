@@ -7,11 +7,9 @@ const form = document.querySelector('form');
 const message =document.getElementById('message');
 const image = document.getElementById('imgupload');
 // make function 'upload' which
-const upload = (evt) => {
+const sendForm = (evt) => {
   // - prevents the form from sending
   evt.preventDefault();
-// - writes 'Upload in progress...' into 'message' element
- // message.innerHTML = 'Upload in progress...';
 // - makes FormData -object and adds the file selected byt the user into the object
 const fd = new FormData(form);
 // - send the file to the same url as in task a by using fetch -method
