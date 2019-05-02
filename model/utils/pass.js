@@ -65,7 +65,7 @@ const login = (req, res, next) => {
         return next(err);
       }
       console.log('logged in ok');
-      res.redirect('../../view/public/userpage.html');
+      //res.redirect('../../view/public/userpage.html');
       return res.send(req.user); // if login succesful, send user object
     });
   })(req, res, next);
