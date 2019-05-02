@@ -61,7 +61,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/user', pass.loggedIn, (req, res) => {
-  res.redirect('./userpage.html');
+  res.redirect('http://10.114.32.47/app/userpage.html');
 });
 
 
