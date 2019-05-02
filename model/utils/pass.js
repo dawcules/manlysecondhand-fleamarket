@@ -41,10 +41,7 @@ passport.use(new LocalStrategy(
         return new Promise((resolve, reject) => {
           console.log('username b4 sql is: ' + username);
           dbq.loginUser([username], (result) => {
-            console.log('password is ' + password);
-            let upwd = result[0].Password.toString();
-            console.log('hash is ' + upwd);
-            bcrypt.compare(password, upwd, (err, res) => {
+            bcrypt.compare(password.toString(), result[0].Password.toString(), (err, res) => {
               // res == true
               if (res) {
                 resolve(result);
