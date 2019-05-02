@@ -18,6 +18,16 @@ const options = {
   key: sslkey,
   cert: sslcert
 };
+//Setting storage to store the files
+
+//Uploading file
+const upload = multer({storage: storage}).single('myImages');
+const storage = multer.diskStorage({
+  destination: '../uploads/',
+  filename: (req, res, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
 
 app.use(session({
   secret: 'keyboardcat',
@@ -25,35 +35,17 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false},
 }));
-
 app.use(require('serve-static')(__dirname + '/public'));
 app.use(require('cookie-parser')());
 app.use(bodyParser.urlencoded({extended: true}));
-/*app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));*/
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
+app.use(express.static('./public'));
+
 
 app.post('/login', pass.login);
 app.post('/register', pass.register, pass.login);
-
-
-//Setting storage to store the files
-const storage = multer.diskStorage({
-  destination: '../uploads/',
-  filename: (req, res, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-});
-//Uploading file
-const upload = multer({storage: storage}).single('myImages');
-
-app.use(express.static('./public'));
-
-app.get('/', (req, res) => {
-  //res.sendFile('view/public/index.html');
-  res.send('This is a test!');
-});
-
 app.post('/upload', (req, res) =>{
   upload(req, res, (err) => {
     if (err) {
@@ -63,10 +55,12 @@ app.post('/upload', (req, res) =>{
       console.log(req.file);
     }
   });
- /* const data = {
-    message: 'File upload successful',
-    file: req.file
-  }; */
+
+app.get('/', (req, res) => {
+  //res.sendFile('view/public/index.html');
+  res.send('This is a test!');
+});
+
   res.send('TEST');
 });
 
