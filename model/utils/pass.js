@@ -80,6 +80,7 @@ const login = (req, res, next) => {
       if (err) {
         return next(err);
       }
+      res.redirect('../../view/public/userpage.html');
       return res.send(req.user); // if login succesful, send user object
     });
   })(req, res, next);
