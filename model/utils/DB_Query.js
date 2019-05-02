@@ -1,5 +1,5 @@
 'use strict';
-const db = require('DBConnection');
+const db = require('./DBConnection');
 const connection = db.connect();
 
 const selectUserInfo = (data, res) => {
