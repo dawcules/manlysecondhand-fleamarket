@@ -60,6 +60,10 @@ app.get('/', (req, res) => {
   res.send('TEST');
 });
 
+app.get('/user', pass.loggedIn, (req, res) => {
+  res.redirect('./public/userpage.html')
+});
+
 
 
 app.use('/image', (req, res, next) => {
