@@ -4,20 +4,9 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const passport = require('passport');
-const dbquery = require('../model/utils/DB_Query');
 const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;
 
-//Database Connection. use .env or modify DBConnection.js to use your own login information
-const connection = db.connect();
-/*
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'iliasd',
-  password: 'Kanta13',
-  database: 'kirppis'
-});
-*/
 const fs      = require('fs');
 const https   = require('https');
 const bodyParser = require('body-parser');
