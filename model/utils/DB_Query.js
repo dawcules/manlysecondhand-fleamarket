@@ -76,7 +76,8 @@ const updateUserInfo = (data, res) => {
         },
     );
 };
-const changePassword = (data, res) => {
+
+const changePassword = (data, next) => {
     // Changing the password, this is done separately from changing the other user information because additional checks are needed
     connection.execute(
         'UPDATE User SET Password = ? WHERE userID = ?;',
@@ -84,28 +85,23 @@ const changePassword = (data, res) => {
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
-                console.log(err);
-            }
+            console.log(results);
+            console.log(err);
+            next();
         },
     );
 };
-const getpassword = (data, res)=>{
+
+const getpassword = (data, callback)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
         'SELECT Password FROM User WHERE UserName = ?;',
         data,
-        (err, results, fields) => {
-          console.log(results);
-          if (err == null) {
-            res.send(results);
-          } else {
-            console.log(err);
-          }
-            // console.log(results); // results contains rows returned by server
-            // console.log(fields); // fields contains extra meta data about results, if available
+            (err, results, fields) => {
+                console.log('results', results); // results contains rows returned by server
+                // console.log(fields); // fields contains extra meta data about results, if available
+                console.log(err);
+                callback(results);
         },
 
     );
