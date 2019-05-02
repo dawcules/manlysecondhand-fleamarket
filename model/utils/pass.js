@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const dbq = require('./DB_Query');
 
 
+
 /*passport.use(new LocalStrategy(
     (username, password, done) => {
       console.log(`login? ${username}`);
@@ -70,6 +71,7 @@ passport.use(new LocalStrategy(
 
 const login = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
+    console.log('user is ' + user);
     if (err) {
       return next(err);
     }
