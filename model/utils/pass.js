@@ -39,7 +39,7 @@ passport.use(new LocalStrategy(
 
       const doLogin = (username, password) => {
         return new Promise((resolve, reject) => {
-          dbq.getpassword([username], (result) => {
+          dbq.loginUser([username], (result) => {
             bcrypt.compare(password, result[0], (err, res) => {
               // res == true
               if (res) {
