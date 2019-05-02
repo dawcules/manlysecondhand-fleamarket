@@ -20,7 +20,7 @@ const options = {
 };
 
 app.use(session({
-  secret: 'keyboard LOL cat',
+  secret: 'keyboardcat',
   resave: true,
   saveUninitialized: true,
   cookie: {secure: false},
