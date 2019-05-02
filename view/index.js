@@ -31,7 +31,7 @@ app.post('/register', pass.register, pass.login);
 
 //Setting storage to store the files
 const storage = multer.diskStorage({
-  destination: '/.public/uploads/',
+  destination: '../uploads/',
   filename: (req, res, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
