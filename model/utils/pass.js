@@ -54,6 +54,7 @@ passport.use(new LocalStrategy(
 
       return doLogin(username, password).then((result) => {
         if (result.length < 1) {
+          console.log('password is: ' + password);
           console.log('undone');
           return done(null, false);
         } else {
