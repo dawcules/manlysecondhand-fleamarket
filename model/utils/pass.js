@@ -74,12 +74,14 @@ const login = (req, res, next) => {
       return next(err);
     }
     if (!user) { // if login not happening
+      console.log('log in failed');
       return res.sendStatus(403); // http code forbidden
     }
     req.logIn(user, (err) => {
       if (err) {
         return next(err);
       }
+      console.log('logged in ok');
       res.redirect('../../view/public/userpage.html');
       return res.send(req.user); // if login succesful, send user object
     });
