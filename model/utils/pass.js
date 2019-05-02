@@ -58,8 +58,8 @@ passport.use(new LocalStrategy(
           return done(null, false);
         } else {
           console.log('done');
-          delete result[0]; // remove password from user's data before sending it to frontend
-          return done(null, result[0]); // result[0] is user's data, accessible as req.user
+          delete result[0].Password; // remove password from user's data before sending it to frontend
+          return done(null, result[0].Password); // result[0] is user's data, accessible as req.user
         }
       }).catch(err => {
         console.log('err', err);
