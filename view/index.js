@@ -21,13 +21,13 @@ const options = {
 //Setting storage to store the files
 
 //Uploading file
-const upload = multer({storage: storage}).single('myImages');
 const storage = multer.diskStorage({
   destination: '../uploads/',
   filename: (req, res, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
+const upload = multer({storage: storage}).single('myImages');
 
 app.use(session({
   secret: 'keyboardcat',
