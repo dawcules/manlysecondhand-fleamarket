@@ -39,6 +39,7 @@ passport.use(new LocalStrategy(
 
       const doLogin = (username, password) => {
         return new Promise((resolve, reject) => {
+          console.log('username b4 sql is: ' + username);
           dbq.loginUser([username], (result) => {
             console.log('password is ' + password);
             console.log('hash is ' + result[0]);
@@ -56,7 +57,6 @@ passport.use(new LocalStrategy(
 
       return doLogin(username, password).then((result) => {
         if (result.length < 1) {
-          console.log('password is: ' + password);
           console.log('undone');
           return done(null, false);
         } else {
