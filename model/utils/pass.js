@@ -3,27 +3,6 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const dbq = require('./DB_Query');
 
-
-
-/*passport.use(new LocalStrategy(
-    (username, password, done) => {
-      console.log(`login? ${username}`);
-      // Normally, select * from users where username=?
-      if (dbquery.getusername(username,connection && password==dbquery.getpassword(username,connection)) {
-        return done(null,false);
-      }
-      return done(null, {name: username});
-    }
-));
-
-passport.serializeUser((user, done) => {
-  done (null, user)
-});
-
-passport.deserializeUser((id, done) => {
-  return user;
-});*/
-
 passport.serializeUser((user, done) => {
   console.log('serialize:', user);
   done(null, user);
@@ -45,6 +24,7 @@ passport.use(new LocalStrategy(
             bcrypt.compare(password, result[0].Password, (err, res) => {
               // res == true
               if (res) {
+                console.log('1');
                 resolve(result);
               } else {
                 reject(err);
@@ -53,8 +33,9 @@ passport.use(new LocalStrategy(
           });
         });
       };
-
+      console.log('2');
       return doLogin(username, password).then((result) => {
+        console.log('3');
         if (result.length < 1) {
           console.log('undone');
           return done(null, false);
