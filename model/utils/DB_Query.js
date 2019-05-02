@@ -54,7 +54,7 @@ const loginUser = (data, callback) => {
         (err, results, fields) => {
             console.log('results', results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            console.log(err + 'query');
+            console.log(err + ' query');
             callback(results);
         },
     );
