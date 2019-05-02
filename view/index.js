@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const multer = require('multer');
 const passport = require('passport');
-const db = require('../model/utils/DBConnection');
 const dbquery = require('../model/utils/DB_Query');
 const resize = require('../model/utils/ResizeImage');
 const LocalStrategy = require('passport-local').Strategy;

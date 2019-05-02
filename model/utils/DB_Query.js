@@ -1,5 +1,8 @@
 'use strict';
-const selectUserInfo = (data,connection, res) => {
+const db = require('../model/utils/DBConnection');
+const connection = db.connect();
+
+const selectUserInfo = (data, res) => {
     // Selects your user information (When you login)
     connection.query(
         'SELECT UserName,Email,Phone,Location FROM User WHERE userID = ?;',data,
@@ -14,7 +17,7 @@ const selectUserInfo = (data,connection, res) => {
         },
     );
 };
-const selectEmail = (data,connection,res) => {
+const selectEmail = (data,res) => {
     //used for checking if teh selected email exists, this prevents creation of duplicate accounts
     connection.query(
         'SELECT Email FROM USER where Email = ?;',data,
@@ -28,7 +31,7 @@ const selectEmail = (data,connection,res) => {
     );
 };
 
-const insertUser = (data, connection, res) => {
+const registerUser = (data, next) => {
     // For adding new users (Register)
     connection.execute(
         'INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);',
@@ -36,16 +39,27 @@ const insertUser = (data, connection, res) => {
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
+                console.log(results);
                 console.log(err);
-            }
+                next();
+        },
+    );
+};
+const loginUser = (data, callback) => {
+    // simple query
+    db.connect().execute(
+        'SELECT * FROM User WHERE email = ?;',
+        data,
+        (err, results, fields) => {
+            console.log('results', results); // results contains rows returned by server
+            // console.log(fields); // fields contains extra meta data about results, if available
+            console.log(err);
+            callback(results);
         },
     );
 };
 
-const updateUserInfo = (data, connection, res) => {
+const updateUserInfo = (data, res) => {
     // Updating the account user information
     connection.execute(
         'UPDATE User SET Email = ?, Phone = ?, Location = ? WHERE userID = ?;',
@@ -61,7 +75,7 @@ const updateUserInfo = (data, connection, res) => {
         },
     );
 };
-const changePassword = (data, connection, res) => {
+const changePassword = (data, res) => {
     // Changing the password, this is done separately from changing the other user information because additional checks are needed
     connection.execute(
         'UPDATE User SET Password = ? WHERE userID = ?;',
@@ -77,7 +91,7 @@ const changePassword = (data, connection, res) => {
         },
     );
 };
-const getpassword = (data,connection, res)=>{
+const getpassword = (data, res)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
         'SELECT Password FROM User WHERE UserName = ?;',
@@ -96,7 +110,7 @@ const getpassword = (data,connection, res)=>{
     );
 };
 
-const getusername = (data, connection, res) =>{
+const getusername = (data, res) =>{
   // This is used for getting the old password, so we can do a check when user is changing the password
   connection.query(
       'SELECT UserName FROM User WHERE UserName = ?;',
@@ -114,7 +128,7 @@ const getusername = (data, connection, res) =>{
   );
 };
 
-const selectProductInfo = (data,connection, res) => {
+const selectProductInfo = (data, res) => {
     // Used for selecting specific Product information
     connection.query(
         'SELECT pName,pBrand,Description,Condition,pTYpe,Price,ProductAdded FROM Product WHERE pID = ?;',data,
@@ -127,7 +141,7 @@ const selectProductInfo = (data,connection, res) => {
     },
 );
 };
-const selectUserProducts = (data,connection,res)=>{
+const selectUserProducts = (data,res)=>{
     //Shows all products selected user has listed
     connection.query(
         'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE uID = ?;',data,
@@ -140,7 +154,7 @@ const selectUserProducts = (data,connection,res)=>{
         },
     );
 };
-const insertProduct = (data, connection, res) => {
+const insertProduct = (data, res) => {
     // Used for adding a new product to database
     connection.execute(
         'INSERT INTO Product (pName, pBrand, Location, Alt, Thumb, Medium) VALUES (?, ?, ?, ?, ?, ?);',
@@ -154,7 +168,7 @@ const insertProduct = (data, connection, res) => {
         },
     );
 };
-const deleteProduct = (data,connection,res) =>{
+const deleteProduct = (data,res) =>{
     //Used for deleting the unwanted products
     connection.execute(
         'DELETE FROM Product Where pID = ? AND uID = ?;',data,
@@ -168,7 +182,7 @@ const deleteProduct = (data,connection,res) =>{
     );
 };
 
-const updateProductInfo = (data, connection, res) => {
+const updateProductInfo = (data, res) => {
     // Updating chosen products information
     connection.execute(
         'UPDATE Product SET pName = ?, pBrand = ?, Description = ?, Condition = ?, pType = ?, Price = ? WHERE pID = ? AND userID = ?;',
@@ -182,7 +196,7 @@ const updateProductInfo = (data, connection, res) => {
         },
     );
 };
-const productSoldStatus = (data,connection,res) => {
+const productSoldStatus = (data,res) => {
     //Updates the products sold state
     connection.execute(
     'UPDATE Product SET soldStatus = SOLD WHERE pID = ?;',
@@ -196,7 +210,7 @@ const productSoldStatus = (data,connection,res) => {
         },
     );
 };
-const productSoldTime = (data,connection,res) => {
+const productSoldTime = (data,res) => {
     // updates the products sold timestamp
     connection.execute(
         'UPDATE Product SET ProductSold = ? where pID = ?;',data,
@@ -210,7 +224,7 @@ const productSoldTime = (data,connection,res) => {
     );
 };
 
-const selectAllImages = (data ,connection, res) => {
+const selectAllImages = (data, res) => {
     // selects all images for the product
     connection.query(
         'SELECT * FROM Image WHERE iID = ? and pID = ?', data,
@@ -224,7 +238,7 @@ const selectAllImages = (data ,connection, res) => {
     );
 };
 
-const selectTopImage = (data,connection,res) => {
+const selectTopImage = (data,res) => {
     connection.query(
         'SELECT * FROM Image WHERE iID = ? and pID = ? ORDER BY iID DESC LIMIT 1;', data,
         (err, results, fields) =>{
@@ -237,7 +251,7 @@ const selectTopImage = (data,connection,res) => {
     );
 };
 
-const insertImage = (data, connection, res) => {
+const insertImage = (data, res) => {
     // Inserts the data to Image table in the Database
     connection.execute(
         'INSERT INTO Image (Title, Location, Alt, Thumb, Medium, pID) VALUES (?, ?, ?, ?, ?, ?);',
@@ -254,7 +268,7 @@ const insertImage = (data, connection, res) => {
     );
 };
 
-const delImage = (data, connection, res) => {
+const delImage = (data, res) => {
     // simple query
     connection.execute(
         'DELETE FROM Image where iID = ? and pID = ?;',
@@ -273,7 +287,8 @@ const delImage = (data, connection, res) => {
 
 module.exports = {
     selectUserInfo: selectUserInfo,
-    insertUser: insertUser,
+    registerUser: registerUser,
+    loginUser: loginUser,
     updateUserInfo: updateUserInfo,
     changePassword: changePassword,
     getpassword : getpassword,
