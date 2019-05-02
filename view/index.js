@@ -40,7 +40,9 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(express.static('./public'));
 
-app.post('/login', pass.login);
+app.post('/login', pass.login, (req, res) => {
+  res.redirect('http://10.114.32.47/app/userpage.html');
+} );
 app.post('/register', pass.register, pass.login);
 app.post('/upload', (req, res) =>{
   upload(req, res, (err) => {
