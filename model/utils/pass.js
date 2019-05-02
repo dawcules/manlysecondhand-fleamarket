@@ -43,7 +43,8 @@ passport.use(new LocalStrategy(
           dbq.loginUser([username], (result) => {
             console.log('password is ' + password);
             console.log('hash is ' + result[0].Password);
-            bcrypt.compare(password, result[0].Password, (err, res) => {
+            let upwd = result[0].Password;
+            bcrypt.compare(password, upwd, (err, res) => {
               // res == true
               if (res) {
                 resolve(result);
