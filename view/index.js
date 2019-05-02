@@ -18,6 +18,13 @@ const options = {
   cert: sslcert
 };
 
+app.use(session({
+  secret: 'keyboard LOL cat',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {secure: false},
+}));
+
 app.use(require('serve-static')(__dirname + '/public'));
 app.use(require('cookie-parser')());
 app.use(bodyParser.urlencoded({extended: true}));
