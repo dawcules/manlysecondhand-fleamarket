@@ -19,14 +19,12 @@ const options = {
   cert: sslcert
 };
 //Setting storage to store the files
-
-//Uploading file
 const storage = multer.diskStorage({
   destination: '../uploads/',
   filename: (req, res, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
-});
+}); //Uploading file
 const upload = multer({storage: storage}).single('myImages');
 
 app.use(session({
@@ -36,13 +34,11 @@ app.use(session({
   cookie: {secure: false},
 }));
 app.use(require('serve-static')(__dirname + '/public'));
-app.use(require('cookie-parser')());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
 app.use(express.static('./public'));
-
 
 app.post('/login', pass.login);
 app.post('/register', pass.register, pass.login);
