@@ -29,9 +29,9 @@ const upload = multer({storage: storage}).single('myImages');
 
 app.use(session({
   secret: 'keyboardcat',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 60000 }
+  resave: true,
+  saveUninitialized: true,
+  cookie: {secure: false},
 }));
 app.use(require('serve-static')(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
