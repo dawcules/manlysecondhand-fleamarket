@@ -46,9 +46,9 @@ const registerUser = (data, next) => {
     );
 };
 const loginUser = (data, callback) => {
-    // simple query
+    // used to get user information for login process
     db.connect().execute(
-        'SELECT * FROM User WHERE email = ?;',
+        'SELECT * FROM User WHERE Email = ?;',
         data,
         (err, results, fields) => {
             console.log('results', results); // results contains rows returned by server
