@@ -91,7 +91,8 @@ const register = (req, res, next) => {
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     // Store hash in your password DB.
     console.log('hash', hash);
-    dbq.registerUser([req.body.username, hash], next);
+    //INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);',
+    dbq.registerUser([req.body.username, hash, req.body.email, req.body.phone, req.body.location, 0], next);
   });
 };
 
