@@ -1,5 +1,6 @@
 'use strict';
 require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const multer = require('multer');
@@ -7,13 +8,11 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const resize = require('../model/utils/ResizeImage');
-const LocalStrategy = require('passport-local').Strategy;
-
+const pass = require('../model/utils/pass');
 const fs      = require('fs');
 const https   = require('https');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
 const sslcert = fs.readFileSync('/etc/pki/tls/certs/ca.crt');
-
 const options = {
   key: sslkey,
   cert: sslcert
