@@ -14,10 +14,24 @@ const selectUserInfo = (data,connection, res) => {
         },
     );
 };
+const selectEmail = (data,connection,res) => {
+    //used for checking if teh selected email exists, this prevents creation of duplicate accounts
+    connection.query(
+        'SELECT Email FROM USER where Email = ?;',data,
+        (err,results,fields) => {
+            if(err == null){
+                res.send(results);
+            }else{
+                console.log(err);
+            }
+        },
+    );
+};
+
 const insertUser = (data, connection, res) => {
     // For adding new users (Register)
     connection.execute(
-        'INSERT INTO User (UserName, Password, Email, Phone, Location, uID,typeID) VALUES (?, ?, ?, ?, ?, ?, ?);',
+        'INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);',
         data,
         (err, results, fields) => {
             // console.log(results); // results contains rows returned by server
@@ -63,21 +77,43 @@ const changePassword = (data, connection, res) => {
         },
     );
 };
-const oldPassword = (connection,res)=>{
+const getpassword = (data,connection, res)=>{
     // This is used for getting the old password, so we can do a check when user is changing the password
     connection.query(
-        'SELECT Password FROM User WHERE userID = ?;',
+        'SELECT Password FROM User WHERE UserName = ?;',
+        data,
         (err, results, fields) => {
+          console.log(results);
+          if (err == null) {
+            res.send(results);
+          } else {
+            console.log(err);
+          }
             // console.log(results); // results contains rows returned by server
             // console.log(fields); // fields contains extra meta data about results, if available
-            if (err == null) {
-                res.send(results);
-            } else {
-                console.log(err);
-            }
         },
+
     );
-}
+};
+
+const getusername = (data, connection, res) =>{
+  // This is used for getting the old password, so we can do a check when user is changing the password
+  connection.query(
+      'SELECT UserName FROM User WHERE UserName = ?;',
+      data,
+      (err, results, fields) => {
+        console.log(results);
+        if (err == null) {
+          res.send(results);
+        } else {
+          console.log(err);
+        }
+        // console.log(results); // results contains rows returned by server
+        // console.log(fields); // fieldds contains extra meta data about results, if available
+      },
+  );
+};
+
 const selectProductInfo = (data,connection, res) => {
     // Used for selecting specific Product information
     connection.query(
@@ -123,7 +159,7 @@ const deleteProduct = (data,connection,res) =>{
     connection.execute(
         'DELETE FROM Product Where pID = ? AND uID = ?;',data,
         (err,results,fields)=> {
-            if(err = null){
+            if(err == null){
                 res.send(results)
             }else{
                 console.log(err)
@@ -240,7 +276,7 @@ module.exports = {
     insertUser: insertUser,
     updateUserInfo: updateUserInfo,
     changePassword: changePassword,
-    oldPassword : oldPassword,
+    getpassword : getpassword,
     selectProductInfo: selectProductInfo,
     selectUserProducts: selectUserProducts,
     insertProduct: insertProduct,
@@ -252,4 +288,6 @@ module.exports = {
     insertImage: insertImage,
     delImage: delImage,
     selectTopImage: selectTopImage,
+    selectEmail: selectEmail,
+    getusername: getusername,
 };
