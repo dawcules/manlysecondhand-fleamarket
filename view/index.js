@@ -43,9 +43,8 @@ app.use(bodyParser.json());
 app.use(express.static('view/public'));
 
 
-app.post('/login', pass.login, (req, res) => {
-  res.redirect('http://10.114.32.47/app/userpage.html');
-} );
+app.post('/login', pass.login, //(req, res) => {}
+);
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
