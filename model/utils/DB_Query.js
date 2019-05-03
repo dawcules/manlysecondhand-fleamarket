@@ -1,6 +1,12 @@
 'use strict';
-const db = require('./DBConnection');
-const connection = db.connect();
+const db = require('../model/utils/DBConnection');
+const connection = db.connect((err) => {
+  if (err) {
+    throw err;
+  } else {
+    console.log('Database connection established..')
+  }
+});
 
 const selectUserInfo = (data, res) => {
     // Selects your user information (When you login)

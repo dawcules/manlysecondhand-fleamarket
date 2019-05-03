@@ -10,6 +10,7 @@ const path = require('path');
 const passport = require('passport');
 const resize = require('../model/utils/resize');
 const pass = require('../model/utils/pass');
+const dbquery = require('../model/utils/DB_Query');
 const fs      = require('fs');
 const https   = require('https');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
@@ -58,7 +59,8 @@ app.post('/upload', upload,(req, res, err) =>{
   });
 
 app.get('/', (req, res) => {
-  res.send('This is a test!');
+  //Connecting to database
+ dbquery.insertImage(req, res, data)
 });
 
 app.get('/user', pass.loggedIn, (req, res) => {
