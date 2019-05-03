@@ -29,7 +29,6 @@ const options = {
   }
 }); */ //Uploading file
 //const upload = multer({storage: storage});
-
 app.use(session({
   secret: 'keyboardcat',
   resave: true,
@@ -52,7 +51,7 @@ app.post('/register', pass.register, pass.login);
 const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index.html');
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
