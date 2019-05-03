@@ -70,6 +70,7 @@ const login = (req, res, next) => {
       req.session.user = user;
       req.session.save();
       return res.redirect('user');
+      // KÄYTÄ LIIKENNE INDEX.JS KAUTTA
     });
   })(req, res, next);
 };
