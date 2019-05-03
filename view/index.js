@@ -63,8 +63,6 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
 });
 
-
-
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
@@ -86,4 +84,3 @@ https.createServer(options, app).listen(8000); //https traffic
 
 console.log('Server is starting');
 console.log('Rullaa');
-
