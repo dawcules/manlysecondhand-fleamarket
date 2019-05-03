@@ -42,6 +42,7 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.use(express.static('./public'));
 
+
 app.post('/login', pass.login, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
 } );
@@ -51,8 +52,8 @@ app.post('/register', pass.register, pass.login);
 const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
-  res.send('This is a test!');
-  //res.render('index.html');
+  //res.send('This is a test!');
+  res.render('index');
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
