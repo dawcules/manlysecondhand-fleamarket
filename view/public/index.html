@@ -4,51 +4,79 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miesten kirpputori</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/style2.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container">
-    <header>
-
-        <h1>Hello and welcome</h1>
-
-        <nav class="main-nav">
-            <ul class="menu">
-                <li class="close">&times;</li>
-                <li><a href="">Vaatteet</a></li>
-                <li><a href="login.html" id="logina">Kirjaudu</a></li>
-                <li><a href="register.html">Rekisteröidy</a></li>
-            </ul>
-            <span class="mobile-btn">☰</span>
-            <div class="overlay"></div>
-        </nav>
-    </header>
-    <main>
-        <img src="img/secondmand.jpg" alt="" id="banner">
-        <article>
-            <form action="./uploads" enctype="multipart/form-data" method="POST">
-                Select image to upload:
-                <input type="file" name="myImages" value="Select files">
-                <input type="submit" value="Upload Image">
+<header>
+    <nav class = "higher">
+        <div class = "logo">ManSecondHand</div>
+        <div class ="searchBar">
+            <form>
+            <input type="text" placeholder="Search by product name / Brand.." name = "search">
+            <button type="submit"><i class="fa fa-search"></i></button>
             </form>
+        </div>
+        <tab-panel class = "logReg-form">
+            <div data-tabname="login">
+                <h2>Login</h2>
+                <form action="login" method="post">
+                    <label>Username</label>
+                    <input type="name" name="username">
+                    <label>Password</label>
+                    <input type="password" name="password">
+                    <input type="submit">
+                </form>
+                <a href="index.html" class="logina">Takaisin etusivulle</a>
+            </div>
 
-            <h1> More kitty goodness</h1>
-            <h1> More kitty goodness</h1>
-            <h1> Miesten kirpputori</h1>
-            <p id="uusin">Uusimmat tuotteet:</p>
-            <img src="img/awesomekittycat.jpg" alt="Kittycats2">
-            <img src="img/awesomekittycat.jpg" alt="Kittycats2">
-            <img src="img/awesomekittycat.jpg" alt="Kittycats2">
-            <img src="img/awesomekittycat.jpg" alt="Kittycats2">
+            <div data-tabname="register">
 
-            <p>More nice kittypics for you!</p>
-        </article>
-    </main>
-    <footer>
-        <h1> END OF THE PAGE. INSERT SOMETHING SMART HERE</h1>
-    </footer>
-</div>
-<script src="../../controller/js/burger.js"></script>
-<script src="../../controller/js/upp.js"></script>
+                <h2>Register</h2>
+
+                <form action="register" method="post">
+                    <label>Username</label>
+                    <input type="name" name="username">
+                    <label>Password</label>
+                    <input type="password" name="password">
+                    <label>Email</label>
+                    <input type="email" name="email">
+                    <label>Phone</label>
+                    <input type="phone" name="phone">
+                    <label>City</label>
+                    <input type="location" name="location">
+                    <input type="submit">
+                </form>
+
+                <a href="index.html" class="logina">Takaisin etusivulle</a>
+            </div>
+        </tab-panel>
+        <div class = "logReg">Login / Register</div>
+    </nav>
+    <nav class="lower">
+        <form class = "items-menu">
+                <p>Select Gathegory (Javascript Tabs here for pants/shirts etc..)</p>
+                <p>Select A brand (checklist menu with known brands and "other")</p>
+                <p>Select Size (Dropdown menu for each cathegory if possible)</p>
+                <p>Price Range</p>
+                <input type="text" placeholder="MIN" name="min">
+                <input type="text" placeholder="MAX" name="max">
+
+
+                <p>Ideal condition(at least) dropdown menu where you select a value from 1-10</p>
+
+        </form>
+        <div class = "items">Clothing</div>
+        <ul class = "wishlist">
+            <li><a href ="#">Wishlist</a></li>
+        </ul>
+        <ul class = "following">
+            <li><a href ="#">Following</a></li>
+        </ul>
+    </nav>
+</header>
 </body>
+<script src="../../controller/js/burger.js"></script>
+<script src="../../controller/js/tabs.js"></script>
+<script src="../../controller/js/upp.js"></script>
 </html>

@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+}
+body{
+    background-color: #121f1f;
+}
+a{
+    color: azure;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+p{
+    color: azure;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 10px;
+}
+.higher{
+    display: flex;
+    padding: 1vh;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;
+    background-color: darkslategray;
+    font-family: "Fira Code Retina", sans-serif;
+    font-size: 20px;
+}
+.higher input[type=text] {
+    width: 40vh;
+    padding: 6px;
+    border-radius: 10px;
+    font-size: 17px;
+    border: #2f4f4f solid 0.1em;
+}
+.higher .searchBar button {
+    border-radius: 10px;
+    padding: 4px 8px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: azure;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+.higher .searBar button:hover {
+    background: azure;
+}
+.lower{
+    display: flex;
+    justify-content: space-around;
+    padding: 1vh;
+    min-height: 3vh;
+    background-color: #253f3f;
+    font-family: "Fira Code Retina", sans-serif;
+    font-size: 20px;
+}
+.logo{
+    color: azure;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 30px;
+}
+.logReg-form{
+    display: flex;
+    position: absolute;
+    right: 0;
+    height: 30vh;
+    top: 12vh;
+    flex-direction: column;
+    align-items:  center;
+    width:20%;
+    transform: translateX(100%);
+}
+
+.logReg{
+    padding: 2px;
+    display: block;
+    cursor: pointer;
+    color: azure
+}
+.logReg div{
+    width: 25px;
+    height: 5px;
+    background-color: azure;
+    margin: 5px;
+}
+.logReg:hover{
+    border-bottom: azure 1px solid;
+}
+.items-menu{
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 12vh;
+    height: 100%;
+    background-color:#121f1f;
+    flex-direction: column;
+    align-items:  center;
+    width:20%;
+}
+.items-menu input{
+    padding:5px;
+    margin-left:10px;
+    width:50%;
+}
+.items{
+    padding: 2px;
+    display: none;
+    cursor: pointer;
+    color: azure;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.items div{
+    width: 25px;
+    height: 5px;
+    background-color: azure;
+    margin: 5px;
+}
+.items:hover{
+    border-bottom: azure solid 1px;
+}
+.wishlist:hover{
+    border-bottom: azure solid 1px;
+}
+.following:hover{
+    border-bottom: azure solid 1px;
+}
+@media screen and (max-width:1024px){
+    .nav-links{
+        width: 60%;
+    }
+    .logo{
+        display:none;
+    }
+}
+
+
+
+@media screen and (max-width: 768px){
+
+    .items-menu{
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 11vh;
+    height: 100%;
+    background-color:#121f1f;
+    flex-direction: column;
+    align-items:  center;
+    width:20%;
+    transform: translateX(-100%);
+    }
+    .items{
+        display: block;
+    }
+    .higher{
+        font-size: 10px;
+    }
+    .lower{
+        font-size: 15px;
+    }
+    .logo{
+        display: none;
+    }
+
+
+}
+@media screen and (max-width: 540px){
+    .higher input[type=text] {
+        width: 20vh;
+        font-size: 15px;
+    }
+}
+@media sreen and (max-width: 320px){
+    .higher{
+        display: block;
+    }
+    .lower{
+        display: block;
+    }
+}
+.logReg-form-active{
+    transform: translateX(0%);
+}
+.items-menu-active{
+    transform: translateX(0%);
+}
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
