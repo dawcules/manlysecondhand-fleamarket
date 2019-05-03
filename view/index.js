@@ -54,7 +54,7 @@ const upload = multer({dest: 'public/uploads/'});
 app.get('/', (req, res) => {
   //res.send('.public/index.html');
   //res.render('index');
-  res.sendFile('public/index.html');
+  res.sendfile('public/index.html');
 
 });
 
