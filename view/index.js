@@ -29,7 +29,6 @@ const options = {
   }
 }); */ //Uploading file
 //const upload = multer({storage: storage});
-
 app.use(session({
   secret: 'keyboardcat',
   resave: true,
@@ -41,7 +40,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(express.static('./public'));
+app.use(express.static('view/public'));
+
 
 app.post('/login', pass.login, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
@@ -52,7 +52,10 @@ app.post('/register', pass.register, pass.login);
 const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
+  //res.send('This is a test!');
   res.render('index');
+  //res.sendfile('view/public/index.html');
+
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
@@ -63,15 +66,13 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
 });
 
-
-
-app.use('/image', (req, res, next) => {
+/*app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
     then(data => {
         next();
     });
-});
+});*/
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
@@ -86,4 +87,3 @@ https.createServer(options, app).listen(8000); //https traffic
 
 console.log('Server is starting');
 console.log('Rullaa');
-
