@@ -14,6 +14,12 @@ a{
     font-weight: bold;
     font-size: 14px;
 }
+/*
+Keep the log in / register form in check with labels
+*/
+label {
+    display: block;
+}
 p{
     color: azure;
     text-decoration: none;

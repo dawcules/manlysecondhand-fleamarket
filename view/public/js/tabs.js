@@ -18,11 +18,13 @@ const selectTab = (num) => {
     if (i == num) {
       tablist.childNodes[i].style.background = "blue";
       tablist.childNodes[i].style.fontWeight = 800;
-      tablist.childNodes[i].style.color = "white"
+      tablist.childNodes[i].style.color = "white";
+      tablist.childNodes[i].style.padding = '10px';
     } else {
       tablist.childNodes[i].style.background = "";
       tablist.childNodes[i].style.fontWeight = 400;
-      tablist.childNodes[i].style.color = "black"
+      tablist.childNodes[i].style.color = "black";
+      tablist.childNodes[i].style.padding = '10px';
 
     }
   }
