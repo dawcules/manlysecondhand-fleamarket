@@ -43,8 +43,7 @@ app.use(bodyParser.json());
 app.use(express.static('view/public'));
 
 
-app.post('/login', pass.login)// (req, res) => {}
-);
+app.post('/login', pass.login);// (req, res) => {};
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
