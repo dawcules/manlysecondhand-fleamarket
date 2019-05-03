@@ -35,7 +35,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false},
 }));
-app.use(require('serve-static')(__dirname + './public'));
+app.use(require('serve-static')(__dirname + '/../public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
