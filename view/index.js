@@ -35,12 +35,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false},
 }));
-app.use(require('serve-static')(__dirname + '/../public'));
+app.use(require('serve-static')(__dirname + './public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(express.static('./public'));
+app.use(express.static('view/public'));
 
 
 app.post('/login', pass.login, (req, res) => {
@@ -65,13 +65,13 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
 });
 
-app.use('/image', (req, res, next) => {
+/*app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
     then(data => {
         next();
     });
-});
+});*/
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
