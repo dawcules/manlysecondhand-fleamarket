@@ -10,7 +10,7 @@ const path = require('path');
 const passport = require('passport');
 const resize = require('../model/utils/resize');
 const pass = require('../model/utils/pass');
-const dbquery = require('../model/utils/DB_Query');
+const query = require('../model/utils/DB_Query');
 const fs      = require('fs');
 const https   = require('https');
 const sslkey  = fs.readFileSync('/etc/pki/tls/private/ca.key');
@@ -22,7 +22,7 @@ const options = {
 //Setting storage to store the files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../uploads/')
+    cb(null, '../uploads')
   },
   filename: (req, file, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -36,12 +36,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false},
 }));
-app.use(require('serve-static')(__dirname + '/public'));
+app.use(require('serve-static')(__dirname + 'view/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(express.static('./public'));
+app.use(express.static('view/public'));
 
 app.post('/login', pass.login, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
@@ -59,8 +59,7 @@ app.post('/upload', upload,(req, res, err) =>{
   });
 
 app.get('/', (req, res) => {
-  //Connecting to database
- dbquery.insertImage(req, res, data)
+  query.insertImage(data, res)
 });
 
 app.get('/user', pass.loggedIn, (req, res) => {
@@ -90,3 +89,4 @@ https.createServer(options, app).listen(8000); //https traffic
 
 console.log('Server is starting');
 console.log('Rullaa');
+
