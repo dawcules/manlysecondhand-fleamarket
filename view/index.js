@@ -51,7 +51,8 @@ app.post('/register', pass.register, pass.login);
 const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  res.send('This is a test!');
+  //res.render('index.html');
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
