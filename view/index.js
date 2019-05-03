@@ -53,7 +53,9 @@ const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
   //res.send('This is a test!');
-  res.render('index');
+  //res.render('index');
+  res.sendFile('view/public/index.html');
+
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
