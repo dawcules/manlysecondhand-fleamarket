@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logreg</title>
+    <link rel="stylesheet" href="styles_tabs.css">
+</head>
+<body>
+<tab-panel>
+
+    <div data-tabname="login">
+        <h2>Login</h2>
+        <form action="login" method="post">
+            <label>Username</label>
+            <input type="name" name="username">
+            <label>Password</label>
+            <input type="password" name="password">
+            <input type="submit">
+        </form>
+        <a href="index.html" class="logina">Takaisin etusivulle</a>
+    </div>
+
+    <div data-tabname="register">
+
+        <h2>Register</h2>
+
+        <form action="register" method="post">
+            <label>Username</label>
+            <input type="name" name="username">
+            <label>Password</label>
+            <input type="password" name="password">
+            <label>Email</label>
+            <input type="email" name="email">
+            <label>Phone</label>
+            <input type="phone" name="phone">
+            <label>City</label>
+            <input type="location" name="location">
+            <input type="submit">
+        </form>
+
+        <a href="index.html" class="logina">Takaisin etusivulle</a>
+    </div>
+</tab-panel>
+<script src="tabs.js"></script>
+</body>
+</html>
