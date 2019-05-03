@@ -52,9 +52,9 @@ app.post('/register', pass.register, pass.login);
 const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
-  //res.send('This is a test!');
+  res.send('public/index');
   //res.render('index');
-  res.sendFile('view/public/index.html');
+  //res.sendFile('view/public/index.html');
 
 });
 
