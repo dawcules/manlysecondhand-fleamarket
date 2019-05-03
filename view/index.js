@@ -20,15 +20,15 @@ const options = {
   cert: sslcert
 };
 //Setting storage to store the files
-const storage = multer.diskStorage({
+/*const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../uploads')
+    cb(null, 'public/uploads/')
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname));
   }
-}); //Uploading file
-const upload = multer({storage: storage}).single('myImages');
+}); */ //Uploading file
+//const upload = multer({storage: storage});
 
 app.use(session({
   secret: 'keyboardcat',
@@ -36,12 +36,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: {secure: false},
 }));
-app.use(require('serve-static')(__dirname + 'view/public'));
+app.use(require('serve-static')(__dirname + './public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
-app.use(express.static('view/public'));
+app.use(express.static('./public'));
 
 app.post('/login', pass.login, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
@@ -49,18 +49,15 @@ app.post('/login', pass.login, (req, res) => {
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
-app.post('/upload', upload,(req, res, err) =>{
-    if (err) {
-      console.log('Error')
-    } else {
-      res.send('Upload successful');
-      console.log(req.file);
-    }
-  });
+const upload = multer({dest: 'public/uploads/'});
 
 app.get('/', (req, res) => {
-  query.insertImage(data, res)
+  res.render('index');
 });
+
+app.post('/uploads', upload.single('myImages'),(req, res) =>{
+    res.send('Upload successful', req.file);
+  });
 
 app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
