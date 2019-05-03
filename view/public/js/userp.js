@@ -1,3 +1,5 @@
 'use strict';
 
-alert('Hello');
+const uname = req.session.user.UserName;
+
+alert('Hello' + uname);
