@@ -68,6 +68,7 @@ const login = (req, res, next) => {
       //res.redirect('../../view/public/userpage.html');
       //return res.send(req.user); // if login succesful, send user object
       req.session.user = user;
+      req.session.save();
       return res.redirect('user');
     });
   })(req, res, next);
