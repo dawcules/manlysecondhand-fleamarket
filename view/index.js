@@ -8,7 +8,7 @@ const multer = require('multer');
 const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
-const resize = require('../model/utils/ResizeImage');
+const resize = require('../model/utils/resize');
 const pass = require('../model/utils/pass');
 const fs      = require('fs');
 const https   = require('https');
@@ -20,8 +20,10 @@ const options = {
 };
 //Setting storage to store the files
 const storage = multer.diskStorage({
-  destination: '../uploads/',
-  filename: (req, res, cb) => {
+  destination: (req, file, cb) => {
+    cb(null, '../uploads/')
+  },
+  filename: (req, file, cb) => {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 }); //Uploading file
@@ -44,8 +46,9 @@ app.post('/login', pass.login, (req, res) => {
   res.redirect('http://10.114.32.47/app/userpage.html');
 } );
 app.post('/register', pass.register, pass.login);
-app.post('/upload', (req, res) =>{
-  upload(req, res, (err) => {
+
+//Handling post form when form is submitted
+app.post('/upload', upload,(req, res, err) =>{
     if (err) {
       console.log('Error')
     } else {
@@ -55,11 +58,7 @@ app.post('/upload', (req, res) =>{
   });
 
 app.get('/', (req, res) => {
-  //res.sendFile('view/public/index.html');
   res.send('This is a test!');
-});
-
-  res.send('TEST');
 });
 
 app.get('/user', pass.loggedIn, (req, res) => {
@@ -70,7 +69,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
     then(data => {
         next();
     });
@@ -78,7 +77,7 @@ app.use('/image', (req, res, next) => {
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    resize.makeResize(req.file.path, 640, '../uploads/medium/' + req.file.filename).
     then(data => {
         next();
     });
