@@ -1,3 +1,3 @@
 'use strict';
 
-alert('Hello' + req.body);
+alert('Hello');
