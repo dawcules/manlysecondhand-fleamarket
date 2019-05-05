@@ -52,15 +52,13 @@ app.post('/register', pass.register, pass.login);
 //Handling post form when form is submitted
 const upload = multer({dest: 'public/uploads/'});
 
+/*
 app.get('/', (req, res) => {
   res.send('This is a test!');
   //res.render('index');
   //res.sendfile('view/public/index.html');
 });
-
-app.post('/uploads', upload.single('myImages'),(req, res) =>{
-    res.send('Upload successful', req.file);
-  });
+*/
 
 app.get('/user', pass.loggedIn, (req, res) => {
   const sess = req.session.user;
@@ -68,7 +66,23 @@ app.get('/user', pass.loggedIn, (req, res) => {
   console.log(sess.UserName);
   res.redirect('/app/userpage.html');
 });
-
+app.use('/product', (req, res) => {
+    // lisää tuotteen tiedot tietokantaan
+    const data = [
+        req.body.name,
+        req.body.brand,
+        req.body.description,
+        "not",
+        req.body.condition,
+        req.body.ptype,
+        req.body.price,
+        1, // dummy userID
+    ];
+    query.insertProduct(data, res);
+});
+app.post('/uploads', upload.single('myImages'),(req, res) =>{
+    res.send('Upload successful', req.file);
+});
 /*app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
@@ -85,20 +99,6 @@ app.use('/image', (req, res, next) => {
     });
 });
 */
-app.use('/product', (req, res) => {
-    // lisää tuotteen tiedot tietokantaan
-    const data = [
-        req.body.name,
-        req.body.brand,
-        req.body.description,
-        req.body.ptype,
-       "not",
-        req.body.condition,
-        req.body.price,
-        1, // dummy userID
-    ];
-    query.insertProduct(data, res);
-});
 
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
