@@ -1,5 +1,5 @@
 'use strict';
-let uname = null;
+let udata = null;
 alert('Success');
 
 fetch('getsession', {
@@ -8,7 +8,7 @@ fetch('getsession', {
   return res.json();
 }).then((json) => {
   console.log(json);
-  uname = json.UserName;
-  console.log(uname);
+  udata = json;
+  console.log(udata.UserName);
   //showHide(json);
 });
