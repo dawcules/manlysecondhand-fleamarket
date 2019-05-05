@@ -66,39 +66,58 @@ app.get('/user', pass.loggedIn, (req, res) => {
   console.log(sess.UserName);
   res.redirect('/app/userpage.html');
 });
+
 app.use('/product', (req, res) => {
-    // lisää tuotteen tiedot tietokantaan
+            // lisää tuotteen tiedot tietokantaan
+            const data = [
+                req.body.name,
+                req.body.brand,
+                req.body.description,
+                "not",
+                req.body.condition,
+                req.body.ptype,
+                req.body.price,
+                1, // dummy userID
+                ];
+                query.insertProduct(data, res);
+});
+
+app.post('/image', upload.single('my-image'), (req, res, next) => {
+    next();
+});
+
+app.use('/image', (req, res, next) => {
+    // tee pieni thumbnail
+    resize.makeResize(req.file.path, 300, './public/thumbs/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
+
+app.use('/image', (req, res, next) => {
+    // tee iso thumbnail
+    resize.makeResize(req.file.path, 640, './public/medium/' + req.file.filename).
+    then(data => {
+        next();
+    });
+});
+
+app.use('/image', (req, res, next) => {
+    // lisää kuvan tiedot tietokantaan
+    //Title, Location, Alt, Thumb, Medium, pID
     const data = [
-        req.body.name,
-        req.body.brand,
-        req.body.description,
-        "not",
-        req.body.condition,
-        req.body.ptype,
-        req.body.price,
-        1, // dummy userID
+        req.body.title,
+        'uploads/' + req.file.filename,
+        req.body.title,
+        'thumbs/' + req.file.filename,
+        'medium/' + req.file.filename,
+        1, // dummy product id
     ];
-    query.insertProduct(data, res);
+    query.insertImage(data, res);
 });
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
     res.send('Upload successful', req.file);
 });
-/*app.use('/image', (req, res, next) => {
-    // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, '../uploads/thumbs/' + req.file.filename).
-    then(data => {
-        next();
-    });
-});*/
-/*
-app.use('/image', (req, res, next) => {
-    // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, '../uploads/medium/' + req.file.filename).
-    then(data => {
-        next();
-    });
-});
-*/
 
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
