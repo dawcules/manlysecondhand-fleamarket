@@ -125,14 +125,14 @@ const getusername = (data, res) =>{
   );
 };
 
-const selectProductInfo = (data, res) => {
+const selectProductInfo = (data, callback) => {
     // Used for selecting specific Product information
     connection.query(
         'SELECT * FROM Product WHERE pID = ?;',data, //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
         (err, results, fields) => {
         if (err == null) {
           console.log(results);
-            res.send(results[0]);
+            callback(results);
         } else {
             console.log(err);
         }
