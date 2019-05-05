@@ -17,7 +17,7 @@ const showname = () => {
   ud();
   const heyuser = document.createElement('p');
   heyuser.innerText = 'Welcome' + udata.UserName;
-  const bod = document.getElementsByTagName('body');
+  const bod = document.getElementsByClassName(udata)
   bod.appendChild(heyuser);
 };
 
