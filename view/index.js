@@ -126,6 +126,7 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res) => {
   const data = ['*'];
   const q = query.selectProductInfo(data);
+  console.log(q);
   res.json(q);
 });
 
