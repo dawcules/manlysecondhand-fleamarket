@@ -100,6 +100,10 @@ app.use('/product', (req, res) => {
     query.insertProduct(data, res);
 });
 
+app.get('/getsession', (req, res) => {
+  res.json(req.session.user);
+});
+
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 
