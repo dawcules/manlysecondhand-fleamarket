@@ -29,18 +29,18 @@ const options = {
   }
 }); */ //Uploading file
 //const upload = multer({storage: storage});
-app.use(session({
-  secret: 'keyboardcat',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {secure: false},
-}));
+app.use(express.static('view/public'));
 app.use(require('serve-static')(__dirname + './public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(session({
+  secret: 'keyboardcat',
+  resave: false,
+  saveUninitialized: true,
+  //cookie: {secure: false},
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json());
-app.use(express.static('view/public'));
 
 
 app.post('/login', pass.login, (req, res) => {
