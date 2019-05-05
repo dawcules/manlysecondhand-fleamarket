@@ -20,3 +20,5 @@ const showname = () => {
   const bod = document.getElementsByTagName('body');
   bod.appendChild(heyuser);
 };
+
+showname();
