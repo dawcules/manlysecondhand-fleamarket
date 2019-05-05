@@ -56,7 +56,6 @@ app.get('/', (req, res) => {
   res.send('This is a test!');
   //res.render('index');
   //res.sendfile('view/public/index.html');
-
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
@@ -77,13 +76,28 @@ app.get('/user', pass.loggedIn, (req, res) => {
         next();
     });
 });*/
-
+/*
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
     resize.makeResize(req.file.path, 640, '../uploads/medium/' + req.file.filename).
     then(data => {
         next();
     });
+});
+*/
+app.use('/product', (req, res) => {
+    // lisää tuotteen tiedot tietokantaan
+    const data = [
+        req.body.name,
+        req.body.brand,
+        req.body.description,
+        req.body.ptype,
+       "not",
+        req.body.condition,
+        req.body.price,
+        1, // dummy userID
+    ];
+    query.insertProduct(data, res);
 });
 
 app.get('/getsession', (req, res) => {

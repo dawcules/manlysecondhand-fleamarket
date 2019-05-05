@@ -1,0 +1,12 @@
+
+
+.product-menu{
+    display: block;
+    color: azure;
+    top: 12vh;
+    height: 100%;
+    background-color:#121f1f;
+    flex-direction: column;
+    align-items:  center;
+    width:30%;
+}
