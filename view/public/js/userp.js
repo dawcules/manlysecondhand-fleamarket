@@ -13,7 +13,7 @@ fetch('getsession', {
   //showHide(json);
   const heyuser = document.createElement('p');
   heyuser.innerText = 'Welcome' + udata.Username;
-  const bod = document.getElementsByClassName(udata)
+  const bod = document.querySelector('body');
   bod.appendChild(heyuser);
 });
 
