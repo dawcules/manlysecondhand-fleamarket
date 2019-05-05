@@ -4,7 +4,7 @@ alert('Success');
 fetch('/getsession', {
   credentials: 'include'
 }).then((res) => {
-  return response.json();
+  return res.json();
 }).then((json) => {
   console.log(json);
   //showHide(json);
