@@ -66,10 +66,10 @@ const login = (req, res, next) => {
       }
       console.log('logged in ok');
       //res.redirect('../../view/public/userpage.html');
-      //return res.send(req.user); // if login succesful, send user object
       req.session.user = user;
       req.session.save();
-      return res.redirect('user');
+      return res.send(req.user); // if login succesful, send user object
+      //return res.redirect('user');
       // KÄYTÄ LIIKENNE INDEX.JS KAUTTA
       next();
     });
