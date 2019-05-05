@@ -154,10 +154,11 @@ const selectUserProducts = (data,res)=>{
 const insertProduct = (data, res) => {
     // Used for adding a new product to database
     connection.execute(
-        'INSERT INTO Product (pName, pBrand, Location, Alt, Thumb, Medium) VALUES (?, ?, ?, ?, ?, ?);',
+        'INSERT INTO Product (pName, pBrand, Description, soldStatus, Condition, pType, Price, uID) VALUES (?, ?, ?, ?, ?, ?, ?, ?);',
         data,
         (err, results, fields) => {
             if (err == null) {
+                console.log(results);
                 res.send(results);
             } else {
                 console.log(err);

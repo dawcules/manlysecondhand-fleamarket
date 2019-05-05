@@ -7,8 +7,6 @@
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h1>Form validation JavaScript</h1>
-
 <form class = "product-menu"  novalidate onsubmit="return validate()">
     <fieldset>
         <legend> Add a product for sale / giveaway</legend>
@@ -20,6 +18,9 @@
         <br>
         <label for="description">Description</label>
         <input type="text" id = "description" name="email" required placeholder="Why you're giving it away..How you got it, has it been used much.. etc.." size="50"/>
+        <br>
+        <label for="ptype">Description</label>
+        <input type="text" id = "ptype" name="email" required placeholder="what kind of product are we dealing with here?" size="50"/>
         <br>
         <label for="condition">Condition</label>
         <br>
