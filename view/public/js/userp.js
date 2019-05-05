@@ -1,4 +1,4 @@
 'use strict';
 
-alert('Hello');
+alert('Success');
 console.log(session.user);
