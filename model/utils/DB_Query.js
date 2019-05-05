@@ -128,7 +128,7 @@ const getusername = (data, res) =>{
 const selectProductInfo = (data, res) => {
     // Used for selecting specific Product information
     connection.query(
-        'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE pID = 2;', //pID = *, data,
+        'SELECT * FROM Product WHERE pID = 2;', //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
         (err, results, fields) => {
         if (err == null) {
             res.send(results);
