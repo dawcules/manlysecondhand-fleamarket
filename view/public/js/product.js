@@ -3,16 +3,17 @@ const productForm = document.querySelector('#productAdd');
 // insert a form
 const productAdd = (evt) => {
     evt.preventDefault();
-    const proform = new FormData(productForm);
+    const proForm = new FormData(productForm);
     const settings = {
         method: 'post',
-        body: proform,
+        body: proForm,
     };
 
     fetch('./product', settings).then((response) => {
         return response.json();
     }).then((json) => {
         console.log(json);
+
         productForm.reset();
     });
 };
@@ -30,7 +31,7 @@ const imageAdd = (evt) => {
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'POST',
-        body: imgform,
+        body: imgForm,
     };
 
     fetch('./image',options)
@@ -48,4 +49,4 @@ const imageAdd = (evt) => {
 
 // make an event listener which calls upload function when the form is submitted
 imageForm.addEventListener('submit', imageAdd);
-product.addEventListener('submit', productAdd);
+productForm.addEventListener('submit', productAdd);

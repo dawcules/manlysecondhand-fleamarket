@@ -82,7 +82,7 @@ app.use('/product', (req, res) => {
                 query.insertProduct(data, res);
 });
 
-app.post('/image', upload.single('my-image'), (req, res, next) => {
+app.post('/image', upload.single('imgA'), (req, res, next) => {
     next();
 });
 
