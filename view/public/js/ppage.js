@@ -13,4 +13,4 @@ fetch('getproduct', {
   const dv = document.querySelector('div');
   dv.appendChild(title);
   //tänne printit
-};
+});
