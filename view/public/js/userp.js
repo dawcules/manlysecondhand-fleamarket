@@ -1,7 +1,7 @@
 'use strict';
 
 alert('Success');
-fetch('/getsession', {
+fetch('getsession', {
   credentials: 'include'
 }).then((res) => {
   return res.json();
