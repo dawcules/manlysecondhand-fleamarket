@@ -44,7 +44,8 @@ app.use(express.static('view/public'));
 
 
 app.post('/login', pass.login, (req, res) => {
-  console.log(req.session.UserName);
+  console.log('login consolessa on käyty');
+  console.log(req.session.user);
 });
 app.post('/register', pass.register, pass.login);
 
