@@ -1,24 +1,51 @@
 'use strict';
-
+const productForm = document.querySelector('#productAdd');
 // insert a form
-const product= document.querySelector('#productform');
-
-const sendProduct = (evt) => {
+const productAdd = (evt) => {
     evt.preventDefault();
-    const fd = new FormData(product);
+    const proform = new FormData(productForm);
     const settings = {
         method: 'post',
-        body: fd,
+        body: proform,
     };
 
     fetch('./product', settings).then((response) => {
         return response.json();
     }).then((json) => {
         console.log(json);
-        // update list
-        getData();
-        product.reset();
+        productForm.reset();
     });
 };
 
-product.addEventListener('submit', product);
+
+
+const imageForm = document.querySelector('#imageAdd');
+const image = document.getElementById('imgA');
+// make function 'upload' which
+const imageAdd = (evt) => {
+    // - prevents the form from sending
+    evt.preventDefault();
+// - makes FormData -object and adds the file selected byt the user into the object
+    const imgForm = new FormData(imageForm);
+// - send the file to the same url as in task a by using fetch -method
+    const options = {
+        method: 'POST',
+        body: imgform,
+    };
+
+    fetch('./image',options)
+        .then(response =>{
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+            message.innerHTML = json.message;
+            image.src = './uploads' + json.file.filename;
+        });
+};
+// - when file upload is complete, writes server response to 'message' element
+// function ends
+
+// make an event listener which calls upload function when the form is submitted
+imageForm.addEventListener('submit', imageAdd);
+product.addEventListener('submit', productAdd);

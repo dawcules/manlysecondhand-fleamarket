@@ -7,7 +7,7 @@
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form class = "product-menu"  novalidate onsubmit="return validate()">
+<form action="/product" class="productAdd">
     <fieldset>
         <legend> Add a product for sale / giveaway</legend>
         <label for ="name">Name of the product</label>
@@ -17,14 +17,14 @@
         <input type="text" id ="brand" name="brand" required size="30"/>
         <br>
         <label for="description">Description</label>
-        <input type="text" id = "description" name="description" required placeholder="Why you're giving it away..How you got it, has it been used much.. etc.." size="50"/>
+        <textarea name="description" id ="description" placeholder="Details"></textarea>
         <br>
         <label for="ptype">Product type</label>
         <input type="text" id = "ptype" name="ptype" required placeholder="what kind of product are we dealing with here?" size="50"/>
         <br>
         <label for="condition">Condition</label>
         <br>
-        <input type="number" id="condition" name="condition" >
+        <input type="number" id="condition" name="condition">
         <span class="note">Rate the condition of the product on scale of 1-10</span>
         <br>
         <label for="price">Price</label>
@@ -33,5 +33,15 @@
         <input type="submit" value="Send">
     </fieldset>
 </form>
+<form action="/image" class = "imageAdd">
+    <fieldset>
+            <input type="text" name="" placeholder="Title">
+            <label class="button">Select image
+                <input type="file" name="imgA" id="imgA" accept="image/*">
+            </label>
+            <button type="submit">Submit</button>
+    </fieldset>
+</form>
 </body>
+<script src="js/product.js"></script>
 </html>
