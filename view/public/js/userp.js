@@ -2,7 +2,7 @@
 let udata = null;
 alert('Success');
 
-fetch('getsession', {
+const ud = fetch('getsession', {
   credentials: 'include'
 }).then((res) => {
   return res.json();
@@ -13,7 +13,10 @@ fetch('getsession', {
   //showHide(json);
 });
 
-const heyuser = document.createElement('p');
-heyuser.innerText = 'Welcome' + udata.UserName;
-const bod = document.getElementsByTagName('body');
-bod.appendChild(heyuser);
+const showname = () => {
+  ud();
+  const heyuser = document.createElement('p');
+  heyuser.innerText = 'Welcome' + udata.UserName;
+  const bod = document.getElementsByTagName('body');
+  bod.appendChild(heyuser);
+};
