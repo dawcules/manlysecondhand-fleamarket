@@ -67,7 +67,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
   const sess = req.session.user;
   console.log('userp app käyty');
   console.log(sess.UserName);
-  res.redirect('/app/vie/public/userpage.html');
+  res.redirect('/app/view/public/userpage.html');
 });
 
 /*app.use('/image', (req, res, next) => {
