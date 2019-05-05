@@ -131,7 +131,7 @@ const selectProductInfo = (data, res) => {
         'SELECT * FROM Product WHERE pID = ?;',data, //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
         (err, results, fields) => {
         if (err == null) {
-            res.send(results);
+            res.send(results[0]);
         } else {
             console.log(err);
         }
