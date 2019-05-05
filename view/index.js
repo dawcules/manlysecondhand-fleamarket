@@ -114,6 +114,7 @@ app.use('/image', (req, res, next) => {
         1, // dummy product ide
     ];
     query.insertImage(data, res);
+    console.log(data)
 });
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
     res.send('Upload successful', req.file);

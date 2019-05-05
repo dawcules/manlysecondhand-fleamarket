@@ -13,7 +13,6 @@ const productAdd = (evt) => {
         return response.json();
     }).then((json) => {
         console.log(json);
-
         productForm.reset();
     });
 };
@@ -30,7 +29,7 @@ const imageAdd = (evt) => {
     const imgForm = new FormData(imageForm);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
-        method: 'POST',
+        method: 'post',
         body: imgForm,
     };
 
