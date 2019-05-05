@@ -29,21 +29,24 @@ const options = {
   }
 }); */ //Uploading file
 //const upload = multer({storage: storage});
-app.use(session({
-  secret: 'keyboardcat',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {secure: false},
-}));
+app.use(express.static('view/public'));
 app.use(require('serve-static')(__dirname + './public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(session({
+  secret: 'keyboardcat',
+  resave: false,
+  saveUninitialized: true,
+  //cookie: {secure: false},
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json());
-app.use(express.static('view/public'));
 
 
-app.post('/login', pass.login);// (req, res) => {};
+app.post('/login', pass.login, (req, res) => {
+  console.log('login consolessa on käyty');
+  console.log(req.session.user);
+});
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
@@ -60,7 +63,10 @@ app.post('/uploads', upload.single('myImages'),(req, res) =>{
   });
 
 app.get('/user', pass.loggedIn, (req, res) => {
-  res.redirect('http://10.114.32.47/app/userpage.html');
+  const sess = req.session.user;
+  console.log('userp app käyty');
+  console.log(sess.UserName);
+  res.redirect('/app/userpage.html');
 });
 
 /*app.use('/image', (req, res, next) => {
