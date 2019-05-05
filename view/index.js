@@ -53,7 +53,6 @@ app.get('/', (req, res) => {
   res.send('This is a test!');
   //res.render('index');
   //res.sendfile('view/public/index.html');
-
 });
 
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
