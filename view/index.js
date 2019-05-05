@@ -64,7 +64,7 @@ app.post('/uploads', upload.single('myImages'),(req, res) =>{
   });
 
 app.get('/user', pass.loggedIn, (req, res) => {
-  res.redirect('http://10.114.32.47/app/userpage.html');
+  console.log('userp app käyty');
 });
 
 /*app.use('/image', (req, res, next) => {
