@@ -1,4 +1,11 @@
 'use strict';
 
 alert('Success');
-console.log(session.user);
+fetch('/getsession', {
+  credentials: 'include'
+}).then((res) => {
+  return response.json();
+}).then((json) => {
+  console.log(json);
+  //showHide(json);
+});
