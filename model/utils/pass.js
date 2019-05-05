@@ -69,7 +69,7 @@ const login = (req, res, next) => {
       //return res.send(req.user); // if login succesful, send user object
       req.session.user = user;
       req.session.save();
-      //return res.redirect('user');
+      return res.redirect('user');
       // KÄYTÄ LIIKENNE INDEX.JS KAUTTA
       next();
     });
