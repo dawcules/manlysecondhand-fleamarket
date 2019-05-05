@@ -65,6 +65,7 @@ app.post('/uploads', upload.single('myImages'),(req, res) =>{
 
 app.get('/user', pass.loggedIn, (req, res) => {
   console.log('userp app käyty');
+  console.log(req.session.username);
 });
 
 /*app.use('/image', (req, res, next) => {
