@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+}
+body{
+    background-color: #121f1f;
+}
+a{
+    color: azure;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+/*
+Keep the log in / register form in check with labels
+*/
+label {
+    display: block;
+}
+p{
+    color: azure;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 10px;
+}
