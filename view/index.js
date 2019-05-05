@@ -127,7 +127,7 @@ app.get('/getproduct', (req, res) => {
   const data = ['*'];
   const q = query.selectProductInfo(data);
   console.log(q);
-  res.json(q);
+  res.json(q[0]);
 });
 
 app.listen(3000); //normal http traffic
