@@ -12,3 +12,8 @@ fetch('getsession', {
   console.log(udata.UserName);
   //showHide(json);
 });
+
+const heyuser = document.createElement('p');
+heyuser.innerText = 'Welcome' + udata.UserName;
+const bod = document.getElementsByTagName('body');
+bod.appendChild(heyuser);
