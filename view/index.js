@@ -111,7 +111,7 @@ app.use('/image', (req, res, next) => {
         req.body.title,
         'thumbs/' + req.file.filename,
         'medium/' + req.file.filename,
-        1, // dummy product id
+        1, // dummy product ide
     ];
     query.insertImage(data, res);
 });
@@ -121,6 +121,12 @@ app.post('/uploads', upload.single('myImages'),(req, res) =>{
 
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
+});
+
+app.get('/getproduct', (req, res) => {
+  const data = ['*'];
+  const q = query.selectProductInfo(data);
+  res.json(q);
 });
 
 app.listen(3000); //normal http traffic
