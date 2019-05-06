@@ -7,6 +7,7 @@ const productAdd = (evt) => {
     evt.preventDefault();
 // - makes FormData -object and adds the file selected byt the user into the object
     const prodForm = new FormData(productForm);
+    console.log(prodForm);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
