@@ -68,7 +68,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
 });
 
 app.use('/product', (req, res) => {
-            // lisää tuotteen tiedot tietokantaan //name, brand, description, "not",condition,ptype,price, "8"
+            // lisää tuotteen tiedot tietokantaan
             const data = [
                 req.body.name,
                 req.body.brand,

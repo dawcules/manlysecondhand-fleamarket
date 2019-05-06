@@ -15,7 +15,6 @@ fetch('getsession', {
   heyuser.innerText = 'Welcome ' + udata.UserName;
   const bod = document.querySelector('body');
   bod.appendChild(heyuser);
-
 });
 
 
