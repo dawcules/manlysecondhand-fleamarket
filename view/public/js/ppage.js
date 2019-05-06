@@ -48,7 +48,7 @@ const getprd = (evt) => {
 
 const showBrand = (evt) => {
   if (brandoptions.length === 0) {
-    //alert('Tässä merkki')
+    alert('Tässä merkki')
     for (let i=0;i++;i<brandlist) {
       brandoptions[i] = document.createElement('option');
       brandoptions[i].innerText = brandlist[i];
