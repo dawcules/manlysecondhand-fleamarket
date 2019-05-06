@@ -87,7 +87,7 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
     console.log("adding the image");
     next();
 });
-
+/*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.imgA.path, 300, '/view/public/thumbs/' + req.imgA.filename).then(data => {
@@ -104,7 +104,7 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
-
+*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
