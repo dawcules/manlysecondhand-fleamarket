@@ -50,7 +50,7 @@ app.post('/login', pass.login, (req, res) => {
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
-const upload = multer({dest: 'public/uploads/'});
+const upload = multer({dest: 'view/public/uploads/'});
 
 /*
 app.get('/', (req, res) => {
