@@ -1,5 +1,5 @@
 'use strict';
-const form = document.querySelector('form');
+const form = document.querySelector('#dynamic');
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
