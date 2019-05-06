@@ -79,6 +79,7 @@ app.use('/product', (req, res) => {
                 req.body.price,
                 1, // dummy userID
                 ];
+            console.log(data);
                 query.insertProduct(data, res);
 });
 
