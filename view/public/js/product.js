@@ -1,16 +1,16 @@
 'use strict';
 
-const productForm = document.querySelector('#productAdd');
+const productForm = document.querySelector('#addProduct');
 // insert a form
 const productAdd = (evt) => {
     // - prevents the form from sending
     evt.preventDefault();
 // - makes FormData -object and adds the file selected byt the user into the object
-    const proForm = new FormData(productForm);
+    const prodForm = new FormData(productForm);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
-        body: proForm,
+        body: prodForm,
     };
 
     fetch('product',options)
