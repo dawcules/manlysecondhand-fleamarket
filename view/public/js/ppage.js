@@ -47,7 +47,7 @@ const getprd = (evt) => {
 };
 
 const showBrand = (evt) => {
-  if (brandoptions.length === 0) {
+  if (brandoptions.length == 0) {
     console.log('Tässä merkki');
     for (let i=0;i++;i<brandlist) {
       console.log('listan 1 ' + i);
@@ -60,7 +60,7 @@ const showBrand = (evt) => {
       select.appendChild(brandoptions[i])
     }
   }
-  if (select.style.display === '') {
+  if (select.style.display == '') {
     select.style.display = 'inline'
   }
   else { select.style.display = "n"}
