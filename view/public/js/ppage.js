@@ -1,13 +1,14 @@
 'use strict';
 const form = document.querySelector('form');
 
-console.log('selected brand ' + selected);
+//
 
 
 const getprd = (evt) => {
   evt.preventDefault();
   const brand = document.getElementById('brandname');
   const selected = brand.options[brand.selectedIndex].value;
+  console.log('selected brand ' + selected);
   fetch('getproduct', {
     method: "post",
     headers: {
