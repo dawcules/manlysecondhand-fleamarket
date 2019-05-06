@@ -4,7 +4,8 @@ const brand = document.getElementById('brandname')[0].value;
 console.log('selected brand ' + brand);
 
 
-const getprd = (brand) => {
+const getprd = (evt, brand) => {
+  evt.preventDefault();
   fetch('getproduct', {
     method: "post",
     headers: {
