@@ -9,7 +9,7 @@ const productAdd = (evt) => {
         body: proForm,
     };
 
-    fetch('./product', settings).then((response) => {
+    fetch('product', settings).then((response) => {
         return response.json();
     }).then((json) => {
         console.log(json);
@@ -33,7 +33,7 @@ const imageAdd = (evt) => {
         body: imgForm,
     };
 
-    fetch('./image',options)
+    fetch('image',options)
         .then(response =>{
             return response.json();
         })

@@ -89,20 +89,19 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).
-        // asd
-    then(data => {
+    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).then(data => {
         next();
     });
 });
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, '/view/public/medium/' + req.file.filename).
+    resize.makeResize(req.file.path, 640, 'view/public/medium/' + req.file.filename).
     then(data => {
         next();
     });
 });
+
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
@@ -128,14 +127,11 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [2];
-  const q = query.selectProductInfo(data, (result) => {
-    // query ei valmistu ennen koodin jatkumista
-    console.log('2. queryn jälkeen');
-    console.log('3. tulos on ' + result);
-    console.log('4. käyttäjä on: ' + result[0]);
-    res.json(result);
-  });
-
+  const q = query.selectProductInfo(data, (res));
+  console.log('2. queryn jälkeen');
+  console.log('3. tulos on ' + q);
+  console.log('4. käyttäjä on: ' + q[0]);
+  res.send(q);
 });
 
 app.listen(3000); //normal http traffic
