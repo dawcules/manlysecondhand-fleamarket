@@ -42,6 +42,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.post('/login', pass.login, (req, res) => {
   console.log('login consolessa on käyty');
   console.log(req.session.user);
@@ -85,6 +86,7 @@ app.use('/product', (req, res) => {
 app.post('/image', upload.single('imgA'), (req, res, next) => {
     next();
 });
+/*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '/app/thumbs/' + req.file.filename).
@@ -100,19 +102,20 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
+*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
     const data = [
         req.body.title,
-        'uploads/' + req.file.imgA,
+        'uploads/' + req.file.filename,
         req.body.title,
-        'thumbs/' + req.file.imgA,
-        'medium/' + req.file.imgA,
+        'thumbs/' + req.file.filename,
+        'medium/' + req.file.filename,
         1, // dummy product ide
     ];
     query.insertImage(data, res);
-    console.log(data);
+    console.log(data)
 });
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
     res.send('Upload successful', req.file);
@@ -125,8 +128,7 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [2];
-  const q = query.selectProductInfo(data);
-  // query ei valmistu ennen koodin jatkumista
+  const q = query.selectProductInfo(data, (res));
   console.log('2. queryn jälkeen');
   console.log('3. tulos on ' + q);
   console.log('4. käyttäjä on: ' + q[0]);
