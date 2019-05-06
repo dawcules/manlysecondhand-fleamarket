@@ -7,9 +7,10 @@
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form action="product" id="productAdd" method = "post" enctype="multipart/form-data">
+<form action="product" id="productAdd" class="formi-style" method = "post">
     <fieldset>
         <legend> Add a product for sale / giveaway</legend>
+        <br>
         <label for ="name">Name of the product</label>
         <input type="text" id="name" name="name" autofocus required size="30"/>
         <br>
@@ -27,11 +28,12 @@
         <span class="note">Rate the condition of the product on scale of 1-10</span>
         <br>
         <label for="price">Price</label>
-        <input type="number" id ="price" name="price" size="10"/>
+        <input type="number" id ="price" name="price" size="10" pattern="^[0-9]$|^[1-9][0-9]$|^(100)$"/>
         <br>
-        <button type="submit">Submit Product</button>
+        <button type="submit" id="sendBtn">Submit Product</button>
     </fieldset>
 </form>
+<br>
 <form action="image" id = "imageAdd" method="post" enctype="multipart/form-data">
     <fieldset>
             <input type="text" name="title" placeholder="title">

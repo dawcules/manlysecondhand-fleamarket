@@ -12,8 +12,6 @@ const itemsMenu = () =>{
         menu.classList.toggle('items-menu-active');
     });
 };
-
-
 const app = () =>{
     LoginRegister();
     itemsMenu();

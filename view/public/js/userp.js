@@ -1,6 +1,6 @@
 'use strict';
 let udata = null;
-alert('Success');
+window.alert('Successfully logged in');
 
 fetch('getsession', {
   credentials: 'include'

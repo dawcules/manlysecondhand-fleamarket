@@ -50,7 +50,7 @@ app.post('/login', pass.login, (req, res) => {
 app.post('/register', pass.register, pass.login);
 
 //Handling post form when form is submitted
-const upload = multer({dest: 'public/uploads/'});
+const upload = multer({dest: 'view/public/uploads/'});
 
 /*
 app.get('/', (req, res) => {
@@ -67,8 +67,8 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('/app/userpage.html');
 });
 
-app.post('/product', (req, res,next) => {
-            // lisää tuotteen tiedot tietokantaan //name, brand, description, "not",condition,ptype,price, "8"
+app.use('/product', (req, res) => {
+            // lisää tuotteen tiedot tietokantaan
             const data = [
                 req.body.name,
                 req.body.brand,
@@ -87,24 +87,20 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
     console.log("adding the image");
     next();
 });
-/*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).then(data => {
-        console.log("first resize");
+    resize.makeResize(req.file.path, 300, 'view/public/thumbs/' + req.file.filename).then(data => {
         next();
     });
 });
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, '/view/public/medium/' + req.file.filename).
-        console.log("Second Resize");
+    resize.makeResize(req.file.path, 640, 'view/public/medium/' + req.file.filename).
     then(data => {
         next();
     });
 });
-*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
@@ -120,11 +116,6 @@ app.use('/image', (req, res, next) => {
     query.insertImage(data, res);
     console.log(data)
 });
-/*
-app.post('/uploads', upload.single('myImages'),(req, res) =>{
-    res.send('Upload successful', req.file);
-});
-*/
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
