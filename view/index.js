@@ -89,14 +89,14 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
 });
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).then(data => {
+    resize.makeResize(req.file.path, 300, 'view/public/thumbs/' + req.file.filename).then(data => {
         next();
     });
 });
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, '/view/public/medium/' + req.file.filename).
+    resize.makeResize(req.file.path, 640, 'view/public/medium/' + req.file.filename).
     then(data => {
         next();
     });
