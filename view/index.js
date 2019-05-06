@@ -90,7 +90,7 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
 
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).then(data => {
+    resize.makeResize(req.imgA.path, 300, '/view/public/thumbs/' + req.imgA.filename).then(data => {
         console.log("first resize");
         next();
     });
@@ -98,7 +98,7 @@ app.use('/image', (req, res, next) => {
 
 app.use('/image', (req, res, next) => {
     // tee iso thumbnail
-    resize.makeResize(req.file.path, 640, '/view/public/medium/' + req.file.filename).
+    resize.makeResize(req.imgA.path, 640, '/view/public/medium/' + req.imgA.filename).
         console.log("Second Resize");
     then(data => {
         next();
@@ -108,12 +108,13 @@ app.use('/image', (req, res, next) => {
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
+    console.log("adding image to the database")
     const data = [
         req.body.title,
-        'uploads/' + req.file.filename,
+        'uploads/' + req.imgA.filename,
         req.body.title,
-        'thumbs/' + req.file.filename,
-        'medium/' + req.file.filename,
+        'thumbs/' + req.imgA.filename,
+        'medium/' + req.imgA.filename,
         1, // dummy product ide
     ];
     query.insertImage(data, res);
