@@ -4,7 +4,7 @@ const brand = document.getElementById('brandname')[0].value;
 console.log('selected brand ' + brand);
 
 
-const getprd = (evt, brand) => {
+const getprd = (evt) => {
   evt.preventDefault();
   fetch('getproduct', {
     method: "post",
@@ -33,4 +33,4 @@ const getprd = (evt, brand) => {
   });
 };
 
-form.addEventListener('submit', getprd(brand));
+form.addEventListener('submit', getprd);
