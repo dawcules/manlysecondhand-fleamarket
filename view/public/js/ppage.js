@@ -1,7 +1,7 @@
 'use strict';
 
 fetch('getproduct', {
-  credentials: 'include'
+  //credentials: 'include'
   //tänne jonneki muuttujat hakuun
 }).then((res) => {
   return res.json();
