@@ -125,8 +125,10 @@ app.get('/getsession', (req, res) => {
 });
 
 app.get('/getproduct', (req, res, callback) => {
+  console.log('1. Funktio alkaa');
   const data = [2];
   const q = query.selectProductInfo(data, callback);
+  console.log('2. ');
   console.log(q);
   res.send(q);
 });

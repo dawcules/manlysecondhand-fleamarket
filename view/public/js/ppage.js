@@ -1,12 +1,12 @@
 'use strict';
 
-fetch('getproduct')
+fetch('getproduct', {
+  credentials: 'include'
   //tänne jonneki muuttujat hakuun
-.then((res) => {
-  return res;
 }).then((res) => {
-  console.log(res.body);
-  const pdata = res;
+  return res.json();
+}).then((json) => {
+  const pdata = json;
   const title = document.createElement('p');
   title.setAttribute('id','title');
   title.innerText(pdata.Description);
