@@ -7,7 +7,7 @@
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form action="product" class="productAdd">
+<form action="product" id="productAdd">
     <fieldset>
         <legend> Add a product for sale / giveaway</legend>
         <label for ="name">Name of the product</label>
@@ -30,16 +30,16 @@
         <label for="price">Price</label>
         <input type="number" id ="price" name="price" size="10"/>
         <br>
-        <input type="submit" value="Send">
+        <button type="submit" disabled>Submit Product</button>
     </fieldset>
 </form>
-<form action="image" class = "imageAdd">
+<form action="image" id = "imageAdd">
     <fieldset>
             <input type="text" name="" placeholder="Title">
             <label class="button">Select image
                 <input type="file" name="imgA" id="imgA" accept="image/*">
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled>Submit Image</button>
     </fieldset>
 </form>
 </body>
