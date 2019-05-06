@@ -49,6 +49,7 @@ const getprd = (evt) => {
 const showBrand = (evt) => {
   if (brandoptions.length == 0) {
     console.log('Tässä merkki');
+    console.log(brandlist.length);
     for (let i=0;i++;i<brandlist.length) {
       console.log('listan 1 ' + i);
       brandoptions[i] = document.createElement('option');
