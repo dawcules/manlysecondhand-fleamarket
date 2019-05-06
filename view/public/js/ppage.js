@@ -5,7 +5,7 @@ fetch('getproduct')
 .then((res) => {
   return res;
 }).then((res) => {
-  console.log(res);
+  console.log(res.body);
   const pdata = res;
   const title = document.createElement('p');
   title.setAttribute('id','title');
