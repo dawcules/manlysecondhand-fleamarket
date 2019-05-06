@@ -127,7 +127,6 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res, callback) => {
   const data = [2];
   const q = query.selectProductInfo(data, callback);
-  callback();
   console.log(q);
   res.json(q);
 });
