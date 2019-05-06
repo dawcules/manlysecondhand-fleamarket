@@ -90,6 +90,7 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.file.filename).
+        // asd
     then(data => {
         next();
     });
