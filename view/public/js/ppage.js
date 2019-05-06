@@ -1,9 +1,8 @@
 'use strict';
 
-fetch('getproduct', {
-  credentials: 'include'
+fetch('getproduct')
   //tänne jonneki muuttujat hakuun
-}).then((res) => {
+.then((res) => {
   return res.json();
 }).then((json) => {
   console.log('ppage json on ' + json);
