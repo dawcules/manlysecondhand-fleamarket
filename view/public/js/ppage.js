@@ -1,6 +1,7 @@
 'use strict';
 const form = document.querySelector('form');
-const brand = document.getElementById('brandname')[0].value;
+const brand = document.getElementById('brandname');
+const selected = brand.options[brand.selectedIndex].value;
 console.log('selected brand ' + brand);
 
 
@@ -13,7 +14,7 @@ const getprd = (evt) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      brand: brand
+      brand: selected
     })
   }).then((res) => {
     return res.json();
