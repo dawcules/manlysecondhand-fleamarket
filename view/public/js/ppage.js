@@ -5,7 +5,7 @@ fetch('getproduct')
 .then((res) => {
   return res;
 }).then((res) => {
-  console.log('ppage json on ' + res);
+  console.log(res);
   const pdata = res;
   const title = document.createElement('p');
   title.setAttribute('id','title');
