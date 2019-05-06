@@ -42,7 +42,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 app.post('/login', pass.login, (req, res) => {
   console.log('login consolessa on käyty');
   console.log(req.session.user);
@@ -86,7 +85,6 @@ app.use('/product', (req, res) => {
 app.post('/image', upload.single('imgA'), (req, res, next) => {
     next();
 });
-/*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '/app/thumbs/' + req.file.filename).
@@ -102,20 +100,19 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
-*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
     const data = [
         req.body.title,
-        'uploads/' + req.file.filename,
+        'uploads/' + req.file.imgA,
         req.body.title,
-        'thumbs/' + req.file.filename,
-        'medium/' + req.file.filename,
+        'thumbs/' + req.file.imgA,
+        'medium/' + req.file.imgA,
         1, // dummy product ide
     ];
     query.insertImage(data, res);
-    console.log(data)
+    console.log(data);
 });
 app.post('/uploads', upload.single('myImages'),(req, res) =>{
     res.send('Upload successful', req.file);
