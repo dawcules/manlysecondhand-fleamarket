@@ -1,4 +1,5 @@
 'use strict';
+/*
 const productForm = document.querySelector('#productAdd');
 // insert a form
 const productAdd = (evt) => {
@@ -22,7 +23,7 @@ const productAdd = (evt) => {
 };
 
 productForm.addEventListener('submit', productAdd);
-
+*/
 const imageForm = document.querySelector('#imageAdd');
 const image = document.getElementById('imgA');
 // make function 'upload' which
