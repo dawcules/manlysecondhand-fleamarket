@@ -128,13 +128,11 @@ app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
 
-app.get('/getproduct', (req, res) => {
+app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
-  const data = [2];
+  const data = [req.body.brand];
   const q = query.selectProductInfo(data, (result) => {
   console.log('2. queryn jälkeen');
-  console.log('3. tulos on ' + result);
-  console.log('4. käyttäjä on: ' + result[0]);
   res.send(result);
 })});
 

@@ -1,8 +1,10 @@
 'use strict';
 
 fetch('getproduct', {
-  //credentials: 'include'
-  //tänne jonneki muuttujat hakuun
+  method: "post",
+  body: JSON.stringify({
+    brand: "Nike"
+  })
 }).then((res) => {
   return res.json();
 }).then((json) => {
