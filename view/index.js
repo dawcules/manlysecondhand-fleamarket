@@ -67,7 +67,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('/app/userpage.html');
 });
 
-app.post('/product', (req, res,next) => {
+app.use('/product', (req, res) => {
             // lisää tuotteen tiedot tietokantaan //name, brand, description, "not",condition,ptype,price, "8"
             const data = [
                 req.body.name,
@@ -116,11 +116,6 @@ app.use('/image', (req, res, next) => {
     query.insertImage(data, res);
     console.log(data)
 });
-/*
-app.post('/uploads', upload.single('myImages'),(req, res) =>{
-    res.send('Upload successful', req.file);
-});
-*/
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
