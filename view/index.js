@@ -136,7 +136,7 @@ app.get('/getproduct', (req, res) => {
   console.log('3. tulos on ' + result);
   console.log('4. käyttäjä on: ' + result[0]);
   res.send(result);
-});
+})});
 
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
