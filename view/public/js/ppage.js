@@ -2,7 +2,7 @@
 const form = document.querySelector('form');
 const brand = document.getElementById('brandname');
 const selected = brand.options[brand.selectedIndex].value;
-console.log('selected brand ' + brand);
+console.log('selected brand ' + selected);
 
 
 const getprd = (evt) => {
