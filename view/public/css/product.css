@@ -1,6 +1,6 @@
 
 
-.productAdd{
+#productAdd{
     display: block;
     color: azure;
     top: 12vh;
@@ -10,7 +10,7 @@
     align-items:  center;
     width:30%;
 }
-.imageAdd{
+#imageAdd{
     display: block;
     color: azure;
     top: 12vh;
