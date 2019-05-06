@@ -124,9 +124,9 @@ app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
 
-app.get('/getproduct', (req, res) => {
+app.get('/getproduct', (req, res, callback) => {
   const data = [2];
-  const q = query.selectProductInfo(data, res);
+  const q = query.selectProductInfo(data, callback);
   console.log(q);
   res.json(q[0]);
 });
