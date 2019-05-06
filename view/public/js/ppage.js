@@ -1,6 +1,6 @@
 'use strict';
 const form = document.querySelector('form');
-const brand = document.getElementsByName('brandname');
+const brand = document.getElementById('brandname')[0].value;
 
 
 const getprd = () => {
