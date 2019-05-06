@@ -128,11 +128,16 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res, callback) => {
   console.log('1. Funktio alkaa');
   const data = [2];
-  const q = query.selectProductInfo(data, callback);
+  const q = () => {
+    const cont = query.selectProductInfo(data, callback);
+    console.log('1.2 callback: ' + cont);
+    return cont;
+  };
+  const pdata = q();
   console.log('2. queryn jälkeen');
-  console.log('3. tulos on ' + q);
-  console.log('4. käyttäjä on: ' + q[0]);
-  res.send(q);
+  console.log('3. tulos on ' + pdata);
+  console.log('4. käyttäjä on: ' + pdata[0]);
+  res.send(pdata);
 });
 
 app.listen(3000); //normal http traffic
