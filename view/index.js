@@ -67,7 +67,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
   res.redirect('/app/userpage.html');
 });
 
-app.use('/product', (req, res) => {
+app.post('/product', (req, res) => {
             // lisää tuotteen tiedot tietokantaan //name, brand, description, "not",condition,ptype,price, "8"
             const data = [
                 req.body.name,
