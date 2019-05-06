@@ -8,7 +8,7 @@ const productAdd = (evt) => {
     const proForm = new FormData(productForm);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
-        method: 'use',
+        method: 'add',
         body: proForm,
     };
 
@@ -18,11 +18,10 @@ const productAdd = (evt) => {
         })
         .then(json => {
             console.log(json);
-            message.innerHTML = json.message;
         });
 };
 
-
+productForm.addEventListener('submit', productAdd);
 
 const imageForm = document.querySelector('#imageAdd');
 const image = document.getElementById('imgA');
@@ -53,4 +52,3 @@ const imageAdd = (evt) => {
 
 // make an event listener which calls upload function when the form is submitted
 imageForm.addEventListener('submit', imageAdd);
-productForm.addEventListener('submit', productAdd);
