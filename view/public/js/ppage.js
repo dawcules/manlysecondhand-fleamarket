@@ -63,7 +63,7 @@ const showBrand = (evt) => {
     select.setAttribute('id','brandname');
     form.appendChild(select)
   }
-  if (select.style.display == '') {
+  if (select.style.display =! 'inline') {
     select.style.display = 'inline'
   }
   else { select.style.display = "none"}
