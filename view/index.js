@@ -74,9 +74,9 @@ app.use('/product', (req, res) => {
                 req.body.brand,
                 req.body.description,
                 "not",
-                req.body.condition.parseInt(),
+                parseInt(req.body.condition),
                 req.body.ptype,
-                req.body.price.parseInt(),
+                parseInt(req.body.price),
                 8, // dummy userID
                 ];
             console.log(data);
