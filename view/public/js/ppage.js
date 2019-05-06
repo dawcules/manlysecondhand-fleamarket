@@ -3,10 +3,10 @@
 fetch('getproduct')
   //tänne jonneki muuttujat hakuun
 .then((res) => {
-  return res.json();
-}).then((json) => {
-  console.log('ppage json on ' + json);
-  const pdata = json;
+  return res;
+}).then((res) => {
+  console.log('ppage json on ' + res);
+  const pdata = res;
   const title = document.createElement('p');
   title.setAttribute('id','title');
   title.innerText(pdata.Description);
