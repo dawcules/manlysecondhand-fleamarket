@@ -8,7 +8,7 @@ const productAdd = (evt) => {
     const proForm = new FormData(productForm);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
-        method: 'add',
+        method: 'use',
         body: proForm,
     };
 
