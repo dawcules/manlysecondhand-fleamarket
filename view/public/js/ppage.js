@@ -56,9 +56,11 @@ const showBrand = (evt) => {
       brandoptions[i].innerText = brandlist[i];
       brandoptions[i].value = brandlist[i];
     }
-    for (let i=0;i < brandoptions.length;i++) {
-      console.log('listan 2 ' + i);
-      select.appendChild(brandoptions[i])
+    if (select.childElementCount === 0) {
+      for (let i = 0; i < brandoptions.length; i++) {
+        console.log('listan 2 ' + i);
+        select.appendChild(brandoptions[i])
+      }
     }
     select.setAttribute('id','brandname');
     form.appendChild(select)
@@ -68,7 +70,7 @@ const showBrand = (evt) => {
   }
   else {
     select.style.display = "none";
-  form.removeChild(select)
+  form.removeChild(select);
     brandoptions = [];
   }
 };
