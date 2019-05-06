@@ -129,8 +129,9 @@ app.get('/getproduct', (req, res, callback) => {
   console.log('1. Funktio alkaa');
   const data = [2];
   const q = query.selectProductInfo(data, callback);
-  console.log('2. ');
-  console.log(q);
+  console.log('2. queryn jälkeen');
+  console.log('3. tulos on ' + q);
+  console.log('4. käyttäjä on: ' + q[0]);
   res.send(q);
 });
 
