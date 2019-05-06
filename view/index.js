@@ -125,6 +125,8 @@ app.get('/getsession', (req, res) => {
 });
 
 app.get('/getproduct', (req, res, callback) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   const data = [2];
   const q = query.selectProductInfo(data, callback);
   console.log(q);
