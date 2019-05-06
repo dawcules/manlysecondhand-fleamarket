@@ -1,6 +1,6 @@
 'use strict';
 let udata = null;
-alert('Success');
+window.alert('Successfully logged in');
 
 fetch('getsession', {
   credentials: 'include'
@@ -15,6 +15,7 @@ fetch('getsession', {
   heyuser.innerText = 'Welcome ' + udata.UserName;
   const bod = document.querySelector('body');
   bod.appendChild(heyuser);
+
 });
 
 
