@@ -68,7 +68,7 @@ app.get('/user', pass.loggedIn, (req, res) => {
 });
 
 app.use('/product', (req, res) => {
-            // lisää tuotteen tiedot tietokantaan
+            // lisää tuotteen tiedot tietokantaan //name, brand, description, "not",condition,ptype,price, "8"
             const data = [
                 req.body.name,
                 req.body.brand,
@@ -77,7 +77,7 @@ app.use('/product', (req, res) => {
                 req.body.condition,
                 req.body.ptype,
                 req.body.price,
-                1, // dummy userID
+                8, // dummy userID
                 ];
             console.log(data);
                 query.insertProduct(data, res);
