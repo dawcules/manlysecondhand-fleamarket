@@ -90,7 +90,7 @@ app.post('/image', upload.single('imgA'), (req, res, next) => {
 /*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
-    resize.makeResize(req.imgA.path, 300, '/view/public/thumbs/' + req.imgA.filename).then(data => {
+    resize.makeResize(req.file.path, 300, '/view/public/thumbs/' + req.imgA.filename).then(data => {
         console.log("first resize");
         next();
     });
@@ -111,10 +111,10 @@ app.use('/image', (req, res, next) => {
     console.log("adding image to the database")
     const data = [
         req.body.title,
-        'uploads/' + req.imgA.filename,
+        'uploads/' + req.file,
         req.body.title,
-        'thumbs/' + req.imgA.filename,
-        'medium/' + req.imgA.filename,
+        'thumbs/' + req.file,
+        'medium/' + req.file,
         1, // dummy product ide
     ];
     query.insertImage(data, res);
