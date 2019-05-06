@@ -51,6 +51,7 @@ const login = (evt) => {
         console.log(json);
         getSession();
         console.log(udata);
+        window.alert("Welcome "+udata.username)
         // showHide(json);
     });
 };
