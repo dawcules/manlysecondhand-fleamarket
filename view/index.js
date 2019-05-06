@@ -127,12 +127,12 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [2];
-  const q = query.selectProductInfo(data, () => {
+  const q = query.selectProductInfo(data, (result) => {
     // query ei valmistu ennen koodin jatkumista
     console.log('2. queryn jälkeen');
-    console.log('3. tulos on ' + q);
-    console.log('4. käyttäjä on: ' + q[0]);
-    res.json(q);
+    console.log('3. tulos on ' + result);
+    console.log('4. käyttäjä on: ' + result[0]);
+    res.json(result);
   });
 
 });
