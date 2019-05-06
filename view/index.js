@@ -86,7 +86,7 @@ app.use('/product', (req, res) => {
 app.post('/image', upload.single('imgA'), (req, res, next) => {
     next();
 });
-
+/*
 app.use('/image', (req, res, next) => {
     // tee pieni thumbnail
     resize.makeResize(req.file.path, 300, '/app/thumbs/' + req.file.filename).
@@ -102,7 +102,7 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
-
+*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
