@@ -66,7 +66,7 @@ const showBrand = (evt) => {
   if (select.style.display == '') {
     select.style.display = 'inline'
   }
-  else { select.style.display = "n"}
+  else { select.style.display = "none"}
 };
 
 const showPrice = (evt) => {
