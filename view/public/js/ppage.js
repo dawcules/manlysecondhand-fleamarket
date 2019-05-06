@@ -5,7 +5,7 @@ const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
 const brandlist = ['Nike','Adidas','Reebok'];
-const brandoptions = [];
+let brandoptions = [];
 
 const select = document.createElement('select');
 
@@ -66,7 +66,11 @@ const showBrand = (evt) => {
   if (select.style.display != 'inline') {
     select.style.display = 'inline'
   }
-  else { select.style.display = "none"}
+  else {
+    select.style.display = "none";
+  form.removeChild(select)
+    brandoptions = [];
+  }
 };
 
 const showPrice = (evt) => {
