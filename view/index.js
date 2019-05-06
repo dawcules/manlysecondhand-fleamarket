@@ -102,7 +102,6 @@ app.use('/image', (req, res, next) => {
         next();
     });
 });
-*/
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
