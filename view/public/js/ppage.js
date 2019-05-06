@@ -60,6 +60,7 @@ const showBrand = (evt) => {
       console.log('listan 2 ' + i);
       select.appendChild(brandoptions[i])
     }
+    select.setAttribute('id','brandname');
     form.appendChild(select)
   }
   if (select.style.display == '') {
