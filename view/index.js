@@ -131,11 +131,11 @@ app.get('/getsession', (req, res) => {
 app.get('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [2];
-  const q = query.selectProductInfo(data, (res));
+  const q = query.selectProductInfo(data, (result) => {
   console.log('2. queryn jälkeen');
-  console.log('3. tulos on ' + q);
-  console.log('4. käyttäjä on: ' + q[0]);
-  res.send(q);
+  console.log('3. tulos on ' + result);
+  console.log('4. käyttäjä on: ' + result[0]);
+  res.send(result);
 });
 
 app.listen(3000); //normal http traffic
