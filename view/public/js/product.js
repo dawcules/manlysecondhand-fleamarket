@@ -1,6 +1,6 @@
 'use strict';
 
-const productForm = document.querySelector('#addProduct');
+const productForm = document.querySelector('#productAdd');
 // insert a form
 const productAdd = (evt) => {
     // - prevents the form from sending
