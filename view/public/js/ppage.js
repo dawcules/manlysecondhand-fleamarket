@@ -1,5 +1,6 @@
 'use strict';
-const form = document.querySelector('#dynamic');
+const form = document.querySelector('form');
+const dynamic = document.querySelector('#dynamic'); // muutettava hakukenttä
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
@@ -63,7 +64,7 @@ const showBrand = (evt) => {
       }
     }
     select.setAttribute('id','brandname');
-    form.appendChild(select)
+    dynamic.appendChild(select)
   }
   if (select.style.display != 'inline') {
     select.style.display = 'inline'
