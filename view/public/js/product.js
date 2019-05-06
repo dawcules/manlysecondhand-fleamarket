@@ -13,7 +13,7 @@ const productAdd = (evt) => {
         body: prodForm,
     };
 
-    fetch('product',options)
+    fetch('product', options)
         .then(response =>{
             return response.json();
         })
