@@ -2,8 +2,12 @@
 
 fetch('getproduct', {
   method: "post",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
   body: JSON.stringify({
-    brand: Nike
+    brand: "Nike"
   })
 }).then((res) => {
   return res.json();
