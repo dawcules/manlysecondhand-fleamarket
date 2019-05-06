@@ -56,6 +56,8 @@ const login = (evt) => {
     });
 };
 productForm.addEventListener('submit', login);
+
+// Function used for getting the user Session data
 const getSession = () => {
     fetch('getsession', {
         credentials: 'include'
