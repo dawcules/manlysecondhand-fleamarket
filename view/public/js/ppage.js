@@ -4,6 +4,10 @@ const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
+const brandlist = ['Nike','Adidas','Reebok'];
+const brandoptions = [];
+
+const select = document.createElement('select');
 
 
 const getprd = (evt) => {
@@ -43,7 +47,21 @@ const getprd = (evt) => {
 };
 
 const showBrand = (evt) => {
-  alert('Tässä merkki')
+  if (brandoptions.length === 0) {
+    //alert('Tässä merkki')
+    for (let i=0;i++;i<brandlist) {
+      brandoptions[i] = document.createElement('option');
+      brandoptions[i].innerText = brandlist[i];
+      brandoptions[i].value = brandlist[i];
+    }
+    for (let i=0;i++;i<brandoptions) {
+      select.appendChild(brandoptions[i])
+    }
+  }
+  if (select.style.display === '') {
+    select.style.display = 'inline'
+  }
+  else { select.style.display = "n"}
 };
 
 const showPrice = (evt) => {
