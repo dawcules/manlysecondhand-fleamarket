@@ -1,14 +1,19 @@
 'use strict';
 const form = document.querySelector('form');
-
-//
-
-
 const getprd = (evt) => {
+
   evt.preventDefault();
   const brand = document.getElementById('brandname');
   const selected = brand.options[brand.selectedIndex].value;
   console.log('selected brand ' + selected);
+
+
+
+
+
+
+
+
   fetch('getproduct', {
     method: "post",
     headers: {
@@ -16,11 +21,12 @@ const getprd = (evt) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      brand: selected
+      searchp: selected
     })
   }).then((res) => {
     return res.json();
   }).then((json) => {
+
     const pdata = json;
     const desc = document.createElement('p');
     const title = document.createElement('h2');
