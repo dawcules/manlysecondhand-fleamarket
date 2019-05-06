@@ -133,7 +133,7 @@ app.get('/getproduct', (req, res, callback) => {
     console.log('1.2 callback: ' + cont);
     return cont;
   };
-  const pdata = q();
+  const pdata = q(callback);
   console.log('2. queryn jälkeen');
   console.log('3. tulos on ' + pdata);
   console.log('4. käyttäjä on: ' + pdata[0]);
