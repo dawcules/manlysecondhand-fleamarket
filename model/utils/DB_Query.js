@@ -130,13 +130,11 @@ const selectProductInfo = (data, callback) => {
     connection.query(
         'SELECT * FROM Product WHERE pID = ?;',data, //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
         (err, results, fields) => {
-        if (err == null) {
-          console.log(results);
-            callback(results);
-        } else {
+          console.log('RESULTS' + results);
             console.log(err);
+          callback(results);
         }
-    },
+
 );
 };
 const selectUserProducts = (data,res)=>{
