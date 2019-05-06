@@ -3,7 +3,7 @@
 fetch('getproduct', {
   method: "post",
   body: JSON.stringify({
-    brand: "Nike"
+    brand: Nike
   })
 }).then((res) => {
   return res.json();
