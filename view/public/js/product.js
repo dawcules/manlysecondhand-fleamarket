@@ -1,5 +1,5 @@
 'use strict';
-const productForm = document.querySelector('#productAdd');
+const productForm = document.querySelector('.productAdd');
 // insert a form
 const productAdd = (evt) => {
     evt.preventDefault();
