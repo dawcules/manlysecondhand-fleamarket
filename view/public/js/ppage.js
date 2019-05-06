@@ -3,8 +3,7 @@ const form = document.querySelector('form');
 const brand = document.getElementById('brandname')[0].value;
 
 
-const getprd = () => {
-  const brand =
+const getprd = (brand) => {
   fetch('getproduct', {
     method: "post",
     headers: {
@@ -32,4 +31,4 @@ const getprd = () => {
   });
 };
 
-form.addEventListener('submit', getprd);
+form.addEventListener('submit', getprd(brand));
