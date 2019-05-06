@@ -50,13 +50,13 @@ const showBrand = (evt) => {
   if (brandoptions.length == 0) {
     console.log('Tässä merkki');
     console.log(brandlist.length);
-    for (let i=0;i++;i<brandlist.length) {
+    for (let i=0;i++;i in brandlist.length) {
       console.log('listan 1 ' + i);
       brandoptions[i] = document.createElement('option');
       brandoptions[i].innerText = brandlist[i];
       brandoptions[i].value = brandlist[i];
     }
-    for (let i=0;i++;i<brandoptions.length) {
+    for (let i=0;i++;i in brandoptions.length) {
       console.log('listan 2 ' + i);
       select.appendChild(brandoptions[i])
     }
