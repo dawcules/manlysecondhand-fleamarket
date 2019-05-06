@@ -9,7 +9,7 @@ fetch('getproduct', {
   const pdata = json;
   const title = document.createElement('p');
   title.setAttribute('id','title');
-  title.innerText(pdata.Description);
+  title.innerText = pdata.Description ;
   const dv = document.querySelector('div');
   dv.appendChild(title);
   //tänne printit
