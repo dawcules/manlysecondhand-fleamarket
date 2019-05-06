@@ -2,19 +2,24 @@
 const productForm = document.querySelector('#productAdd');
 // insert a form
 const productAdd = (evt) => {
+    // - prevents the form from sending
     evt.preventDefault();
+// - makes FormData -object and adds the file selected byt the user into the object
     const proForm = new FormData(productForm);
-    const settings = {
+// - send the file to the same url as in task a by using fetch -method
+    const options = {
         method: 'post',
         body: proForm,
     };
 
-    fetch('product', settings).then((response) => {
-        return response.json();
-    }).then((json) => {
-        console.log(json);
-        productForm.reset();
-    });
+    fetch('product',options)
+        .then(response =>{
+            return response.json();
+        })
+        .then(json => {
+            console.log(json);
+            message.innerHTML = json.message;
+        });
 };
 
 
