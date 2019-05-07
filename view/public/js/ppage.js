@@ -13,9 +13,9 @@ const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
-const condMin = document.createElement('input').setAttribute('placeholder','Cond min');
+const condMin = document.createElement('input');
 
-const condMax = document.createElement('input').setAttribute('placeholder','Cond max');
+const condMax = document.createElement('input');
 const condDiv = document.createElement('div');
 
 
