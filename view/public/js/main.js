@@ -3,7 +3,6 @@
 let uData = null;
 const logReg = document.querySelector('.logReg')
 const loggedIn = document.querySelector('.loggedIn')
-
 const registerForm = document.querySelector('#register');
 // insert a form
 const register = (evt) => {
@@ -54,9 +53,6 @@ const login = (evt) => {
         getSession();
         console.log(udata);
         window.alert("Welcome "+udata.username);
-        loggedIn.innerHTML = udata.username;
-        loggedIn.classList.toggle('loggedIn-display');
-        logReg.classList.toggle('logReg-display')
         // showHide(json);
     });
 };
@@ -76,9 +72,21 @@ const getSession = () => {
         window.alert('Successfully logged in');
     });
 };
+const changeLayout = () =>{
+    if(udata != null) {
+        loggedIn.innerHTML = udata.username;
+        loggedIn.classList.toggle('loggedIn-display');
+        logReg.classList.toggle('logReg-display');
+    }else{
+        console.log("nothing to do");
+    }
+};
 
-
-
+const app = () => {
+    getSession();
+    changeLayout();
+};
+app();
 
 
 
