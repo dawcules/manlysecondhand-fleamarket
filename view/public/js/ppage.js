@@ -143,7 +143,7 @@ const showType = (evt) => {
       }
     }
     selectType.setAttribute('id','brandname');
-    dynamic.appendChild(selectBrand)
+    dynamic.appendChild(selectType)
   }
   if (selectType.style.display != 'inline') {
     selectType.style.display = 'inline'
