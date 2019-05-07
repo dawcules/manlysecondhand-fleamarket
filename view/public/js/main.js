@@ -1,6 +1,8 @@
 'use strict';
 
 let uData = null;
+const logReg = document.querySelector('.logReg')
+const loggedIn = document.querySelector('.loggedIn')
 
 const registerForm = document.querySelector('#register');
 // insert a form
@@ -51,7 +53,10 @@ const login = (evt) => {
         console.log(json);
         getSession();
         console.log(udata);
-        window.alert("Welcome "+udata.username)
+        window.alert("Welcome "+udata.username);
+        loggedIn.innerHTML = udata.username;
+        loggedIn.classList.toggle('loggedIn-display');
+        logReg.classList.toggle('logReg-display')
         // showHide(json);
     });
 };

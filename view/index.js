@@ -64,7 +64,8 @@ app.get('/user', pass.loggedIn, (req, res) => {
   const sess = req.session.user;
   console.log('userp app käyty');
   console.log(sess.UserName);
-  res.redirect('/app/userpage.html');
+  res.send("Yes")
+  /* res.redirect('/app/userpage.html'); */
 });
 
 app.use('/product', (req, res) => {
