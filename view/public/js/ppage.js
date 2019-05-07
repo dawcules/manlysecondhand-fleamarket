@@ -9,6 +9,8 @@ const brandlist = ['Nike','Adidas','Reebok'];
 let brandoptions = [];
 
 const select = document.createElement('select');
+const priceMin = document.createElement('input');
+const priceMax = document.createElement('input');
 
 
 const getprd = (evt) => {
@@ -77,7 +79,11 @@ const showBrand = (evt) => {
 };
 
 const showPrice = (evt) => {
-  alert('Tässä hinta')
+  priceMin.setAttribute('type','number');
+  priceMax.setAttribute('type','number');
+  dynamic.appendChild(priceMin);
+  dynamic.appendChild(priceMax);
+  console.log('Tässä hinta')
 };
 
 const showCond = (evt) => {
@@ -88,10 +94,6 @@ const showType = (evt) => {
   alert('Tässä tyyppi')
 };
 
-/*<button type="submit" id="pbrand">Brand</button>
-      <button type="submit" id="pprice">Price</button>
-      <button type="submit" id="pcond">Condition</button>
-      <button type="submit" id="ptype">Type</button>*/
 
 
 form.addEventListener('submit', getprd);
