@@ -70,22 +70,18 @@ const getSession = () => {
         udata = json;
         console.log(udata.UserName);
         //showHide(json);
+        changeLayout();
         window.alert('Successfully logged in');
     });
 };
 const changeLayout = () =>{
-    if(udata !== null) {
         loggedIn.innerHTML = udata.username;
         document.querySelector('.loggedIn').style.display = "block";
         document.querySelector('.logReg').style.display = "none";
-    }else{
-        console.log("nothing to do");
-    }
 };
 
 const mainApp = () => {
     getSession();
-    changeLayout();
 };
 mainApp();
 
