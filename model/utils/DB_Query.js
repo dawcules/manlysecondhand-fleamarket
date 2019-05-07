@@ -130,7 +130,7 @@ const selectProductInfo = (data,callback) => {
     console.log(data);
     data = data.toString();
     connection.query(
-        'SELECT * FROM Product WHERE ??;',data,
+        'SELECT * FROM Product WHERE ?;',data,
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);
