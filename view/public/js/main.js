@@ -76,10 +76,8 @@ const getSession = () => {
 const changeLayout = () =>{
     if(udata !== null) {
         loggedIn.innerHTML = udata.username;
-        loggedIn.style.display = "block";
-        logReg.style.display = "none";
-        console.log(loggedIn.style.display);
-        console.log(logReg.style.display);
+        document.querySelector('.loggedIn').style.display = "block";
+        document.querySelector('.logReg').style.display = "none";
     }else{
         console.log("nothing to do");
     }
