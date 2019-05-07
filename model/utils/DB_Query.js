@@ -132,7 +132,7 @@ const selectProductInfo = (sql,callback) => {
     connection.query(
         sql,
         (err, results, fields) => {
-          console.log('RESULTS' + results[0]);
+          console.log('RESULTS ' + results.value);
             console.log(err);
           callback(results);
         }
