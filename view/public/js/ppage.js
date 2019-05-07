@@ -82,6 +82,7 @@ const showPrice = (evt) => {
   priceMin.setAttribute('type','number');
   priceMax.setAttribute('type','number');
   dynamic.appendChild(priceMin);
+  dynamic.appendChild(priceMax);
   console.log('Tässä hinta')
 };
 
