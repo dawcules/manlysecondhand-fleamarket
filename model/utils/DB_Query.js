@@ -134,7 +134,6 @@ const selectProductInfo = (data,callback) => {
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);
-            console.log(fields);
           callback(results[0]);
         }
  /* const selectedType = [type.options[type.selectedIndex].value];
