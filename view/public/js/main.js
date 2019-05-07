@@ -71,7 +71,6 @@ const login = (evt) => {
 loginForm.addEventListener('submit', login);
 
 // Function used for getting the user Session data
-/*
 const getSession = () => {
     fetch('getsession', {
         credentials: 'include'
@@ -79,22 +78,18 @@ const getSession = () => {
         return res.json();
     }).then((json) => {
         console.log(json);
-        udata = json;
+        uData = json;
         console.log(udata.UserName);
         //showHide(json);
-        changeLayout();
+        changeLayout(uData);
         window.alert('Successfully logged in');
     });
 };
-*/
 
-/*
 const mainApp = () => {
     getSession();
-    changeLayout();
 };
 mainApp();
-*/
 
 
 
