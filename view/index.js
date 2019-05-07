@@ -125,10 +125,41 @@ app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = req.body.searchp.toString();
   const qdata = data.split(",");
+  let q0;
+  let q1;
+  let q2;
+  let q3;
 
-  console.log('data on' + qdata);
-  console.log('data 0 on ' + qdata[0]);
-  query.selectProductInfo(qdata, (result) => {
+  if (qdata[0] != '*') {
+    q0 = 'pType = ' + qdata[0]
+  }
+  else {
+    q0 = ''
+  }
+  if (qdata[1] != '*') {
+    q1 = ' AND pBrand = ' + qdata[1]
+  }
+  else {
+    q1 = ''
+  }
+  if (qdata[2] != '*') {
+    q2 = ' AND pCondition BETWEEN ' + qdata + ' AND 10'
+  }
+  else {
+    q2 = ''
+  }
+  if (qdata[3] != '*' && qdata[4] != '*') {
+    q3 = ' AND Price BETWEEN ' +qdata[3] + ' AND ' +qdata[4]
+  }
+  else {
+    q3 = ''
+  }
+
+  const rdata = [q0+q1+q2+q3];
+
+
+  console.log('data on' + rdata);
+  query.selectProductInfo(rdata, (result) => {
   console.log('2. queryn jälkeen');
   res.send(result);
 })});
