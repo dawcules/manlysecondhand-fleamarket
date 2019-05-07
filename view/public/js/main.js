@@ -76,8 +76,8 @@ const getSession = () => {
 const changeLayout = () =>{
     if(udata != null) {
         loggedIn.innerHTML = udata.username;
-        loggedIn.classList.toggle('loggedIn-display');
-        logReg.classList.toggle('logReg-display');
+        loggedIn.style.display = "block";
+        logReg.style.display = "none";
     }else{
         console.log("nothing to do");
     }
