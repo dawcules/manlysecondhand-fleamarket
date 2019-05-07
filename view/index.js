@@ -47,7 +47,7 @@ app.post('/login', pass.login, (req, res) => {
   console.log('login consolessa on käyty');
   console.log(req.session.user);
 });
-app.post('/register', pass.register, pass.login);
+app.post('/register', pass.register);
 
 //Handling post form when form is submitted
 const upload = multer({dest: 'view/public/uploads/'});
