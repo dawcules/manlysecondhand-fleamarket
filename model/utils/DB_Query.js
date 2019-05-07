@@ -132,7 +132,7 @@ const selectProductInfo = (data,callback) => {
         'SELECT * FROM Product WHERE ?;' //pType = ? AND pBrand = ? AND pCondition BETWEEN ? AND 10 AND Price BETWEEN ? AND ?;',data, pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
   ,data,
         (err, results, fields) => {
-          console.log('RESULTS' + results[0]);
+          console.log('RESULTS' + results);
             console.log(err);
           callback(results[0]);
         }
