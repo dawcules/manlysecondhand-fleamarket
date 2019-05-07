@@ -7,7 +7,7 @@ const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
 
 const brandlist = ['Nike','Adidas','Reebok'];
-const typelist = ['Shirts','Pants','Coats','Accessories'];
+const typelist = ['Shirts','Pants','Coats','Accessories', 'Shoes'];
 let brandoptions = [];
 let typeoptions = [];
 const selectBrand = document.createElement('select');
@@ -24,9 +24,11 @@ const condDiv = document.createElement('div');
 
 const getprd = (evt) => {
 
+
+
   evt.preventDefault();
   const brand = document.getElementById('brandname');
-  const selected = brand.options[brand.selectedIndex].value;
+  const selected = [brand.options[brand.selectedIndex].value];
   console.log('selected brand ' + selected);
 
 
@@ -37,7 +39,7 @@ const getprd = (evt) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      searchp: selected
+      searchp: [selected]
     })
   }).then((res) => {
     return res.json();
@@ -95,6 +97,7 @@ const showPrice = (evt) => {
   else {
     priceMin.setAttribute('type', 'number');
     priceMin.setAttribute('placeholder', 'Price min');
+    priceMin.setAttribute
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
     priceDiv.setAttribute('id','pricediv');
