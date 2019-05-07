@@ -132,9 +132,9 @@ const selectProductInfo = (sql,callback) => {
     connection.query(
         sql,
         (err, results, fields) => {
-          console.log('RESULTS ' + results.value);
+          console.log('RESULTS ' + results);
             console.log(err);
-          callback(results);
+          callback(results[0]);
         }
  /* const selectedType = [type.options[type.selectedIndex].value];
   const selectedBrand = [brand.options[brand.selectedIndex].value];
