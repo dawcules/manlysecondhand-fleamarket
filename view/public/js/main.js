@@ -52,9 +52,8 @@ const login = (evt) => {
         console.log("login fetch");
         console.log(udata);
         window.alert("Welcome "+udata.username);
-        changeLayout();
+        changeLayout(json);
         console.log("login end")
-        // showHide(json);
     });
 };
 productForm.addEventListener('submit', login);
@@ -76,7 +75,7 @@ const getSession = () => {
     });
 };
 */
-const changeLayout = () =>{
+const changeLayout = (udata) =>{
         let logReg = document.querySelector('.logReg');
         let loggedIn = document.querySelector('.loggedIn');
         loggedIn.innerHTML = udata.username;
@@ -85,6 +84,7 @@ const changeLayout = () =>{
         console.log("display");
         /*location.reload();*/
 };
+
 /*
 const mainApp = () => {
     getSession();

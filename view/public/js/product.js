@@ -50,8 +50,24 @@ const imageAdd = (evt) => {
             image.src = './uploads' + json.file.filename;
         });
 };
+
+    function validation() {
+        const namef = document.getElementById('name').value;
+        const brandf = document.getElementById('brand').value;
+        const descf = document.getElementById('description').value;
+        const ptypef = document.getElementById('ptype').value;
+        const pricef = document.getElementById('price').value;
+
+        if (namef === '' || brandf === '' || descf === '' || ptypef === '' || pricef === '') {
+            document.getElementById("details").innerHTML = "Please fill all required fields";
+            return false;
+        } else {
+            return true;
+        }
+    }
 // - when file upload is complete, writes server response to 'message' element
 // function ends
 
 // make an event listener which calls upload function when the form is submitted
 imageForm.addEventListener('submit', imageAdd);
+
