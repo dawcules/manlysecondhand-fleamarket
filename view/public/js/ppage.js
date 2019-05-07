@@ -7,15 +7,16 @@ const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
 
 const brandlist = ['Nike','Adidas','Reebok'];
-const typelist = ['Shirts','Pants','Coats','Accessories', 'Shoes'];
+const typelist = ['Shirts','Pants','Coats','Accessories','Shoes', 8];
 const condlist = [1,2,3,4,5,6,7,8,9,10];
+
 let brandoptions = [];
 let typeoptions = [];
 let condoptions = [];
+
 const selectBrand = document.createElement('select');
 const selectType = document.createElement('select');
 const selectCond = document.createElement('select');
-
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
@@ -29,30 +30,38 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  const selectedBrand = [brand.options[brand.selectedIndex].value];
   const selectedType = [type.options[type.selectedIndex].value];
+  const selectedBrand = [brand.options[brand.selectedIndex].value];
   const selectedCond = [cond.options[cond.selectedIndex].value];
   const selMinPrice = minPrice.value;
   const selMaxPrice = maxPrice.value;
-
-
   const searchdata = [selectedType]; // iffillä kamat sisääN
 
   if (selectedBrand) {
     searchdata.push(selectedBrand);
   }
+  else {
+    searchdata.push('*')
+  }
   if (selectedCond) {
     searchdata.push(selectedCond);
+  }
+  else {
+    searchdata.push('*')
   }
   if (selMinPrice) {
     searchdata.push(selMinPrice);
   }
+  else {
+    searchdata.push('*')
+  }
   if (selMaxPrice) {
     searchdata.push(selMaxPrice);
   }
-
+  else {
+    searchdata.push('*')
+  }
   console.log(searchdata);
-
 
   fetch('getproduct', {
     method: "post",
@@ -190,10 +199,8 @@ const showType = (evt) => {
   }
 };
 
-
 form.addEventListener('submit', getprd);
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
-
