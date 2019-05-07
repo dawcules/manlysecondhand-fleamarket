@@ -2,12 +2,14 @@
 
 let uData;
 
-const changeLayout = (user) =>{
+const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
     let loggedIn = document.querySelector('.loggedIn');
-    loggedIn.innerHTML = user.username;
+    let logRegMenu = document.querySelector('.logReg-form');
+    loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
+    logRegMenu.style.display = "none";
     console.log("display");
 };
 
@@ -61,7 +63,7 @@ const login = (evt) => {
         console.log("login fetch");
         uData = json;
         console.log(uData);
-        window.alert("Welcome "+uData.username);
+        window.alert("Welcome "+uData.UserName);
         changeLayout(uData);
         console.log("login end")
     });
@@ -94,22 +96,5 @@ const mainApp = () => {
 mainApp();
 */
 
-const showHide = (user) => {
-    const hiddenElements = document.querySelectorAll('.form-container.hidden');
-    hiddenElements.forEach(element => {
-        element.classList.remove('hidden');
-    });
-
-    const visibleElements = document.querySelectorAll(
-        '.form-container.visible');
-    console.log(visibleElements);
-    visibleElements.forEach(element => {
-        element.classList.replace('visible', 'hidden');
-    });
-
-    const userElement = document.querySelector('#username');
-    console.log(userElement, user.email);
-    userElement.innerHTML = user.email;
-};
 
 
