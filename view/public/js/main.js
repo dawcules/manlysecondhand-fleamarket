@@ -1,8 +1,7 @@
 'use strict';
 
 let uData = null;
-let logReg = document.querySelector('.logReg');
-let loggedIn = document.querySelector('.loggedIn');
+
 let registerForm = document.querySelector('#register');
 // insert a form
 const register = (evt) => {
@@ -28,7 +27,7 @@ const register = (evt) => {
             window.alert('Thanks for registering to ManSecondHand!')
         });
 };
-productForm.addEventListener('submit', register);
+registerForm.addEventListener('submit', register);
 
 const loginForm = document.querySelector('#login');
 // insert a form
@@ -75,6 +74,8 @@ const getSession = () => {
     });
 };
 const changeLayout = () =>{
+        let logReg = document.querySelector('.logReg');
+        let loggedIn = document.querySelector('.loggedIn');
         loggedIn.innerHTML = udata.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
