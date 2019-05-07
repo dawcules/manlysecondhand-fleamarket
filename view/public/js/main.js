@@ -49,16 +49,18 @@ const login = (evt) => {
         return response.json();
     }).then((json) => {
         console.log(json);
-        getSession();
+        console.log("login fetch");
         console.log(udata);
         window.alert("Welcome "+udata.username);
         changeLayout();
+        console.log("login end")
         // showHide(json);
     });
 };
 productForm.addEventListener('submit', login);
 
 // Function used for getting the user Session data
+/*
 const getSession = () => {
     fetch('getsession', {
         credentials: 'include'
@@ -73,21 +75,23 @@ const getSession = () => {
         window.alert('Successfully logged in');
     });
 };
+*/
 const changeLayout = () =>{
         let logReg = document.querySelector('.logReg');
         let loggedIn = document.querySelector('.loggedIn');
         loggedIn.innerHTML = udata.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
-        location.reload();
+        console.log("display");
+        /*location.reload();*/
 };
-
+/*
 const mainApp = () => {
     getSession();
     changeLayout();
 };
 mainApp();
-
+*/
 
 
 

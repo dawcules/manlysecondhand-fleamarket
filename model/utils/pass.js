@@ -68,8 +68,8 @@ const login = (req, res, next) => {
       //res.redirect('../../view/public/userpage.html');
       req.session.user = user;
       req.session.save();
-      //res.send(req.user); // if login succesful, send user object
-      return res.redirect('user');
+      res.send(req.user); // if login succesful, send user object
+      /* return res.redirect('user'); */
       // KÄYTÄ LIIKENNE INDEX.JS KAUTTA
     });
   })(req, res, next);
