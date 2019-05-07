@@ -37,7 +37,7 @@ const getprd = (evt) => {
   const selMaxPrice = maxPrice.value;
   const searchdata = [selectedType]; // iffillä kamat sisääN
 
-  if (selectedBrand) {
+  if (!selectedBrand) {
     searchdata.push(selectedBrand);
   }
   else {
@@ -71,6 +71,7 @@ const getprd = (evt) => {
     },
     body: JSON.stringify({
       searchp: searchdata
+
     })
   }).then((res) => {
     return res.json();
