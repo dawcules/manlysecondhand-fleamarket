@@ -129,7 +129,7 @@ const selectProductInfo = (data,callback) => {
     // Used for selecting specific Product information'
     console.log(data);
     connection.query(
-        'SELECT * FROM Product WHERE pType = ?;',data,
+        'SELECT * FROM Product WHERE ??=?;',data,
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);
