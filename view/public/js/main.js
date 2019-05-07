@@ -85,11 +85,11 @@ const changeLayout = () =>{
     }
 };
 
-const app = () => {
+const mainApp = () => {
     getSession();
     changeLayout();
 };
-app();
+mainApp();
 
 
 
