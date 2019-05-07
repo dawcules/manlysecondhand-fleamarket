@@ -123,7 +123,7 @@ app.get('/getsession', (req, res) => {
 
 app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
-  const data = req.body.searchp;
+  const data = req.body.searchp.toString();
   const qdata = data.split(",");
 
   console.log('data on' + qdata);
