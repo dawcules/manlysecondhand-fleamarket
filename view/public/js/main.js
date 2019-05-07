@@ -53,6 +53,7 @@ const login = (evt) => {
         getSession();
         console.log(udata);
         window.alert("Welcome "+udata.username);
+        changeLayout();
         // showHide(json);
     });
 };
