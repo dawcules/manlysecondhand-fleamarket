@@ -56,7 +56,7 @@ const login = (evt) => {
         console.log("login end")
     });
 };
-productForm.addEventListener('submit', login);
+loginForm.addEventListener('submit', login);
 
 // Function used for getting the user Session data
 /*
@@ -75,15 +75,16 @@ const getSession = () => {
     });
 };
 */
-const changeLayout = (udata) =>{
+
+const changeLayout = (user) =>{
         let logReg = document.querySelector('.logReg');
         let loggedIn = document.querySelector('.loggedIn');
-        loggedIn.innerHTML = udata.username;
+        loggedIn.innerHTML = user.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
         console.log("display");
-        /*location.reload();*/
 };
+
 
 /*
 const mainApp = () => {
