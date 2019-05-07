@@ -125,12 +125,10 @@ const getusername = (data, res) =>{
   );
 };
 
-const selectProductInfo = (data,callback) => {
+const selectProductInfo = (sql,data,callback) => {
     // Used for selecting specific Product information'
-  data = data.toString();
-  console.log(data);
     connection.query(
-        'SELECT * FROM Product WHERE ?;',data,
+        sql,data,
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);

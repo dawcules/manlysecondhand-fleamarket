@@ -155,12 +155,10 @@ app.post('/getproduct', (req, res) => {
     q3 = ''
   }
 
-  const rdata = q0;
-  const qrdata = [rdata];
+  const sql = q0+q1+q2+q3;
 
 
-  console.log('data on' + qrdata);
-  query.selectProductInfo(qrdata, (result) => {
+  query.selectProductInfo(sql, (result) => {
   console.log('2. queryn jälkeen');
   res.send(result);
 })});
