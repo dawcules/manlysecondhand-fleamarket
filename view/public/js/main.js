@@ -9,7 +9,7 @@ const changeLayout = (uData) =>{
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
-    logRegMenu.style.transform = "100"+"%";
+    logRegMenu.classList.toggle('logReg-form-active');
     console.log("display");
 };
 
@@ -35,8 +35,7 @@ const register = (evt) => {
         })
         .then(json => {
             console.log(json);
-            let logRegMenu = document.querySelector('.logReg-form');
-            logRegMenu.classList.toggle('logReg-form-active');
+
             window.alert('Thanks for registering to ManSecondHand!')
         });
 };
