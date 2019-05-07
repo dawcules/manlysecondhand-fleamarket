@@ -127,6 +127,7 @@ app.post('/getproduct', (req, res) => {
   const qdata = data.split(",");
 
   console.log('data on' + qdata);
+  console.log('data 0 on ' + qdata[0]);
   query.selectProductInfo(qdata, (result) => {
   console.log('2. queryn jälkeen');
   res.send(result);
