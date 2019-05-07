@@ -6,7 +6,7 @@ const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
 
-const brandlist = ['Nike','Adidas','Reebok'];
+const brandlist = ['Nike','Adidas','Reebok', 1];
 const typelist = ['Shirts','Pants','Coats','Accessories', 'Shoes'];
 const condlist = [1,2,3,4,5,6,7,8,9,10];
 
