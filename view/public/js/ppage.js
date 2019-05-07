@@ -13,6 +13,11 @@ const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
+const condMin = document.createElement('input');
+
+const condMax = document.createElement('input');
+const condDiv = document.createElement('div');
+
 
 const getprd = (evt) => {
 
@@ -74,30 +79,56 @@ const showBrand = (evt) => {
   }
   else {
     select.style.display = "none";
-  form.removeChild(select);
+  dynamic.removeChild(select);
     brandoptions = [];
   }
 };
 
 const showPrice = (evt) => {
-  priceMin.setAttribute('type','number');
-  priceMin.setAttribute('placeholder','Price min');
-  priceMax.setAttribute('type','number');
-  priceMax.setAttribute('placeholder','Price max');
-  dynamic.appendChild(priceMin);
-  dynamic.appendChild(priceMax);
-  console.log('Tässä hinta');
-
+  if (document.querySelector('#pricediv')) {
+    priceDiv.style.display = "none";
+    dynamic.removeChild(priceDiv);
+  }
+  else {
+    priceMin.setAttribute('type', 'number');
+    priceMin.setAttribute('placeholder', 'Price min');
+    priceMax.setAttribute('type', 'number');
+    priceMax.setAttribute('placeholder', 'Price max');
+    priceDiv.setAttribute('id','pricediv');
+    priceDiv.appendChild(priceMin);
+    priceDiv.appendChild(priceMax);
+    dynamic.appendChild(priceDiv);
+    priceDiv.style.display = "inline";
+    console.log('Tässä hinta');
+  }
 };
 
 const showCond = (evt) => {
-  alert('Tässä kunto')
+  if (document.querySelector('#conddiv')) {
+    condDiv.style.display = "none";
+    dynamic.removeChild(condDiv);
+  }
+  else {
+    condMin.setAttribute('type', 'number');
+    condMin.setAttribute('placeholder', 'Condition min');
+    condMax.setAttribute('type', 'number');
+    condMax.setAttribute('placeholder', 'Condition max');
+    condDiv.setAttribute('id','conddiv');
+    condDiv.appendChild(condMin);
+    condDiv.appendChild(condMax);
+    dynamic.appendChild(condDiv);
+    condDiv.style.display = "inline";
+    console.log('Tässä hinta');
+  }
+
+
+
+
 };
 
 const showType = (evt) => {
   alert('Tässä tyyppi')
 };
-
 
 
 form.addEventListener('submit', getprd);
