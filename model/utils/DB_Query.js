@@ -125,10 +125,10 @@ const getusername = (data, res) =>{
   );
 };
 
-const selectProductInfo = (sql,data,callback) => {
+const selectProductInfo = (sql,callback) => {
     // Used for selecting specific Product information'
     connection.query(
-        sql,data,
+        sql,
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);
