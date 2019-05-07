@@ -9,6 +9,7 @@ const brandlist = ['Nike','Adidas','Reebok'];
 let brandoptions = [];
 
 const select = document.createElement('select');
+const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
@@ -80,10 +81,13 @@ const showBrand = (evt) => {
 
 const showPrice = (evt) => {
   priceMin.setAttribute('type','number');
+  priceMin.setAttribute('placeholder','Price min');
   priceMax.setAttribute('type','number');
+  priceMax.setAttribute('placeholder','Price max');
   dynamic.appendChild(priceMin);
   dynamic.appendChild(priceMax);
-  console.log('Tässä hinta')
+  console.log('Tässä hinta');
+
 };
 
 const showCond = (evt) => {
