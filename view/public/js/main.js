@@ -1,6 +1,6 @@
 'use strict';
 
-let uData = null;
+let uData;
 
 let registerForm = document.querySelector('#register');
 // insert a form
@@ -79,10 +79,12 @@ const changeLayout = () =>{
         loggedIn.innerHTML = udata.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
+        location.reload();
 };
 
 const mainApp = () => {
     getSession();
+    changeLayout();
 };
 mainApp();
 
