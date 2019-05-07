@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/forms.css" rel="stylesheet" type="text/css">
     <link href="css/product.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <legend> Add a product for sale / giveaway</legend>
         <br>
         <label for ="name">Name of the product</label>
-        <input type="text" id="name" name="name" autofocus required size="30"/>
+        <input type="text" id="name" name="name" autofocus required size="30" required pattern="^[a-zA-Z ]*$">
         <br>
         <label for ="brand">Brand</label>
         <input type="text" id ="brand" name="brand" required size="30"/>
@@ -24,11 +24,15 @@
         <input type="text" id = "ptype" name="ptype" required placeholder="what kind of product are we dealing with here?" size="50"/>
         <br>
         <label for="condition">Condition</label>
-        <input type="number" id="condition" name="condition">
+        <input type="radio" value="1" name="condition">1
+        <input type="radio" value="2" name="condition">2
+        <input type="radio" value="3" name="condition">3
+        <input type="radio" value="4" name="condition">4
+        <br>
         <span class="note">Rate the condition of the product on scale of 1-10</span>
         <br>
         <label for="price">Price</label>
-        <input type="number" id ="price" name="price" size="10" pattern="^[0-9]$|^[1-9][0-9]$|^(100)$"/>
+        <input type="text" id ="price" name="price" size="10" pattern="^[0-9]*$"/>
         <br>
         <button type="submit" id="sendBtn">Submit Product</button>
     </fieldset>
