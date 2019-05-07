@@ -5,16 +5,17 @@ const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
-const brandlist = ['Nike','Adidas','Reebok'];
-let brandoptions = [];
 
+const brandlist = ['Nike','Adidas','Reebok'];
+const typelist = ['Shirts','Pants','Coats','Accessories'];
+let brandoptions = [];
+let typeoptions = [];
 const select = document.createElement('select');
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
 const condMin = document.createElement('input');
-
 const condMax = document.createElement('input');
 const condDiv = document.createElement('div');
 
@@ -121,13 +122,35 @@ const showCond = (evt) => {
     console.log('Tässä hinta');
   }
 
-
-
-
 };
 
 const showType = (evt) => {
-  alert('Tässä tyyppi')
+  console.log('Tässä tyyppi');
+  if (typeoptions.length == 0) {
+    console.log(typelist.length);
+    for (let i=0;i < typelist.length;i++) {
+      console.log('listan 1 ' + i);
+      typeoptions[i] = document.createElement('option');
+      typeoptions[i].innerText = typelist[i];
+      typeoptions[i].value = typelist[i];
+    }
+    if (select.childElementCount === 0) {
+      for (let i = 0; i < typeoptions.length; i++) {
+        console.log('listan 2 ' + i);
+        select.appendChild(typeoptions[i])
+      }
+    }
+    select.setAttribute('id','brandname');
+    dynamic.appendChild(select)
+  }
+  if (select.style.display != 'inline') {
+    select.style.display = 'inline'
+  }
+  else {
+    select.style.display = "none";
+    dynamic.removeChild(select);
+    typeoptions = [];
+  }
 };
 
 
