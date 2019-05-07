@@ -35,6 +35,8 @@ const register = (evt) => {
         })
         .then(json => {
             console.log(json);
+            let logRegMenu = document.querySelector('.logReg-form');
+            logRegMenu.classList.toggle('logReg-form-active');
             window.alert('Thanks for registering to ManSecondHand!')
         });
 };
