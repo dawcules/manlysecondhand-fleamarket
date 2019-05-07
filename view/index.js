@@ -155,7 +155,7 @@ app.post('/getproduct', (req, res) => {
     q3 = ''
   }
 
-  const rdata = q0+q2+q1+q3;
+  const rdata = q0;
   const qrdata = [rdata];
 
 
