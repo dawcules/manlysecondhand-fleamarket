@@ -45,7 +45,7 @@ const login = (evt) => {
         method: 'post',
         body: data,
         };
-    fetch('login', options, { redirect: "error" }).then((response) => {
+    fetch('login', options).then((response) => {
         return response.json();
     }).then((json) => {
         console.log(json);
