@@ -1,8 +1,8 @@
 'use strict';
 
 let uData = null;
-const logReg = document.querySelector('.logReg')
-const loggedIn = document.querySelector('.loggedIn')
+const logReg = document.querySelector('.logReg');
+const loggedIn = document.querySelector('.loggedIn');
 const registerForm = document.querySelector('#register');
 // insert a form
 const register = (evt) => {
@@ -74,10 +74,12 @@ const getSession = () => {
     });
 };
 const changeLayout = () =>{
-    if(udata != null) {
+    if(udata !== null) {
         loggedIn.innerHTML = udata.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
+        console.log(loggedIn.style.display);
+        console.log(logReg.style.display);
     }else{
         console.log("nothing to do");
     }
