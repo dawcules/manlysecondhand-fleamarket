@@ -143,7 +143,7 @@ app.post('/getproduct', (req, res) => {
     q1 = ''
   }
   if (qdata[2] != '*') {
-    q2 = ' AND pCondition BETWEEN ' + qdata + ' AND 10'
+    q2 = ' AND pCondition BETWEEN ' + qdata[2] + ' AND 10'
   }
   else {
     q2 = ''
