@@ -9,7 +9,7 @@ const changeLayout = (uData) =>{
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
-    logRegMenu.classList.toggle('logReg-form-active');
+    logRegMenu.style.transform = "100"+"%";
     console.log("display");
 };
 
