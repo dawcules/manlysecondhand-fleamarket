@@ -124,6 +124,10 @@ app.get('/getsession', (req, res) => {
 app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [req.body.searchp];
+
+  for (let i=0;data.length;i++)
+
+
   console.log('data on' + data[0]);
   query.selectProductInfo(data, (result) => {
   console.log('2. queryn jälkeen');

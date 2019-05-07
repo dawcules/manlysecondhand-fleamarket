@@ -9,13 +9,14 @@ const typeButton = document.querySelector('#ptype');
 const brandlist = ['Nike','Adidas','Reebok'];
 const typelist = ['Shirts','Pants','Coats','Accessories', 'Shoes'];
 const condlist = [1,2,3,4,5,6,7,8,9,10];
+
 let brandoptions = [];
 let typeoptions = [];
 let condoptions = [];
+
 const selectBrand = document.createElement('select');
 const selectType = document.createElement('select');
 const selectCond = document.createElement('select');
-
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
@@ -34,8 +35,6 @@ const getprd = (evt) => {
   const selectedCond = [cond.options[cond.selectedIndex].value];
   const selMinPrice = minPrice.value;
   const selMaxPrice = maxPrice.value;
-
-
   const searchdata = [selectedType]; // iffillä kamat sisääN
 
   if (selectedBrand) {
@@ -52,7 +51,6 @@ const getprd = (evt) => {
   }
 
   console.log(searchdata);
-
 
   fetch('getproduct', {
     method: "post",
@@ -190,10 +188,8 @@ const showType = (evt) => {
   }
 };
 
-
 form.addEventListener('submit', getprd);
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
-
