@@ -10,7 +10,9 @@ const brandlist = ['Nike','Adidas','Reebok'];
 const typelist = ['Shirts','Pants','Coats','Accessories'];
 let brandoptions = [];
 let typeoptions = [];
-const select = document.createElement('select');
+const selectBrand = document.createElement('selectBrand');
+const selectType = document.createElement('selectType');
+
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
@@ -66,21 +68,21 @@ const showBrand = (evt) => {
       brandoptions[i].innerText = brandlist[i];
       brandoptions[i].value = brandlist[i];
     }
-    if (select.childElementCount === 0) {
+    if (selectBrand.childElementCount === 0) {
       for (let i = 0; i < brandoptions.length; i++) {
         console.log('listan 2 ' + i);
-        select.appendChild(brandoptions[i])
+        selectBrand.appendChild(brandoptions[i])
       }
     }
-    select.setAttribute('id','brandname');
-    dynamic.appendChild(select)
+    selectBrand.setAttribute('id','brandname');
+    dynamic.appendChild(selectBrand)
   }
-  if (select.style.display != 'inline') {
-    select.style.display = 'inline'
+  if (selectBrand.style.display != 'inline') {
+    selectBrand.style.display = 'inline'
   }
   else {
-    select.style.display = "none";
-  dynamic.removeChild(select);
+    selectBrand.style.display = "none";
+  dynamic.removeChild(selectBrand);
     brandoptions = [];
   }
 };
@@ -134,21 +136,21 @@ const showType = (evt) => {
       typeoptions[i].innerText = typelist[i];
       typeoptions[i].value = typelist[i];
     }
-    if (select.childElementCount === 0) {
+    if (selectType.childElementCount === 0) {
       for (let i = 0; i < typeoptions.length; i++) {
         console.log('listan 2 ' + i);
-        select.appendChild(typeoptions[i])
+        selectType.appendChild(typeoptions[i])
       }
     }
-    select.setAttribute('id','brandname');
-    dynamic.appendChild(select)
+    selectType.setAttribute('id','brandname');
+    dynamic.appendChild(selectBrand)
   }
-  if (select.style.display != 'inline') {
-    select.style.display = 'inline'
+  if (selectType.style.display != 'inline') {
+    selectType.style.display = 'inline'
   }
   else {
-    select.style.display = "none";
-    dynamic.removeChild(select);
+    selectType.style.display = "none";
+    dynamic.removeChild(selectType);
     typeoptions = [];
   }
 };

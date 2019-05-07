@@ -5,7 +5,7 @@ let tablist;
 
 const selectTab = (num) => {
   tabsbank.forEach(function(tab, i) {
-    console.log("select")
+    console.log("selectBrand")
     if (i == num) {
       tab.style.display ="";
     }
