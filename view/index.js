@@ -156,7 +156,7 @@ app.post('/getproduct', (req, res) => {
     q3 = ''
   }
 
-  const sql = mysql+q0+q1+q2+q3;
+  const sql = [mysql+q0+q1+q2+q3];
   console.log(sql);
 
 
