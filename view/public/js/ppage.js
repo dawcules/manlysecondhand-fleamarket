@@ -10,6 +10,7 @@ let brandoptions = [];
 
 const select = document.createElement('select');
 const priceMin = document.createElement('input');
+const priceMax = document.createElement('input');
 
 
 const getprd = (evt) => {
@@ -79,6 +80,7 @@ const showBrand = (evt) => {
 
 const showPrice = (evt) => {
   priceMin.setAttribute('type','number');
+  priceMax.setAttribute('type','number');
   dynamic.appendChild(priceMin);
   console.log('Tässä hinta')
 };
