@@ -5,16 +5,19 @@ const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptype');
-const brandlist = ['Nike','Adidas','Reebok'];
-let brandoptions = [];
 
-const select = document.createElement('select');
+const brandlist = ['Nike','Adidas','Reebok'];
+const typelist = ['Shirts','Pants','Coats','Accessories'];
+let brandoptions = [];
+let typeoptions = [];
+const selectBrand = document.createElement('selectBrand');
+const selectType = document.createElement('selectType');
+
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
 const condMin = document.createElement('input');
-
 const condMax = document.createElement('input');
 const condDiv = document.createElement('div');
 
@@ -65,21 +68,21 @@ const showBrand = (evt) => {
       brandoptions[i].innerText = brandlist[i];
       brandoptions[i].value = brandlist[i];
     }
-    if (select.childElementCount === 0) {
+    if (selectBrand.childElementCount === 0) {
       for (let i = 0; i < brandoptions.length; i++) {
         console.log('listan 2 ' + i);
-        select.appendChild(brandoptions[i])
+        selectBrand.appendChild(brandoptions[i])
       }
     }
-    select.setAttribute('id','brandname');
-    dynamic.appendChild(select)
+    selectBrand.setAttribute('id','brandname');
+    dynamic.appendChild(selectBrand)
   }
-  if (select.style.display != 'inline') {
-    select.style.display = 'inline'
+  if (selectBrand.style.display != 'inline') {
+    selectBrand.style.display = 'inline'
   }
   else {
-    select.style.display = "none";
-  dynamic.removeChild(select);
+    selectBrand.style.display = "none";
+  dynamic.removeChild(selectBrand);
     brandoptions = [];
   }
 };
@@ -121,13 +124,35 @@ const showCond = (evt) => {
     console.log('Tässä hinta');
   }
 
-
-
-
 };
 
 const showType = (evt) => {
-  alert('Tässä tyyppi')
+  console.log('Tässä tyyppi');
+  if (typeoptions.length == 0) {
+    console.log(typelist.length);
+    for (let i=0;i < typelist.length;i++) {
+      console.log('listan 1 ' + i);
+      typeoptions[i] = document.createElement('option');
+      typeoptions[i].innerText = typelist[i];
+      typeoptions[i].value = typelist[i];
+    }
+    if (selectType.childElementCount === 0) {
+      for (let i = 0; i < typeoptions.length; i++) {
+        console.log('listan 2 ' + i);
+        selectType.appendChild(typeoptions[i])
+      }
+    }
+    selectType.setAttribute('id','brandname');
+    dynamic.appendChild(selectType)
+  }
+  if (selectType.style.display != 'inline') {
+    selectType.style.display = 'inline'
+  }
+  else {
+    selectType.style.display = "none";
+    dynamic.removeChild(selectType);
+    typeoptions = [];
+  }
 };
 
 
