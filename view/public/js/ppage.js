@@ -9,7 +9,7 @@ const brandlist = ['Nike','Adidas','Reebok'];
 let brandoptions = [];
 
 const select = document.createElement('select');
-const priceDiv = document.createElement('div').setAttribute('id','pricediv');
+const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
@@ -78,23 +78,26 @@ const showBrand = (evt) => {
   }
   else {
     select.style.display = "none";
-  form.removeChild(select);
+  dynamic.removeChild(select);
     brandoptions = [];
   }
 };
 
 const showPrice = (evt) => {
   if (document.querySelector('#pricediv')) {
-    document.removeChild(priceDiv);
-
-  } else {
+    priceDiv.style.display = "none";
+    dynamic.removeChild(priceDiv);
+  }
+  else {
     priceMin.setAttribute('type', 'number');
     priceMin.setAttribute('placeholder', 'Price min');
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
+    priceDiv.setAttribute('id','pricediv');
     priceDiv.appendChild(priceMin);
     priceDiv.appendChild(priceMax);
     dynamic.appendChild(priceDiv);
+    priceDiv.style.display = "inline";
     console.log('Tässä hinta');
   }
 };
