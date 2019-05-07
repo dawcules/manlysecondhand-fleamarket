@@ -124,11 +124,7 @@ app.get('/getsession', (req, res) => {
 app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = [req.body.searchp];
-  const qdata = [];
 
-  for (let i=0;data.length>i;i++) {
-    qdata.push(data[i]);
-  }
 
 
 

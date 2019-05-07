@@ -41,25 +41,25 @@ const getprd = (evt) => {
     searchdata.push(selectedBrand);
   }
   else {
-    searchdata.push('none')
+    searchdata.push('*')
   }
   if (selectedCond) {
     searchdata.push(selectedCond);
   }
   else {
-    searchdata.push('none')
+    searchdata.push('*')
   }
   if (selMinPrice) {
     searchdata.push(selMinPrice);
   }
   else {
-    searchdata.push('none')
+    searchdata.push('*')
   }
   if (selMaxPrice) {
     searchdata.push(selMaxPrice);
   }
   else {
-    searchdata.push('none')
+    searchdata.push('*')
   }
   console.log(searchdata);
 
