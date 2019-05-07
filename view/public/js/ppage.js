@@ -40,16 +40,27 @@ const getprd = (evt) => {
   if (selectedBrand) {
     searchdata.push(selectedBrand);
   }
+  else {
+    searchdata.push('none')
+  }
   if (selectedCond) {
     searchdata.push(selectedCond);
+  }
+  else {
+    searchdata.push('none')
   }
   if (selMinPrice) {
     searchdata.push(selMinPrice);
   }
+  else {
+    searchdata.push('none')
+  }
   if (selMaxPrice) {
     searchdata.push(selMaxPrice);
   }
-
+  else {
+    searchdata.push('none')
+  }
   console.log(searchdata);
 
   fetch('getproduct', {
