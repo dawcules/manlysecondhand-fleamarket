@@ -66,7 +66,6 @@ const login = (evt) => {
         console.log(uData);
         getSession();
         window.alert("Welcome "+uData.UserName);
-        changeLayout(uData);
         console.log("login end")
 
     });
