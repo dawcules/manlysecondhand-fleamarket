@@ -10,8 +10,8 @@ const brandlist = ['Nike','Adidas','Reebok'];
 const typelist = ['Shirts','Pants','Coats','Accessories'];
 let brandoptions = [];
 let typeoptions = [];
-const selectBrand = document.createElement('selectBrand');
-const selectType = document.createElement('selectType');
+const selectBrand = document.createElement('select');
+const selectType = document.createElement('select');
 
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
