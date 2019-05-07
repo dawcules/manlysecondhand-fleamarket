@@ -30,8 +30,8 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  const selectedBrand = [brand.options[brand.selectedIndex].value];
   const selectedType = [type.options[type.selectedIndex].value];
+  const selectedBrand = [brand.options[brand.selectedIndex].value];
   const selectedCond = [cond.options[cond.selectedIndex].value];
   const selMinPrice = minPrice.value;
   const selMaxPrice = maxPrice.value;

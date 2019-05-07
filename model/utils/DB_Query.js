@@ -128,13 +128,18 @@ const getusername = (data, res) =>{
 const selectProductInfo = (data,callback) => {
     // Used for selecting specific Product information
     connection.query(
-        'SELECT * FROM Product WHERE pBrand = ?;',data, //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
+        'SELECT * FROM Product WHERE pType = ?, pBrand = ?, pCondition = ?, Price = BETWEEN ? AND ?;',data, //pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
         (err, results, fields) => {
           console.log('RESULTS' + results[0]);
             console.log(err);
           callback(results[0]);
         }
-
+ /* const selectedType = [type.options[type.selectedIndex].value];
+  const selectedBrand = [brand.options[brand.selectedIndex].value];
+  const selectedCond = [cond.options[cond.selectedIndex].value];
+  const selMinPrice = minPrice.value;
+  const selMaxPrice = maxPrice.value;
+*/
 );
 };
 const selectUserProducts = (data,res)=>{
