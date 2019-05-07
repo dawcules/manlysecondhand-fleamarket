@@ -79,7 +79,7 @@ const changeLayout = () =>{
         loggedIn.innerHTML = udata.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
-        location.reload();
+        /*location.reload();*/
 };
 
 const mainApp = () => {
