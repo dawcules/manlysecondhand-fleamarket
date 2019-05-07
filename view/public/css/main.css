@@ -5,7 +5,7 @@
     overflow-x: hidden;
 }
 body{
-    background-color: #2f4f4f;
+    background-color: #121f1f;
 }
 a{
     color: azure;
@@ -13,22 +13,6 @@ a{
     letter-spacing: 3px;
     font-weight: bold;
     font-size: 14px;
-}
-/*
-Keep the log in / register form in check with labels
-*/
-label {
-    display: block;
-    padding: 1rem 0 .25rem;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-input, textarea {
-    display: block;
-    width: 100%;
-    border: 2px solid #2f4f4f;
-    padding: .5rem;
-    font-size: 18px;
 }
 
 p{
@@ -38,16 +22,12 @@ p{
     font-size: 16px;
     padding: 10px;
 }
-.formi-style {
-    text-align: left;
-}
-
-#sendBtn {
-    border: 0;
-    background-color: #343050;
-    padding: .5rem;
-    color: white;
-    margin: 1rem 0;
-    width: auto;
-    cursor: pointer;
+/*
+Keep the log in / register form in check with labels
+*/
+label {
+    display: block;
+    padding: 1rem 0 .25rem;
+    text-transform: uppercase;
+    font-size: 14px;
 }
