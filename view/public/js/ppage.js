@@ -8,28 +8,50 @@ const typeButton = document.querySelector('#ptype');
 
 const brandlist = ['Nike','Adidas','Reebok'];
 const typelist = ['Shirts','Pants','Coats','Accessories', 'Shoes'];
+const condlist = [1,2,3,4,5,6,7,8,9,10];
 let brandoptions = [];
 let typeoptions = [];
+let condoptions = [];
 const selectBrand = document.createElement('select');
 const selectType = document.createElement('select');
+const selectCond = document.createElement('select');
 
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
-const condMin = document.createElement('input');
-const condMax = document.createElement('input');
-const condDiv = document.createElement('div');
-
-
 const getprd = (evt) => {
-
-
-
   evt.preventDefault();
+
   const brand = document.getElementById('brandname');
-  const selected = [brand.options[brand.selectedIndex].value];
-  console.log('selected brand ' + selected);
+  const type = document.getElementById('typename');
+  const cond = document.getElementById('condname');
+  const minPrice = document.getElementById('minprice');
+  const maxPrice = document.getElementById('maxprice');
+
+  const selectedBrand = [brand.options[brand.selectedIndex].value];
+  const selectedType = [type.options[type.selectedIndex].value];
+  const selectedCond = [cond.options[cond.selectedIndex].value];
+  const selMinPrice = minPrice.value;
+  const selMaxPrice = maxPrice.value;
+
+
+  const searchdata = [selectedType]; // iffillä kamat sisääN
+
+  if (selectedBrand) {
+    searchdata.push(selectedBrand);
+  }
+  if (selectedCond) {
+    searchdata.push(selectedCond);
+  }
+  if (selMinPrice) {
+    searchdata.push(selMinPrice);
+  }
+  if (selMaxPrice) {
+    searchdata.push(selMaxPrice);
+  }
+
+  console.log(searchdata);
 
 
   fetch('getproduct', {
@@ -39,7 +61,7 @@ const getprd = (evt) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      searchp: [selected]
+      searchp: searchdata
     })
   }).then((res) => {
     return res.json();
@@ -97,9 +119,10 @@ const showPrice = (evt) => {
   else {
     priceMin.setAttribute('type', 'number');
     priceMin.setAttribute('placeholder', 'Price min');
-    priceMin.setAttribute
+    priceMin.setAttribute('name','pricemin');
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
+    priceMax.setAttribute('name','pricemax');
     priceDiv.setAttribute('id','pricediv');
     priceDiv.appendChild(priceMin);
     priceDiv.appendChild(priceMax);
@@ -110,23 +133,32 @@ const showPrice = (evt) => {
 };
 
 const showCond = (evt) => {
-  if (document.querySelector('#conddiv')) {
-    condDiv.style.display = "none";
-    dynamic.removeChild(condDiv);
+  if (condoptions.length == 0) {
+    console.log('Tässä merkki');
+    console.log(condlist.length);
+    for (let i=0;i < condlist.length;i++) {
+      console.log('listan 1 ' + i);
+      condoptions[i] = document.createElement('option');
+      condoptions[i].innerText = condlist[i];
+      condoptions[i].value = condlist[i];
+    }
+    if (selectCond.childElementCount === 0) {
+      for (let i = 0; i < condoptions.length; i++) {
+        console.log('listan 2 ' + i);
+        selectCond.appendChild(condoptions[i])
+      }
+    }
+    selectCond.setAttribute('id','condname');
+    dynamic.appendChild(selectCond)
+  }
+  if (selectCond.style.display != 'inline') {
+    selectCond.style.display = 'inline'
   }
   else {
-    condMin.setAttribute('type', 'number');
-    condMin.setAttribute('placeholder', 'Condition min');
-    condMax.setAttribute('type', 'number');
-    condMax.setAttribute('placeholder', 'Condition max');
-    condDiv.setAttribute('id','conddiv');
-    condDiv.appendChild(condMin);
-    condDiv.appendChild(condMax);
-    dynamic.appendChild(condDiv);
-    condDiv.style.display = "inline";
-    console.log('Tässä hinta');
+    selectBrand.style.display = "none";
+    dynamic.removeChild(selectCond);
+    condoptions = [];
   }
-
 };
 
 const showType = (evt) => {
@@ -145,7 +177,7 @@ const showType = (evt) => {
         selectType.appendChild(typeoptions[i])
       }
     }
-    selectType.setAttribute('id','brandname');
+    selectType.setAttribute('id','typename');
     dynamic.appendChild(selectType)
   }
   if (selectType.style.display != 'inline') {
