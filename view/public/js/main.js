@@ -59,10 +59,10 @@ const login = (evt) => {
     }).then((json) => {
         console.log(json);
         console.log("login fetch");
-        console.log(udata);
-        window.alert("Welcome "+udata.username);
-        udata = json;
-        changeLayout(udata);
+        uData = json;
+        console.log(uData);
+        window.alert("Welcome "+uData.username);
+        changeLayout(uData);
         console.log("login end")
     });
 };
@@ -86,9 +86,6 @@ const getSession = () => {
 };
 */
 
-
-
-
 /*
 const mainApp = () => {
     getSession();
@@ -97,6 +94,22 @@ const mainApp = () => {
 mainApp();
 */
 
+const showHide = (user) => {
+    const hiddenElements = document.querySelectorAll('.form-container.hidden');
+    hiddenElements.forEach(element => {
+        element.classList.remove('hidden');
+    });
 
+    const visibleElements = document.querySelectorAll(
+        '.form-container.visible');
+    console.log(visibleElements);
+    visibleElements.forEach(element => {
+        element.classList.replace('visible', 'hidden');
+    });
+
+    const userElement = document.querySelector('#username');
+    console.log(userElement, user.email);
+    userElement.innerHTML = user.email;
+};
 
 
