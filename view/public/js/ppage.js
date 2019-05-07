@@ -9,9 +9,13 @@ const brandlist = ['Nike','Adidas','Reebok'];
 let brandoptions = [];
 
 const select = document.createElement('select');
-const priceDiv = document.createElement('div');
+const priceDiv = document.createElement('div').setAttribute('id','pricediv');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
+
+const condMin = document.createElement('input').setAttribute('placeholder','Cond min');
+
+const condMax = document.createElement('input').setAttribute('placeholder','Cond max');
 
 
 const getprd = (evt) => {
@@ -80,24 +84,31 @@ const showBrand = (evt) => {
 };
 
 const showPrice = (evt) => {
-  priceMin.setAttribute('type','number');
-  priceMin.setAttribute('placeholder','Price min');
-  priceMax.setAttribute('type','number');
-  priceMax.setAttribute('placeholder','Price max');
-  dynamic.appendChild(priceMin);
-  dynamic.appendChild(priceMax);
-  console.log('Tässä hinta');
+  if (document.querySelector('#pricediv')) {
+    document.removeChild(priceDiv);
 
+  } else {
+    priceMin.setAttribute('type', 'number');
+    priceMin.setAttribute('placeholder', 'Price min');
+    priceMax.setAttribute('type', 'number');
+    priceMax.setAttribute('placeholder', 'Price max');
+    priceDiv.appendChild(priceMin);
+    priceDiv.appendChild(priceMax);
+    dynamic.appendChild(priceDiv);
+    console.log('Tässä hinta');
+  }
 };
 
 const showCond = (evt) => {
-  alert('Tässä kunto')
+
+
+
+
 };
 
 const showType = (evt) => {
   alert('Tässä tyyppi')
 };
-
 
 
 form.addEventListener('submit', getprd);
