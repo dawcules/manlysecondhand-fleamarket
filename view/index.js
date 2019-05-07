@@ -125,7 +125,7 @@ app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = req.body.searchp.toString();
   const qdata = data.split(",");
-  const mysql = 'SELECT ? FROM Product WHERE ';
+  const mysql = 'SELECT * FROM Product WHERE ';
   let q0;
   let q1;
   let q2;
