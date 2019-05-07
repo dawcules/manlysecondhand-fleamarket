@@ -126,6 +126,8 @@ const getusername = (data, res) =>{
 };
 
 const selectProductInfo = (sql,callback) => {
+  sql = sql.toString();
+  console.log(sql);
     // Used for selecting specific Product information'
     connection.query(
         sql,
