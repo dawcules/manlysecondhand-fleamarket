@@ -119,10 +119,10 @@ const showPrice = (evt) => {
   else {
     priceMin.setAttribute('type', 'number');
     priceMin.setAttribute('placeholder', 'Price min');
-    priceMin.setAttribute('name','pricemin');
+    priceMin.setAttribute('id','pricemin');
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
-    priceMax.setAttribute('name','pricemax');
+    priceMax.setAttribute('id','pricemax');
     priceDiv.setAttribute('id','pricediv');
     priceDiv.appendChild(priceMin);
     priceDiv.appendChild(priceMax);
