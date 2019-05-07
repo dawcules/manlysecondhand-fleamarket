@@ -129,11 +129,12 @@ const selectProductInfo = (data,callback) => {
     // Used for selecting specific Product information'
     console.log(data);
     connection.query(
-        'SELECT * FROM Product WHERE ??;' //pType = ? AND pBrand = ? AND pCondition BETWEEN ? AND 10 AND Price BETWEEN ? AND ?;',data, pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
+        'SELECT * FROM Product WHERE ?;' //pType = ? AND pBrand = ? AND pCondition BETWEEN ? AND 10 AND Price BETWEEN ? AND ?;',data, pID = *, data, pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product
   ,data,
         (err, results, fields) => {
           console.log('RESULTS' + results);
             console.log(err);
+            console.log(fields);
           callback(results[0]);
         }
  /* const selectedType = [type.options[type.selectedIndex].value];
