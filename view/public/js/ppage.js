@@ -9,7 +9,7 @@ const brandlist = ['Nike','Adidas','Reebok'];
 let brandoptions = [];
 
 const select = document.createElement('select');
-const priceMin = document.createElement('input type="number"');
+const priceMin = document.createElement('input');
 
 
 const getprd = (evt) => {
@@ -78,6 +78,7 @@ const showBrand = (evt) => {
 };
 
 const showPrice = (evt) => {
+  priceMin.setAttribute('type','number');
   dynamic.appendChild(priceMin);
   console.log('Tässä hinta')
 };
