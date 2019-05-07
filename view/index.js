@@ -156,6 +156,7 @@ app.post('/getproduct', (req, res) => {
   }
 
   const sql = q0+q1+q2+q3;
+  console.log(sql);
 
 
   query.selectProductInfo(sql, (result) => {
