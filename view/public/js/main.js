@@ -45,7 +45,7 @@ const login = (evt) => {
         method: 'post',
         body: data,
         };
-    fetch('login', options).then((response) => {
+    fetch('login', options, { redirect: "error" }).then((response) => {
         return response.json();
     }).then((json) => {
         console.log(json);
@@ -56,7 +56,7 @@ const login = (evt) => {
         console.log("login end")
     });
 };
-productForm.addEventListener('submit', login);
+loginForm.addEventListener('submit', login);
 
 // Function used for getting the user Session data
 /*
@@ -75,6 +75,7 @@ const getSession = () => {
     });
 };
 */
+/*
 const changeLayout = (udata) =>{
         let logReg = document.querySelector('.logReg');
         let loggedIn = document.querySelector('.loggedIn');
@@ -82,7 +83,25 @@ const changeLayout = (udata) =>{
         loggedIn.style.display = "block";
         logReg.style.display = "none";
         console.log("display");
-        /*location.reload();*/
+
+};
+*/
+const showHide = (user) => {
+    const hiddenElements = document.querySelectorAll('.form-container.hidden');
+    hiddenElements.forEach(element => {
+        element.classList.remove('hidden');
+    });
+
+    const visibleElements = document.querySelectorAll(
+        '.form-container.visible');
+    console.log(visibleElements);
+    visibleElements.forEach(element => {
+        element.classList.replace('visible', 'hidden');
+    });
+
+    const userElement = document.querySelector('#username');
+    console.log(userElement, user.email);
+    userElement.innerHTML = user.email;
 };
 
 /*
