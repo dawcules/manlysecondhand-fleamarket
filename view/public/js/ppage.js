@@ -106,7 +106,7 @@ const showPrice = (evt) => {
 const showCond = (evt) => {
   if (document.querySelector('#conddiv')) {
     condDiv.style.display = "none";
-    dynamic.removeChild(priceDiv);
+    dynamic.removeChild(condDiv);
   }
   else {
     condMin.setAttribute('type', 'number');
