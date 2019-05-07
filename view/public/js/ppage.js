@@ -36,7 +36,6 @@ const getprd = (evt) => {
   const selMaxPrice = maxPrice.value;
 
 
-
   const searchdata = [selectedType]; // iffillä kamat sisääN
 
   if (selectedBrand) {
@@ -51,6 +50,8 @@ const getprd = (evt) => {
   if (selMaxPrice) {
     searchdata.push(selMaxPrice);
   }
+
+  console.log(searchdata);
 
 
   fetch('getproduct', {
