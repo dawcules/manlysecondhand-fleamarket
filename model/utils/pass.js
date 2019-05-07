@@ -85,7 +85,6 @@ const register = (req, res, next) => {
     //INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);',
     dbq.registerUser([req.body.username, hash, req.body.email, req.body.phone, req.body.location, 0], next);
   });
-  res.send("Registered");
 };
 
 // function to check if the user has logged in, to be used in middleware
