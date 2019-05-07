@@ -75,34 +75,16 @@ const getSession = () => {
     });
 };
 */
-/*
-const changeLayout = (udata) =>{
+
+const changeLayout = (user) =>{
         let logReg = document.querySelector('.logReg');
         let loggedIn = document.querySelector('.loggedIn');
-        loggedIn.innerHTML = udata.username;
+        loggedIn.innerHTML = user.username;
         loggedIn.style.display = "block";
         logReg.style.display = "none";
         console.log("display");
-
 };
-*/
-const showHide = (user) => {
-    const hiddenElements = document.querySelectorAll('.form-container.hidden');
-    hiddenElements.forEach(element => {
-        element.classList.remove('hidden');
-    });
 
-    const visibleElements = document.querySelectorAll(
-        '.form-container.visible');
-    console.log(visibleElements);
-    visibleElements.forEach(element => {
-        element.classList.replace('visible', 'hidden');
-    });
-
-    const userElement = document.querySelector('#username');
-    console.log(userElement, user.email);
-    userElement.innerHTML = user.email;
-};
 
 /*
 const mainApp = () => {
