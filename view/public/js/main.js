@@ -1,9 +1,9 @@
 'use strict';
 
 let uData = null;
-const logReg = document.querySelector('.logReg');
-const loggedIn = document.querySelector('.loggedIn');
-const registerForm = document.querySelector('#register');
+let logReg = document.querySelector('.logReg');
+let loggedIn = document.querySelector('.loggedIn');
+let registerForm = document.querySelector('#register');
 // insert a form
 const register = (evt) => {
     // - prevents the form from sending
@@ -76,8 +76,8 @@ const getSession = () => {
 };
 const changeLayout = () =>{
         loggedIn.innerHTML = udata.username;
-        document.querySelector('.loggedIn').style.display = "block";
-        document.querySelector('.logReg').style.display = "none";
+        loggedIn.style.display = "block";
+        logReg.style.display = "none";
 };
 
 const mainApp = () => {
