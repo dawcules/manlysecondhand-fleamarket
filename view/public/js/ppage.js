@@ -16,6 +16,7 @@ const priceMax = document.createElement('input');
 const condMin = document.createElement('input').setAttribute('placeholder','Cond min');
 
 const condMax = document.createElement('input').setAttribute('placeholder','Cond max');
+const condDiv = document.createElement('div');
 
 
 const getprd = (evt) => {
@@ -103,6 +104,22 @@ const showPrice = (evt) => {
 };
 
 const showCond = (evt) => {
+  if (document.querySelector('#conddiv')) {
+    condDiv.style.display = "none";
+    dynamic.removeChild(priceDiv);
+  }
+  else {
+    condMin.setAttribute('type', 'number');
+    condMin.setAttribute('placeholder', 'Condition min');
+    condMax.setAttribute('type', 'number');
+    condMax.setAttribute('placeholder', 'Condition max');
+    condDiv.setAttribute('id','conddiv');
+    condDiv.appendChild(condMin);
+    condDiv.appendChild(condMax);
+    dynamic.appendChild(condDiv);
+    condDiv.style.display = "inline";
+    console.log('Tässä hinta');
+  }
 
 
 
