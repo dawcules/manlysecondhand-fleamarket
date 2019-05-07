@@ -2,6 +2,15 @@
 
 let uData;
 
+const changeLayout = (user) =>{
+    let logReg = document.querySelector('.logReg');
+    let loggedIn = document.querySelector('.loggedIn');
+    loggedIn.innerHTML = user.username;
+    loggedIn.style.display = "block";
+    logReg.style.display = "none";
+    console.log("display");
+};
+
 let registerForm = document.querySelector('#register');
 // insert a form
 const register = (evt) => {
@@ -52,7 +61,8 @@ const login = (evt) => {
         console.log("login fetch");
         console.log(udata);
         window.alert("Welcome "+udata.username);
-        changeLayout(json);
+        udata = json;
+        changeLayout(udata);
         console.log("login end")
     });
 };
@@ -76,14 +86,7 @@ const getSession = () => {
 };
 */
 
-const changeLayout = (user) =>{
-        let logReg = document.querySelector('.logReg');
-        let loggedIn = document.querySelector('.loggedIn');
-        loggedIn.innerHTML = user.username;
-        loggedIn.style.display = "block";
-        logReg.style.display = "none";
-        console.log("display");
-};
+
 
 
 /*
