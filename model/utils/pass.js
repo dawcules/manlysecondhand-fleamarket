@@ -84,6 +84,7 @@ const register = (req, res, next) => {
     console.log('hash', hash);
     //INSERT INTO User (UserName, Password, Email, Phone, Location, typeID) VALUES (?, ?, ?, ?, ?, ?);',
     dbq.registerUser([req.body.username, hash, req.body.email, req.body.phone, req.body.location, 0], next);
+    res.send("Registered")
   });
 };
 

@@ -63,9 +63,11 @@ const login = (evt) => {
         console.log("login fetch");
         uData = json;
         console.log(uData);
+        getSession();
         window.alert("Welcome "+uData.UserName);
         changeLayout(uData);
         console.log("login end")
+
     });
 };
 loginForm.addEventListener('submit', login);
@@ -79,7 +81,7 @@ const getSession = () => {
     }).then((json) => {
         console.log(json);
         uData = json;
-        console.log(udata.UserName);
+        console.log(uData.UserName);
         //showHide(json);
         changeLayout(uData);
         window.alert('Successfully logged in');
@@ -87,7 +89,6 @@ const getSession = () => {
 };
 
 const mainApp = () => {
-    getSession();
 };
 mainApp();
 
