@@ -8,43 +8,53 @@
 </head>
 <body>
 <form action="product" id="productAdd" class="formi-style" method = "post">
-    <fieldset>
+    <fieldset id="fsone">
         <legend> Add a product for sale / giveaway</legend>
         <br>
         <label for ="name">Name of the product</label>
         <input type="text" id="name" name="name" autofocus required size="30" required pattern="^[a-zA-Z ]*$">
         <br>
         <label for ="brand">Brand</label>
-        <input type="text" id ="brand" name="brand" required size="30"/>
+        <input type="text" id ="brand" name="brand" placeholder="Nike/Adidas/Puma.." required size="30"/>
         <br>
         <label for="description">Description</label>
-        <textarea name="description" id ="description" placeholder="description of the item here"></textarea>
+        <textarea name="description" id ="description" placeholder="Tell us more about your product.."></textarea>
         <br>
         <label for="ptype">Product type</label>
-        <input type="text" id = "ptype" name="ptype" required placeholder="what kind of product are we dealing with here?" size="50"/>
+        <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
         <br>
         <label for="condition">Condition</label>
-        <input type="radio" value="1" name="condition">1
-        <input type="radio" value="2" name="condition">2
-        <input type="radio" value="3" name="condition">3
-        <input type="radio" value="4" name="condition">4
         <br>
-        <span class="note">Rate the condition of the product on scale of 1-10</span>
+        <input type="radio" name="chooseone" value="first">
+        <label for="first">Very good</label>
+        <br>
+        <input type="radio" name="chooseone" value="second">
+        <label for="second"> Good</label>
+        <br>
+        <input type="radio" name="chooseone" value="third">
+        <label for="third"> Not so good</label>
+        <br>
+        <input type="radio" name="chooseone" value="fourth">
+        <label for="fourth">Bad</label>
+        <br>
+        <input type="radio" name="chooseone" value="fifth">
+        <label for="fifth">Really bad</label>
         <br>
         <label for="price">Price</label>
-        <input type="text" id ="price" name="price" size="10" pattern="^[0-9]*$"/>
+        <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
         <br>
-        <button type="submit" id="sendBtn">Submit Product</button>
+        <button type="submit" id="sendBtn" onsubmit="return validation();">Submit Product</button>
     </fieldset>
 </form>
+<div id="details"></div>
 <br>
 <form action="image" id = "imageAdd" method="post" enctype="multipart/form-data">
-    <fieldset>
-            <input type="text" name="title" placeholder="title">
+    <fieldset id="fstwo">
+            <input type="text" name="title" placeholder="Title">
             <label class="button">Select image
                 <input type="file" name="imgA" id="imgA" accept="image/*">
             </label>
-            <button type="submit">Submit Image</button>
+            <button type="submit" id="sBtn">Submit Image</button>
     </fieldset>
 </form>
 </body>
