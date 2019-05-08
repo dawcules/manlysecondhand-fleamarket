@@ -134,6 +134,7 @@ const getprd = (evt) => {
       pid.appendChild(qPriceEle[i]);
       pid.appendChild(qBrandEle[i]);
       pid.appendChild(qAddedEle[i]);
+      pid.style.border = '2px solid black';
       dv.appendChild(pid);
     };
     //tänne printit
