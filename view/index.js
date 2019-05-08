@@ -172,7 +172,7 @@ app.post('/getproduct', (req, res) => {
 })});
 
 app.post('/getown',(req, res) => {
-  const data = [req.body.uprod];
+  const data = ['"'+req.body.uprod+'"'];
   console.log('getown ' + data);
 
   query.selectUserProducts(data, (result) => {
