@@ -12,16 +12,18 @@
 .button {
     background-color: gray; /* Green */
     border: none;
-    color: white;
+    color: azure;
     padding: 7px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
 #dynamic {
+
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-evenly;
 
 }
 #ppage {
