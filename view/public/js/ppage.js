@@ -265,4 +265,5 @@ brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
+window.addEventListener('load', getprd);
 
