@@ -57,30 +57,30 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if ([type.options[type.selectedIndex].value]) {
+  if ([type.options[type.selectedIndex].value] != null) {
     searchdata.push([type.options[type.selectedIndex].value])
   }
   else {
     searchdata.push('*');
   }
-  if ([brand.options[brand.selectedIndex].value]) {
+  if ([brand.options[brand.selectedIndex].value] != null) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
   else {
   }
-  if ([cond.options[cond.selectedIndex].value]) {
+  if ([cond.options[cond.selectedIndex].value] != null) {
     searchdata.push([cond.options[cond.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (minPrice.value) {
+  if (minPrice.value != null) {
     searchdata.push(minPrice.value);
   }
   else {
     searchdata.push('*')
   }
-  if (maxPrice.value) {
+  if (maxPrice.value != null) {
     searchdata.push(maxPrice.value);
   }
   else {
