@@ -102,6 +102,7 @@ const getprd = (evt) => {
       qName.push(pdata[i].pName);
       qAdded.push(pdata[i].ProductAdded);
     }
+    console.log('qDesc ' + qDesc);
     const desc = document.createElement('p');
 
     for (let i=0;qDesc.length>i;i++) {
