@@ -157,7 +157,7 @@ const selectUserProducts = (data,res)=>{
         },
     );
 };
-const insertProduct = (data, res) => {
+const insertProduct = (data) => {
     // Used for adding a new product to database
     //name, brand, description, "not",condition,ptype,price, "8"
     connection.execute(
@@ -166,7 +166,6 @@ const insertProduct = (data, res) => {
         (err, results, fields) => {
             if (err == null) {
                 console.log(results);
-                res.send(results);
             } else {
                 console.log(err);
             }
