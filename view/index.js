@@ -81,7 +81,7 @@ app.use('/product', (req, res) => {
                 parseInt(req.body.id), // dummy userID
                 ];
                 console.log(data);
-                query.insertProduct(data, res);
+                query.insertProduct(data);
                 query.selectLatestProduct((result) => {
                     console.log(result);
                     res.send(result);
@@ -117,7 +117,7 @@ app.use('/image', (req, res, next) => {
         req.body.title,
         'thumbs/' + req.file.filename,
         'medium/' + req.file.filename,
-        2, // dummy product ide
+        req.body.id, // dummy product ide
     ];
     query.insertImage(data, res);
     console.log(data)
