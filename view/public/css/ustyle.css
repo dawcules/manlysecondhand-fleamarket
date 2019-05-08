@@ -24,6 +24,8 @@ body {
 }
 
 #ppage {
+    margin-top: 5%;
+    margin-left: 33%;
     background-color: white;
     color: #253f3f;
     max-width: 23%;
