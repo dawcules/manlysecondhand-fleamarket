@@ -144,16 +144,14 @@ const selectProductInfo = (sql,callback) => {
 */
 );
 };
-const selectUserProducts = (data,res)=>{
+const selectUserProducts = (data,callback)=>{
     //Shows all products selected user has listed
     connection.query(
-        'SELECT pName,pBrand,Description,Condition,pType,Price,ProductAdded FROM Product WHERE uID = ?;',data,
+        'SELECT ? FROM Product WHERE UserName = ?;',data,
         (err,results,fieds)=>{
-            if(err == null){
-                res.send(results);
-            }else{
+                callback(results);
                 console.log(err);
-            }
+
         },
     );
 };
