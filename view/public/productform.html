@@ -12,7 +12,7 @@
         <legend> Add a product for sale / giveaway</legend>
         <br>
         <label for ="name">Name of the product</label>
-        <input type="text" id="name" name="name" autofocus required size="30" required pattern="^[a-zA-Z ]*$">
+        <input type="text" id="name" name="name" autofocus required size="30" pattern="^[a-zA-Z ]*$">
         <br>
         <label for ="brand">Brand</label>
         <input type="text" id ="brand" name="brand" placeholder="Nike/Adidas/Puma.." required size="30"/>
@@ -31,7 +31,7 @@
         <label for="ptype">Product type</label>
         <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
         <br>
-        <div class="condi" style="border: 1px solid darkslategrey;">
+        <div id="condi">
         <label for="condition">Condition</label>
         <br>
         <input type="radio" name="chooseone" value="first">
@@ -51,7 +51,7 @@
         <br>
         </div>
         <label for="price">Price</label>
-        <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
+        <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$">
         <br>
         <button type="submit" id="sendBtn" onsubmit="return validation();">Submit Product</button>
     </fieldset>

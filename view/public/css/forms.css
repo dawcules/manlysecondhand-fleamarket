@@ -92,3 +92,6 @@ p{
     width: auto;
     cursor: pointer;
 }
+#condi {
+    border: 1px solid darkslategrey;
+}
