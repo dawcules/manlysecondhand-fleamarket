@@ -104,7 +104,7 @@ const getprd = (evt) => {
     }
     const desc = document.createElement('p');
 
-    for (let i=0;qDesc.length<i;i++) {
+    for (let i=0;qDesc.length>i;i++) {
       desc.innerText = qDesc[i];
       qDescEle.push(desc)
 
