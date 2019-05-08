@@ -289,6 +289,18 @@ const delImage = (data, res) => {
         },
     );
 };
+const selectLatestProduct = (callback) => {
+    connection.query(
+    'SELECT pID FROM Product ORDER by `ProductAdded` DESC LIMIT 1;',
+    (err, results, fields) => {
+        if(err === null){
+            callback(results);
+        }else{
+            console.log(err);
+        }
+    },
+    );
+};
 
 module.exports = {
     selectUserInfo: selectUserInfo,
@@ -310,4 +322,5 @@ module.exports = {
     selectTopImage: selectTopImage,
     selectEmail: selectEmail,
     getusername: getusername,
+    selectLatestProduct: selectLatestProduct,
 };

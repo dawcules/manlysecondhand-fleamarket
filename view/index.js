@@ -82,6 +82,11 @@ app.use('/product', (req, res) => {
                 ];
                 console.log(data);
                 query.insertProduct(data, res);
+                query.selectLatestProduct((result) => {
+                    console.log(result);
+                    res.send(result);
+                });
+
 });
 
 app.post('/image', upload.single('imgA'), (req, res, next) => {
@@ -112,7 +117,7 @@ app.use('/image', (req, res, next) => {
         req.body.title,
         'thumbs/' + req.file.filename,
         'medium/' + req.file.filename,
-        2, // dummy product ide
+        req.body.id, // dummy product ide
     ];
     query.insertImage(data, res);
     console.log(data)

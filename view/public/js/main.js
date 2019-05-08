@@ -114,6 +114,7 @@ const productAdd = (evt) => {
         .then(json => {
             console.log(json);
             product = json;
+            imageAdd(product)
 
         });
 };
@@ -122,11 +123,13 @@ productForm.addEventListener('submit', productAdd);
 const imageForm = document.querySelector('#imageAdd');
 const image = document.getElementById('imgA');
 // make function 'upload' which
-const imageAdd = (evt) => {
+const imageAdd = (product) => {
     // - prevents the form from sending
-    evt.preventDefault();
+  //  evt.preventDefault();
+    console.log(product);
 // - makes FormData -object and adds the file selected byt the user into the object
     const imgForm = new FormData(imageForm);
+    imgForm.append('id',product);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
@@ -141,6 +144,7 @@ const imageAdd = (evt) => {
             console.log(json);
             message.innerHTML = json.message;
             image.src = './uploads' + json.file.filename;
+            window.alert("Thanks for adding a product for sale!");
             productForm.reset();
             imageForm.reset();
         });
@@ -164,7 +168,7 @@ function validation() {
 // function ends
 
 // make an event listener which calls upload function when the form is submitted
-imageForm.addEventListener('submit', imageAdd);
+// imageForm.addEventListener('submit', imageAdd);
 
 
 //WIP
