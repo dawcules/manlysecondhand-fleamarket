@@ -30,3 +30,12 @@ body {
     color: #253f3f;
     max-width: 60%;
 }
+
+.spacer{
+    display:block;
+    height:40px;
+    width:100%;
+    margin: 0 auto;
+    content:"";
+
+}
