@@ -89,7 +89,7 @@
 /* Change .logReg display to block after editing*/
 .logReg{
     padding: 2px;
-    display: none;
+    display: block;
     cursor: pointer;
     color: azure
 }
@@ -170,7 +170,7 @@
 /*change .loggedin  display to none after editing*/
 .loggedIn{
     padding: 2px;
-    display: block;
+    display: none;
     cursor: pointer;
     color: azure;
 }
