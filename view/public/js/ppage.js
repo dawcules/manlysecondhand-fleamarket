@@ -33,12 +33,12 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  const selectedType = ;
+ /* const selectedType = ;
   const selectedBrand = [;
   const selectedCond = ;
   const selMinPrice =
   const selMaxPrice = maxPrice.value;
-  const searchdata = [selectedType]; // iffillä kamat sisään
+  const searchdata = [selectedType]; // iffillä kamat sisään*/
 
   let qDesc = [];
   let qImg = [];
