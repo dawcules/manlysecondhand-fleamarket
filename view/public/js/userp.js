@@ -33,7 +33,7 @@ fetch('getsession', {
 });
 
 const getprod = () => {
-fetch('getproduct', {
+fetch('getown', {
   method: "post",
   headers: {
     'Accept': 'application/json',
