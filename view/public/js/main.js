@@ -97,6 +97,7 @@ const productAdd = (evt) => {
     for (const pair of new FormData(productForm)) {
         data.append(pair[0], pair[1]);
     }
+    data.append(uiD , uData.uID);
     console.log(data);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
