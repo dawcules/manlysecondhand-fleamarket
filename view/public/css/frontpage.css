@@ -18,14 +18,12 @@
     text-decoration: none;
     display: inline-block;
 }
-#dynamic {
+#productdiv {
 
-    display: block;
+    display: inline-flex;
     padding: 5%;
     width: 100%;
     margin-top: 1rem;
-    justify-content: center;
-
 }
 #ppage {
     display: inline-block;
