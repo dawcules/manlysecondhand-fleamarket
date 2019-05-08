@@ -52,7 +52,7 @@ const getprd = (evt) => {
   let qAddedEle = [];
 
 
-  if (!selectedBrand) {
+  if (selectedBrand) {
     searchdata.push(selectedBrand);
   }
   else {
@@ -123,8 +123,6 @@ const getprd = (evt) => {
     }
 
     const dv = document.getElementById('ppage');
-
-
 
     for (let i=0;qDescEle.length>i;i++) {
       const pid = document.createElement('div');
