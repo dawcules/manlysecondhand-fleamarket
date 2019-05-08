@@ -126,7 +126,7 @@ const image = document.getElementById('imgA');
 const imageAdd = (product) => {
     // - prevents the form from sending
   //  evt.preventDefault();
-    console.log(product);
+    console.log(product.pID);
 // - makes FormData -object and adds the file selected byt the user into the object
     const imgForm = new FormData(imageForm);
     imgForm.append('id',product.pID);
