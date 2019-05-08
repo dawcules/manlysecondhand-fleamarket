@@ -28,7 +28,8 @@
     margin-top: 1%;
     background-color: white;
     color: #253f3f;
-    max-width: 23%;
+    max-width: 60%;
+    min-width: 30%;
 }
 .higher input[type=text] {
     width: 40vh;
