@@ -10,8 +10,13 @@ const changeLayout = (uData) =>{
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
-    logRegMenu.classList.toggle('logReg-form-active');
-    console.log("display");
+    console.log("display")
+    if(logReg.style.transform === "0%") {
+        logRegMenu.classList.toggle('logReg-form-active');
+        console.log("logreg changed");
+    }else{
+        console.log("no changes");
+    }
 };
 
 let registerForm = document.querySelector('#register');
