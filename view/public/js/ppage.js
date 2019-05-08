@@ -22,6 +22,7 @@ const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
+
 const getprd = (evt) => {
 
   evt.preventDefault();
@@ -259,10 +260,11 @@ const showType = (evt) => {
   }
 };
 
+getprd('submit');
+
 form.addEventListener('submit', getprd);
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
 
-getprd();
