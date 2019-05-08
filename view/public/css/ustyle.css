@@ -1,4 +1,5 @@
 body {
+    display: block;
     font-size: 2rem;
     font-family: Arial sans-serif;
     background-color: #2f4f4f;
@@ -22,7 +23,6 @@ body {
 }
 
 #ppage {
-    display: inline-block;
     margin-left: 33%;
     margin-top: 1%;
     background-color: white;
