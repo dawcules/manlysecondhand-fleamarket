@@ -87,6 +87,10 @@ const getSession = () => {
         window.alert('Successfully logged in');
     });
 };
+const userinformation = (user) => {
+
+}
+
 
 const mainApp = () => {
 };
