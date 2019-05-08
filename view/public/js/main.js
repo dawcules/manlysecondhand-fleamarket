@@ -11,7 +11,7 @@ const changeLayout = (uData) =>{
     loggedIn.style.display = "block";
     logReg.style.display = "none";
     console.log("display")
-    if(logReg.style.transform === "0%") {
+    if(logRegMenu.style.transform === "0%") {
         logRegMenu.classList.toggle('logReg-form-active');
         console.log("logreg changed");
     }else{
