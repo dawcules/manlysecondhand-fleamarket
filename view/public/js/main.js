@@ -172,10 +172,6 @@ function validation() {
 // imageForm.addEventListener('submit', imageAdd);
 
 
-//WIP
-const userinformation = (user) => {};
-
-
 const mainApp = () => {
     getSession();
 };
