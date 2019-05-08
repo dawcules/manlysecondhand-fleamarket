@@ -11,12 +11,7 @@ const changeLayout = (uData) =>{
     loggedIn.style.display = "block";
     logReg.style.display = "none";
     console.log("display");
-    if(logRegMenu.style.transform !== 'translateX(0%)') {
-        logRegMenu.classList.toggle('logReg-form-active');
-        console.log("logreg changed");
-    }else{
-        console.log("no changes");
-    }
+    logRegMenu.style.display = "none";
 };
 
 let registerForm = document.querySelector('#register');
