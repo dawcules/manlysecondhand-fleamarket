@@ -55,9 +55,13 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if (cond.childElementCount != 0) {
+  if (cond.childElementCount != null) {
     searchdata.push([cond.options[cond.selectedIndex].value])
   }
+  else {
+    console.log('NULLLLLL');
+  }
+
 
   if (type.childElementCount != 0) {
     searchdata.push([type.options[type.selectedIndex].value]);
