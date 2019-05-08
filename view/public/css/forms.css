@@ -33,6 +33,11 @@ Keep the log in / register form in check with labels
     height: 30px;
 
 }
+.condition{
+    border: #253f3f;
+    width: 100%;
+    height: 30px;
+}
 
 .productForm input, textarea {
     display: block;

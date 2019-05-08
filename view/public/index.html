@@ -90,7 +90,7 @@
                     <br>
                     <label for ="brand">Brand</label>
                     <br>
-                    Brand: <select name="brandi" class="brandd" id = brand>
+                    <select name="brandi" class="brandd" id = brand>
                     <option value="Nike" name="nike">Nike</option>
                     <option value="Reebok" name="reebok">Reebok</option>
                     <option value="Adidas" name="adidas">Adidas</option>
@@ -104,25 +104,15 @@
                     <label for="ptype">Product type</label>
                     <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
                     <br>
-                    <div class="condi" style="border: 1px solid darkslategrey;">
-                        <label for="condition">Condition</label>
-                        <br>
-                        <input type="radio" name="chooseone" value="1">
-                        <label for="first">Very good</label>
-                        <br>
-                        <input type="radio" name="choosetwo" value="2">
-                        <label for="second"> Good</label>
-                        <br>
-                        <input type="radio" name="choosethree" value="3">
-                        <label for="third"> Not so good</label>
-                        <br>
-                        <input type="radio" name="choosefour" value="4">
-                        <label for="fourth">Bad</label>
-                        <br>
-                        <input type="radio" name="choosefive" value="5">
-                        <label for="fifth">Really bad</label>
-                        <br>
-                    </div>
+                    <label for="condi">Rate the condition of your product</label>
+                    <select class="condition" style="border: 1px solid darkslategrey;" id = "condi">
+                        <option value="1" name="Very Carp">Very Bad</option>
+                        <option value="2" name="reebok">Bad</option>
+                        <option value="3" name="adidas">Mediocre</option>
+                        <option value="4" name="puma">Good</option>
+                        <option value="5" name="empty">Very Good</option>
+                    </select>
+                    <br>
                     <label for="price">Price</label>
                     <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
                     <br>
