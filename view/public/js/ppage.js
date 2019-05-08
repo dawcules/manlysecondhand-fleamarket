@@ -1,6 +1,7 @@
 'use strict';
 const form = document.querySelector('#search');
 const dynamic = document.querySelector('#dynamic'); // muutettava hakukenttä
+const dv = document.getElementById('ppage');
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
@@ -22,7 +23,9 @@ const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
 const getprd = (evt) => {
+
   evt.preventDefault();
+  dv.innerHTML="";
 
   const brand = document.getElementById('brandname');
   const type = document.getElementById('typename');
@@ -30,12 +33,13 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  const selectedType = [type.options[type.selectedIndex].value];
-  const selectedBrand = [brand.options[brand.selectedIndex].value];
-  const selectedCond = [cond.options[cond.selectedIndex].value];
-  const selMinPrice = minPrice.value;
-  const selMaxPrice = maxPrice.value;
-  const searchdata = [selectedType]; // iffillä kamat sisääN
+ /* const selectedType = ;
+  const selectedBrand = [;
+  const selectedCond = ;
+  const selMinPrice =
+  const selMaxPrice = maxPrice.value;*/
+  const searchdata = []; // iffillä kamat sisään
+
   let qDesc = [];
   let qImg = [];
   let qCond = [];
@@ -51,27 +55,32 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-
-  if (selectedBrand) {
-    searchdata.push(selectedBrand);
+  if (cond) {
+    searchdata.push([cond.options[cond.selectedIndex].value])
+  }
+  else {
+    console.log(searchdata.push('*'));
+  }
+  if (type) {
+    searchdata.push([type.options[type.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (selectedCond) {
-    searchdata.push(selectedCond);
+  if (brand) {
+    searchdata.push([brand.options[brand.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (selMinPrice) {
-    searchdata.push(selMinPrice);
+  if (minPrice) {
+    searchdata.push([minPrice.value]);
   }
   else {
     searchdata.push('*')
   }
-  if (selMaxPrice) {
-    searchdata.push(selMaxPrice);
+  if (maxPrice) {
+    searchdata.push(maxPrice.value);
   }
   else {
     searchdata.push('*')
@@ -122,7 +131,6 @@ const getprd = (evt) => {
       qAddedEle[i].innerText = qAdded[i];
     }
 
-    const dv = document.getElementById('ppage');
 
     for (let i=0;qDescEle.length>i;i++) {
       const pid = document.createElement('div');
