@@ -129,7 +129,7 @@ const imageAdd = (product) => {
     console.log(product);
 // - makes FormData -object and adds the file selected byt the user into the object
     const imgForm = new FormData(imageForm);
-    imgForm.append('id',product);
+    imgForm.append('id',product.pID);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
