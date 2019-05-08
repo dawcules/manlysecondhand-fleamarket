@@ -114,7 +114,7 @@ const getprd = (evt) => {
     thumb.setAttribute('href','');
 
     const dv = document.getElementById('ppage');
-    for (let i=0;qDescEle>i;i++) {
+    for (let i=0;qDescEle.length>i;i++) {
       dv.appendChild(qDescEle[i]);
       console.log(qDescEle[i]);
     };
