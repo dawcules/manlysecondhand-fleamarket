@@ -78,7 +78,7 @@ app.use('/product', (req, res) => {
                 parseInt(req.body.condition),
                 req.body.ptype,
                 parseInt(req.body.price),
-                parseInt(id.uID), // dummy userID
+                parseInt(req.id), // dummy userID
                 ];
                 console.log(data);
                 query.insertProduct(data, res);
