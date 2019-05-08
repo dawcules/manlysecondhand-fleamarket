@@ -104,13 +104,10 @@ const getprd = (evt) => {
       qAdded.push(pdata[i].ProductAdded);
     }
     console.log('qDesc ' + qDesc);
-    const desc = document.createElement('p');
 
     for (let i=0;qDesc.length>i;i++) {
-      desc.innerText = qDesc[i];
-      console.log(desc);
-      qDescEle.push(desc);
-
+      qDescEle[i] = document.createElement('p');
+      qDescEle[i].innerText = qDesc[i];
     }
     const title = document.createElement('h2');
     const thumb = document.createElement('a');
