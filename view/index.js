@@ -171,6 +171,14 @@ app.post('/getproduct', (req, res) => {
   res.send(result);
 })});
 
+app.post('/getown',(req, res) => {
+  const data = [req.body.uprod];
+
+  query.selectUserProducts(data, (result) => {
+    res.send(result)
+  });
+});
+
 app.listen(3000); //normal http traffic
 https.createServer(options, app).listen(8000); //https traffic
 
