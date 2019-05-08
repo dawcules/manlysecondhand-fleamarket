@@ -79,7 +79,68 @@
         <ul class = "AboutUs">
             <li><a href ="">About Us</a></li>
         </ul>
-        <div  class = "productForm">This is the file input form</div>
+        <div class = "productForm">
+            <form action="product" id="productAdd" class="formi-style" method = "post">
+                <fieldset id="fsone">
+                <legend> Add a product for sale / giveaway</legend>
+                <br>
+                <label for ="name">Name of the product</label>
+                <input type="text" id="name" name="name" required size="30" required pattern="^[a-zA-Z ]*$">
+                <br>
+                <label for ="brand">Brand</label>
+                <input type="text" id ="brand" name="brand" placeholder="Nike/Adidas/Puma.." required size="30"/>
+                <br>
+                Brand: <select name="brandi" class="brandd">
+                <option value="Nike" name="nike">Nike</option>
+                <option value="Reebok" name="reebok">Reebok</option>
+                <option value="Adidas" name="adidas">Adidas</option>
+                <option value="Puma" name="puma">Puma</option>
+                <option value="----" name="empty">----</option>
+                </select>
+                <br>
+                <label for="description">Description</label>
+                <textarea name="description" id ="description" placeholder="Tell us more about your product.."></textarea>
+                <br>
+                <label for="ptype">Product type</label>
+                <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
+                <br>
+                <div class="condi" style="border: 1px solid darkslategrey;">
+                    <label for="condition">Condition</label>
+                    <br>
+                    <input type="radio" name="chooseone" value="first">
+                    <label for="first">Very good</label>
+                    <br>
+                    <input type="radio" name="choosetwo" value="second">
+                    <label for="second"> Good</label>
+                    <br>
+                    <input type="radio" name="choosethree" value="third">
+                    <label for="third"> Not so good</label>
+                    <br>
+                    <input type="radio" name="choosefour" value="fourth">
+                    <label for="fourth">Bad</label>
+                    <br>
+                    <input type="radio" name="choosefive" value="fifth">
+                    <label for="fifth">Really bad</label>
+                    <br>
+                </div>
+                <label for="price">Price</label>
+                <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
+                <br>
+                <button type="submit" id="sendBtn" onsubmit="return validation();">Submit Product</button>
+            </fieldset>
+            </form>
+            <div id="details"></div>
+            <br>
+            <form action="image" id = "imageAdd" method="post" enctype="multipart/form-data">
+                <fieldset id="fstwo">
+                    <input type="text" name="title" placeholder="Title">
+                    <label class="button">Select image
+                        <input type="file" name="imgA" id="imgA" accept="image/*">
+                    </label>
+                    <button type="submit" id="sBtn">Submit Image</button>
+                </fieldset>
+            </form>
+        </div>
         <div class = "userPage">This is your userpage</div>
     </nav>
 </header>
