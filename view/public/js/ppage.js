@@ -27,18 +27,20 @@ const getprd = (evt) => {
   evt.preventDefault();
   dv.innerHTML="";
 
-  const brand = document.getElementById('brandname');
+  const brand = document.getElementById('brangit dname');
   const type = document.getElementById('typename');
   const cond = document.getElementById('condname');
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  const selectedType = [type.options[type.selectedIndex].value];
-  const selectedBrand = [brand.options[brand.selectedIndex].value];
-  const selectedCond = [cond.options[cond.selectedIndex].value];
-  const selMinPrice = minPrice.value;
-  const selMaxPrice = maxPrice.value;
-  const searchdata = [selectedType]; // iffillä kamat sisään
+
+
+  /*const selectedType = ;
+  const selectedBrand = ;
+  const selectedCond = ;
+  const selMinPrice =
+  const selMaxPrice = ;*/
+  const searchdata = []; // iffillä kamat sisään
 
   let qDesc = [];
   let qImg = [];
@@ -55,27 +57,31 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-
-  if (selectedBrand) {
-    searchdata.push(selectedBrand);
+  if ([type.options[type.selectedIndex].value]) {
+    searchdata.push([type.options[type.selectedIndex].value])
+  }
+  else {
+    searchdata.push('*');
+  }
+  if ([brand.options[brand.selectedIndex].value]) {
+    searchdata.push([brand.options[brand.selectedIndex].value]);
+  }
+  else {
+  }
+  if ([cond.options[cond.selectedIndex].value]) {
+    searchdata.push([cond.options[cond.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (selectedCond) {
-    searchdata.push(selectedCond);
+  if (minPrice.value) {
+    searchdata.push(minPrice.value);
   }
   else {
     searchdata.push('*')
   }
-  if (selMinPrice) {
-    searchdata.push(selMinPrice);
-  }
-  else {
-    searchdata.push('*')
-  }
-  if (selMaxPrice) {
-    searchdata.push(selMaxPrice);
+  if (maxPrice.value) {
+    searchdata.push(maxPrice.value);
   }
   else {
     searchdata.push('*')

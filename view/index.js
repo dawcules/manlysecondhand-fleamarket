@@ -138,7 +138,7 @@ app.post('/getproduct', (req, res) => {
     q0 = ''
   }
   if (qdata[1] != '*') {
-    q1 = ' AND pBrand = ' + qdata[1]
+    q1 = ' AND pBrand = ' + '"'+qdata[1]+'"'
   }
   else {
     q1 = ''
