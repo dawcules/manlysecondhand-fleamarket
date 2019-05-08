@@ -165,7 +165,7 @@ const showCond = (evt) => {
     selectCond.style.display = 'inline'
   }
   else {
-    selectBrand.style.display = "none";
+    selectCond.style.display = "none";
     dynamic.removeChild(selectCond);
     condoptions = [];
   }
