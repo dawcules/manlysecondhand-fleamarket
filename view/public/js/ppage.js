@@ -91,6 +91,7 @@ const getprd = (evt) => {
   }).then((res) => {
     return res.json();
   }).then((json) => {
+    console.log('json' + json);
 
     const pdata = json;
     for (let i=0;pdata.length>i;i++) {
