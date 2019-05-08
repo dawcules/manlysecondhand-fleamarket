@@ -93,12 +93,13 @@ const productForm = document.querySelector('#productAdd');
 const productAdd = (evt) => {
     // - prevents the form from sending
     evt.preventDefault();
+    console.log(uData.uID);
 // - makes FormData -object and adds the file selected byt the user into the object
     const data = new URLSearchParams();
     for (const pair of new FormData(productForm)) {
         data.append(pair[0], pair[1]);
     }
-    data.append(userid , uData.uID);
+    data.append('id' , uData.uID);
     console.log(data);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
