@@ -82,6 +82,11 @@ app.use('/product', (req, res) => {
                 ];
                 console.log(data);
                 query.insertProduct(data, res);
+                query.selectLatestProduct((result) => {
+                    console.log(result);
+                    res.send(result);
+                });
+
 });
 
 app.post('/image', upload.single('imgA'), (req, res, next) => {
