@@ -5,11 +5,12 @@
     <title>Login</title>
 </head>
 <body>
-<form action="login" method="post">
-    <input type="name" name="username">
-    <input type="password" name="password">
-    <input type="submit">
+<form action="login" id="lform" method="post" onsubmit="return vld()">
+    <input type="text" id="usn" name="username" pattern="^[a-zA-Z ]*$">
+    <input type="password" id="psw" name="password" pattern="(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$">
+    <input type="submit" id="lg">
 </form>
 <a href="index.html" id="logina">Takaisin etusivulle</a>
+<script src="js/log.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ const dv = document.getElementById('ppage');
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
-const typeButton = document.querySelector('#ptype');
+const typeButton = document.querySelector('#ptypebut');
 
 const brandlist = ['Nike','Adidas','Reebok', 'Puma'];
 const typelist = ['Shirt','Pants','Coat','Accessory','Shoes', 8, 5];
@@ -21,6 +21,7 @@ const selectCond = document.createElement('select');
 const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
+
 
 const getprd = (evt) => {
 
@@ -259,8 +260,11 @@ const showType = (evt) => {
   }
 };
 
+getprd('submit');
+
 form.addEventListener('submit', getprd);
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
+

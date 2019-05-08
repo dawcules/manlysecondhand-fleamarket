@@ -9,12 +9,11 @@ body {
     width: 100%;
     margin: auto;
     background-color: rgba(0 0 0 0.7);
-    position: absolute;
-    top: 0;
     justify-content: center;
     align-items: center;
 }
 .cent-content {
+    margin-left: 12.5%;
     width: 75%;
     height: 20%;
     background-color: #cccccc;
@@ -23,8 +22,7 @@ body {
 }
 
 #ppage {
-    margin-top: 9%;
-    margin-left: 33%;
+    margin: auto;
     background-color: white;
     color: #253f3f;
     max-width: 60%;
