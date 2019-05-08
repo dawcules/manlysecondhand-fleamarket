@@ -33,6 +33,8 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
+  console.log(brand);
+
 
 
   /*const selectedType = ;
