@@ -55,12 +55,8 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if (cond) {
-    searchdata.push([cond.options[cond.selectedIndex].value])
-  }
-  else {
-    console.log(searchdata.push('*'));
-  }
+
+
   if (type) {
     searchdata.push([type.options[type.selectedIndex].value]);
   }
@@ -70,6 +66,11 @@ const getprd = (evt) => {
   if (brand) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
+if (cond) {
+  searchdata.push([cond.options[cond.selectedIndex].value])
+}
+else { console.log(searchdata.push('*'));
+}
   else {
     searchdata.push('*')
   }
