@@ -13,6 +13,7 @@ body {
     align-items: center;
 }
 .cent-content {
+    margin-left: 12.5%;
     width: 75%;
     height: 20%;
     background-color: #cccccc;
