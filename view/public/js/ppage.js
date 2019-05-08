@@ -36,6 +36,21 @@ const getprd = (evt) => {
   const selMinPrice = minPrice.value;
   const selMaxPrice = maxPrice.value;
   const searchdata = [selectedType]; // iffillä kamat sisääN
+  let qDesc = [];
+  let qImg = [];
+  let qCond = [];
+  let qPrice = [];
+  let qBrand = [];
+  let qName = [];
+  let qAdded = [];
+  let qDescEle = [];
+  let qImgEle = [];
+  let qCondEle = [];
+  let qPriceEle = [];
+  let qBrandEle = [];
+  let qNameEle = [];
+  let qAddedEle = [];
+
 
   if (!selectedBrand) {
     searchdata.push(selectedBrand);
@@ -78,16 +93,30 @@ const getprd = (evt) => {
   }).then((json) => {
 
     const pdata = json;
+    for (let i=0;pdata.length>i;i++) {
+      qDesc.push(pdata[i].Description);
+      qImg.push(pdata[i].Thumb);
+      qCond.push(pdata[i].pCondition);
+      qPrice.push(pdata[i].Price);
+      qBrand.push(pdata[i].pBrand);
+      qName.push(pdata[i].pName);
+      qAdded.push(pdata[i].ProductAdded);
+    }
     const desc = document.createElement('p');
-    const title = document.createElement('h2');
 
-    desc.setAttribute('id','title');
-    desc.innerText = pdata.Description ;
-    title.innerText = pdata.pName;
+    for (let i=0;qDesc.length<i;i++) {
+      desc.innerText = qDesc[i];
+      qDescEle.push(desc)
+
+    }
+    const title = document.createElement('h2');
+    const thumb = document.createElement('a');
+    thumb.setAttribute('href','');
 
     const dv = document.getElementById('ppage');
-    dv.appendChild(desc);
-    dv.appendChild(title);
+    for (let i=0;qDescEle>i;i++) {
+      dv.appendChild(desc);
+    };
     //tänne printit
   });
 };

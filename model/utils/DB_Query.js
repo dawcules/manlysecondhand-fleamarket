@@ -134,7 +134,7 @@ const selectProductInfo = (sql,callback) => {
         (err, results, fields) => {
           console.log('RESULTS ' + results);
             console.log(err);
-          callback(results[0]);
+          callback(results);
         }
  /* const selectedType = [type.options[type.selectedIndex].value];
   const selectedBrand = [brand.options[brand.selectedIndex].value];
