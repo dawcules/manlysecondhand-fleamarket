@@ -132,7 +132,7 @@ app.post('/getproduct', (req, res) => {
   let q3;
 
   if (qdata[0] != '*') {
-    q0 = 'pType = ' + qdata[0]
+    q0 = 'pType = ' + '"'+qdata[0]+'"'
   }
   else {
     q0 = ''
