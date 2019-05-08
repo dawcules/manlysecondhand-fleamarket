@@ -78,7 +78,7 @@ app.use('/product', (req, res) => {
                 parseInt(req.body.condition),
                 req.body.ptype,
                 parseInt(req.body.price),
-                8, // dummy userID
+                parseInt(uData.uID), // dummy userID
                 ];
                 console.log(data);
                 query.insertProduct(data, res);
@@ -108,10 +108,10 @@ app.use('/image', (req, res, next) => {
     console.log("adding image to the database")
     const data = [
         req.body.title,
-        'view/public/uploads/' + req.file.filename,
+        'uploads/' + req.file.filename,
         req.body.title,
-        'view/public/thumbs/' + req.file.filename,
-        'view/public/medium/' + req.file.filename,
+        'thumbs/' + req.file.filename,
+        'medium/' + req.file.filename,
         2, // dummy product ide
     ];
     query.insertImage(data, res);
