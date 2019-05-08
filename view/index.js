@@ -86,7 +86,6 @@ app.use('/product', (req, res) => {
                     console.log(result);
                     res.send(result);
                 });
-
 });
 
 app.post('/image', upload.single('imgA'), (req, res, next) => {
@@ -110,6 +109,7 @@ app.use('/image', (req, res, next) => {
 app.use('/image', (req, res, next) => {
     // lisää kuvan tiedot tietokantaan
     //Title, Location, Alt, Thumb, Medium, pID
+    console.log(req);
     console.log("adding image to the database")
     const data = [
         req.body.title,
@@ -172,9 +172,10 @@ app.post('/getproduct', (req, res) => {
 })});
 
 app.post('/getown',(req, res) => {
-  const data = [req.body.uprod];
+  const sqdata = [req.body.uprod];
+  console.log('getown ' + sqdata);
 
-  query.selectUserProducts(data, (result) => {
+  query.selectUserProducts(sqdata, (result) => {
     res.send(result)
   });
 });

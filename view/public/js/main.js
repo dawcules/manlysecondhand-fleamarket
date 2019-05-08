@@ -11,12 +11,7 @@ const changeLayout = (uData) =>{
     loggedIn.style.display = "block";
     logReg.style.display = "none";
     console.log("display");
-    if(logRegMenu.style.transform !== 'translateX(0%)') {
-        logRegMenu.classList.toggle('logReg-form-active');
-        console.log("logreg changed");
-    }else{
-        console.log("no changes");
-    }
+    logRegMenu.style.display = "none";
 };
 
 let registerForm = document.querySelector('#register');
@@ -132,9 +127,10 @@ const imageAdd = (product) => {
     // - prevents the form from sending
   //  evt.preventDefault();
     console.log(product);
+    console.log(product[0].pID);
 // - makes FormData -object and adds the file selected byt the user into the object
     const imgForm = new FormData(imageForm);
-    imgForm.append('id',product.pID);
+    imgForm.append('id',product[0].pID);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',

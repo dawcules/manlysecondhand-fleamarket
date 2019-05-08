@@ -6,6 +6,7 @@
     <title>Miesten kirpputori</title>
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/frontpage.css" rel="stylesheet" type="text/css">
+    <link href="css/forms.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -66,7 +67,7 @@
         <button type="button" id="pbrand">Brand</button>
         <button type="button" id="pprice">Price</button>
         <button type="button" id="pcond">Condition</button>
-        <button type="button" id="ptype">Type</button>
+        <button type="button" id="ptypebut">Type</button>
         <form id="search" class>
             <div id="dynamic"></div>
             <button type="submit">Search</button>
@@ -82,52 +83,51 @@
         <div class = "productForm">
             <form action="product" id="productAdd" class="formi-style" method = "post">
                 <fieldset id="fsone">
-                <legend> Add a product for sale / giveaway</legend>
-                <br>
-                <label for ="name">Name of the product</label>
-                <input type="text" id="name" name="name" required size="30" required pattern="^[a-zA-Z ]*$">
-                <br>
-                <label for ="brand">Brand</label>
-                <input type="text" id ="brand" name="brand" placeholder="Nike/Adidas/Puma.." required size="30"/>
-                <br>
-                Brand: <select name="brandi" class="brandd">
-                <option value="Nike" name="nike">Nike</option>
-                <option value="Reebok" name="reebok">Reebok</option>
-                <option value="Adidas" name="adidas">Adidas</option>
-                <option value="Puma" name="puma">Puma</option>
-                <option value="----" name="empty">----</option>
+                    <legend> Add a product for sale / giveaway</legend>
+                    <br>
+                    <label for ="name">Name of the product</label>
+                    <input type="text" id="name" name="name" required size="30" required pattern="^[a-zA-Z ]*$">
+                    <br>
+                    <label for ="brand">Brand</label>
+                    <br>
+                    Brand: <select name="brandi" class="brandd" id = brand>
+                    <option value="Nike" name="nike">Nike</option>
+                    <option value="Reebok" name="reebok">Reebok</option>
+                    <option value="Adidas" name="adidas">Adidas</option>
+                    <option value="Puma" name="puma">Puma</option>
+                    <option value="----" name="empty">----</option>
                 </select>
-                <br>
-                <label for="description">Description</label>
-                <textarea name="description" id ="description" placeholder="Tell us more about your product.."></textarea>
-                <br>
-                <label for="ptype">Product type</label>
-                <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
-                <br>
-                <div class="condi" id ="condition" style="border: 1px solid darkslategrey;">
-                    <label for="condition">Condition</label>
                     <br>
-                    <input type="radio" name="chooseone" value="1">
-                    <label for="first">Very good</label>
+                    <label for="description">Description</label>
+                    <textarea name="description" id ="description" placeholder="Tell us more about your product.."></textarea>
                     <br>
-                    <input type="radio" name="choosetwo" value="2">
-                    <label for="second"> Good</label>
+                    <label for="ptype">Product type</label>
+                    <input type="text" id = "ptype" name="ptype" required placeholder="Describe the product type in detail.." size="50"/>
                     <br>
-                    <input type="radio" name="choosethree" value="3">
-                    <label for="third"> Not so good</label>
+                    <div class="condi" style="border: 1px solid darkslategrey;">
+                        <label for="condition">Condition</label>
+                        <br>
+                        <input type="radio" name="chooseone" value="first">
+                        <label for="first">Very good</label>
+                        <br>
+                        <input type="radio" name="choosetwo" value="second">
+                        <label for="second"> Good</label>
+                        <br>
+                        <input type="radio" name="choosethree" value="third">
+                        <label for="third"> Not so good</label>
+                        <br>
+                        <input type="radio" name="choosefour" value="fourth">
+                        <label for="fourth">Bad</label>
+                        <br>
+                        <input type="radio" name="choosefive" value="fifth">
+                        <label for="fifth">Really bad</label>
+                        <br>
+                    </div>
+                    <label for="price">Price</label>
+                    <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
                     <br>
-                    <input type="radio" name="choosefour" value="4">
-                    <label for="fourth">Bad</label>
-                    <br>
-                    <input type="radio" name="choosefive" value="5">
-                    <label for="fifth">Really bad</label>
-                    <br>
-                </div>
-                <label for="price">Price</label>
-                <input type="text" id ="price" name="price" size="10" placeholder="Price you want out of your product.." pattern="^[0-9]*$"/>
-                <br>
-                <button type="submit" id="sendBtn" onsubmit="return validation();">Submit Product</button>
-            </fieldset>
+                    <button type="submit" id="sendBtn" onsubmit="return validation();">Submit Product</button>
+                </fieldset>
             </form>
             <div id="details"></div>
             <br>
