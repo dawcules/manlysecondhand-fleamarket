@@ -27,7 +27,7 @@ const getprd = (evt) => {
   evt.preventDefault();
   dv.innerHTML="";
 
-  const brand = document.getElementById('brangit dname');
+  const brand = document.getElementById('brandname');
   const type = document.getElementById('typename');
   const cond = document.getElementById('condname');
   const minPrice = document.getElementById('pricemin');
