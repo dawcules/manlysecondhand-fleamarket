@@ -20,11 +20,6 @@ const userMenu = () =>{
     });
 };
 
-
-
-
-
-
 // WIP
 const userPage = () =>{
     const userPage = document.querySelector('.userPage');
@@ -41,7 +36,7 @@ const addProduct = () =>{
     });
 };
 
-const productPage = () =>{
+const myProducts = () =>{
     const loggedIn = document.querySelector('.loggedIn');
     const userMenu = document.querySelector('.userMenu');
     loggedIn.addEventListener('click', () =>{
