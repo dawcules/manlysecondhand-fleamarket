@@ -57,18 +57,18 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if ([type.options[type.selectedIndex].value] != null) {
+  if ([type.options[type.selectedIndex]] != null) {
     searchdata.push([type.options[type.selectedIndex].value])
   }
   else {
     searchdata.push('*');
   }
-  if ([brand.options[brand.selectedIndex].value] != null) {
+  if ([brand.options[brand.selectedIndex]] != null) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
   else {
   }
-  if ([cond.options[cond.selectedIndex].value] != null) {
+  if ([cond.options[cond.selectedIndex]] != null) {
     searchdata.push([cond.options[cond.selectedIndex].value]);
   }
   else {
