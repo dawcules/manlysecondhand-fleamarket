@@ -176,6 +176,7 @@ const userinformation = (user) => {};
 
 
 const mainApp = () => {
+    getSession();
 };
 mainApp();
 
