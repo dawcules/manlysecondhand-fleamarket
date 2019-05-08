@@ -1,6 +1,7 @@
 'use strict';
 const form = document.querySelector('#search');
 const dynamic = document.querySelector('#dynamic'); // muutettava hakukenttä
+const dv = document.getElementById('ppage');
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
@@ -22,7 +23,9 @@ const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
 const getprd = (evt) => {
+
   evt.preventDefault();
+  dv.innerHTML="";
 
   const brand = document.getElementById('brandname');
   const type = document.getElementById('typename');
@@ -35,7 +38,8 @@ const getprd = (evt) => {
   const selectedCond = [cond.options[cond.selectedIndex].value];
   const selMinPrice = minPrice.value;
   const selMaxPrice = maxPrice.value;
-  const searchdata = [selectedType]; // iffillä kamat sisääN
+  const searchdata = [selectedType]; // iffillä kamat sisään
+
   let qDesc = [];
   let qImg = [];
   let qCond = [];
@@ -122,7 +126,6 @@ const getprd = (evt) => {
       qAddedEle[i].innerText = qAdded[i];
     }
 
-    const dv = document.getElementById('ppage');
 
     for (let i=0;qDescEle.length>i;i++) {
       const pid = document.createElement('div');
