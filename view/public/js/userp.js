@@ -29,9 +29,11 @@ fetch('getsession', {
   const heyuser = document.createElement('p');
   const bod = document.querySelector('body');
   bod.appendChild(heyuser);
+  getprod();
 });
 
-fetch('getproduct', {
+const getprod = () => {
+fetch('getown', {
   method: "post",
   headers: {
     'Accept': 'application/json',
@@ -46,7 +48,7 @@ fetch('getproduct', {
   console.log('json' + json);
   const pdata = json;
 
-  for (let i=0;pdata.length>i;i++) {
+  for (let i = 0; pdata.length > i; i++) {
     qDesc.push(pdata[i].Description);
     qImg.push(pdata[i].Thumb);
     qCond.push(pdata[i].pCondition);
@@ -56,11 +58,11 @@ fetch('getproduct', {
     qAdded.push(pdata[i].ProductAdded);
   }
 
-  for (let i=0;qDesc.length>i;i++) {
+  for (let i = 0; qDesc.length > i; i++) {
     qNameEle[i] = document.createElement('h1');
     qNameEle[i].innerText = qName[i];
     qImgEle[i] = document.createElement('img');
-    qImgEle[i].setAttribute('src',qImg[i]);
+    qImgEle[i].setAttribute('src', qImg[i]);
     qDescEle[i] = document.createElement('p');
     qDescEle[i].innerText = qDesc[i];
     qCondEle[i] = document.createElement('h3');
@@ -73,9 +75,9 @@ fetch('getproduct', {
     qAddedEle[i].innerText = qAdded[i];
   }
 
-  for (let i=0;qDescEle.length>i;i++) {
+  for (let i = 0; qDescEle.length > i; i++) {
     const pid = document.createElement('div');
-    pid.setAttribute('id','productdiv' + i);
+    pid.setAttribute('id', 'productdiv' + i);
 
     pid.appendChild(qNameEle[i]);
     pid.appendChild(qImgEle[i]);
@@ -86,17 +88,18 @@ fetch('getproduct', {
     pid.appendChild(qAddedEle[i]);
     pid.style.border = '2px solid black';
     dv.appendChild(pid);
-  };
-
-
-
-
-
-
-
-
-
+  }
 });
+
+
+
+
+
+
+
+
+
+};
 
 
 
