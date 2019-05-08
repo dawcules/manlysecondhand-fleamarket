@@ -1,6 +1,7 @@
 'use strict';
 
 let uData;
+let product;
 
 const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
@@ -35,7 +36,7 @@ const register = (evt) => {
         })
         .then(json => {
             console.log(json);
-
+            registerForm.reset();
             window.alert('Thanks for registering to ManSecondHand!')
         });
 };
@@ -97,7 +98,7 @@ const productAdd = (evt) => {
     for (const pair of new FormData(productForm)) {
         data.append(pair[0], pair[1]);
     }
-    data.append(uiD , uData.uID);
+    data.append(userid , uData.uID);
     console.log(data);
 // - send the file to the same url as in task a by using fetch -method
     const options = {
@@ -111,6 +112,8 @@ const productAdd = (evt) => {
         })
         .then(json => {
             console.log(json);
+            product = json;
+
         });
 };
 productForm.addEventListener('submit', productAdd);
@@ -137,6 +140,8 @@ const imageAdd = (evt) => {
             console.log(json);
             message.innerHTML = json.message;
             image.src = './uploads' + json.file.filename;
+            productForm.reset();
+            imageForm.reset();
         });
 };
 
