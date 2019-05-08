@@ -106,7 +106,7 @@ const getprd = (evt) => {
 
     for (let i=0;qDesc.length>i;i++) {
       desc.innerText = qDesc[i];
-      qDescEle.push(desc)
+      qDescEle.push(desc);
 
     }
     const title = document.createElement('h2');
@@ -116,6 +116,7 @@ const getprd = (evt) => {
     const dv = document.getElementById('ppage');
     for (let i=0;qDescEle>i;i++) {
       dv.appendChild(qDescEle[i]);
+      console.log(qDescEle[i]);
     };
     //tänne printit
   });
