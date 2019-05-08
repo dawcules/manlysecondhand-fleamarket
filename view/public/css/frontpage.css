@@ -59,10 +59,10 @@
     justify-content: space-around;
     background-color: #253f3f;
 }
-
+/* Change .logReg display to block after editing*/
 .logReg{
     padding: 2px;
-    display: block;
+    display: none;
     cursor: pointer;
     color: azure
 }
@@ -91,13 +91,60 @@
     border-bottom: 5px solid #2f4f4f;
     justify-content: space-around;
 }
-.userMenu a{
+.userMenu div{
     font-size: 20px;
-
 }
+.userMenu a{
+    font-size:20px;
+}
+.userPage{
+    display: flex;
+    position: absolute;
+    right: 25%;
+    height: 40vh;
+    top: 11.5vh;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+    transform: translateX(500%);
+    border-radius: 10px;
+    background-color: #253f3f;
+    border-left: 5px solid #2f4f4f;
+    border-bottom: 5px solid #2f4f4f;
+    justify-content: space-around;
+}
+.userInfo{
+    padding: 2px;
+    display: block;
+    cursor: pointer;
+    color: azure;
+}
+.productForm{
+    display: flex;
+    position: absolute;
+    right: 25%;
+    height: 80vh;
+    top: 11.5vh;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+    transform: translateX(500%);
+    border-radius: 10px;
+    background-color: #253f3f;
+    border-left: 5px solid #2f4f4f;
+    border-bottom: 5px solid #2f4f4f;
+    justify-content: space-around;
+}
+.addProduct{
+    padding: 2px;
+    display: block;
+    cursor: pointer;
+    color: azure;
+}
+/*change .loggedin  display to none after editing*/
 .loggedIn{
     padding: 2px;
-    display: none;
+    display: block;
     cursor: pointer;
     color: azure;
 }
@@ -155,9 +202,13 @@
 .You:hover{
     border-bottom: azure solid 1px;
 }
-.userMenu a:hover{
+.userMenu div:hover{
     border-bottom: azure solid 1px;
 }
+.userMenu div{
+    color:azure;
+}
+
 
 
 
@@ -232,6 +283,12 @@
 }
 .logReg-display{
     display:none;
+}
+.productForm-active{
+    transform: translateX(0%);
+}
+.userPage-active{
+    transform: translateX(0%);
 }
 
 /* Animations */
