@@ -10,8 +10,8 @@ const changeLayout = (uData) =>{
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
-    console.log("display")
-    if(logRegMenu.style.transform === "0%") {
+    console.log("display");
+    if(logRegMenu.style.transform === "translateX(0%)") {
         logRegMenu.classList.toggle('logReg-form-active');
         console.log("logreg changed");
     }else{
