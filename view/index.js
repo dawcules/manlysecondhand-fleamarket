@@ -162,7 +162,7 @@ app.post('/getproduct', (req, res) => {
   }
 
 
-  const sql = [mysql+q0+q1+q2+q3+'AND pID IS NOT NULL;'];
+  const sql = [mysql+q0+q1+q2+q3+'Product.pID IS NOT NULL;'];
   console.log(sql);
 
 
