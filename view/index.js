@@ -172,9 +172,10 @@ app.post('/getproduct', (req, res) => {
 })});
 
 app.post('/getown',(req, res) => {
-  const data = [req.body.uprod];
+  const sqdata = [req.body.uprod];
+  console.log('getown ' + sqdata);
 
-  query.selectUserProducts(data, (result) => {
+  query.selectUserProducts(sqdata, (result) => {
     res.send(result)
   });
 });
