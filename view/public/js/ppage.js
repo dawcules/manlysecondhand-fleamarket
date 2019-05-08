@@ -59,10 +59,8 @@ const getprd = (evt) => {
     searchdata.push([cond.options[cond.selectedIndex].value])
   }
   else {
-    console.log('NULLLLLL');
+    console.log(searchdata.push('*'));
   }
-
-
   if (type) {
     searchdata.push([type.options[type.selectedIndex].value]);
   }
@@ -81,7 +79,7 @@ const getprd = (evt) => {
   else {
     searchdata.push('*')
   }
-  if (MaxPrice) {
+  if (maxPrice) {
     searchdata.push(maxPrice.value);
   }
   else {
