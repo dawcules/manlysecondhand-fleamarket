@@ -10,17 +10,21 @@
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: gray; /* Green */
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: azure;
+    padding: 7px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
 }
-
 #dynamic {
+
+    display: block;
+    padding: 5%;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: center;
 
 }
 #ppage {
@@ -29,7 +33,9 @@
     margin-top: 1%;
     background-color: white;
     color: #253f3f;
-    max-width: 23%;
+    max-width: 45%;
+    min-width: 30%;
+    justify-content: center;
 }
 .higher input[type=text] {
     width: 40vh;
