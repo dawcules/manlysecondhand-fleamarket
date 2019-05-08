@@ -11,6 +11,8 @@
 #ppage {
     margin-left: 40%;
     margin-top: 3%;
+    background-color: white;
+    color: #253f3f;
 }
 .higher input[type=text] {
     width: 40vh;
