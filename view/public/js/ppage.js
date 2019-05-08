@@ -37,8 +37,8 @@ const getprd = (evt) => {
   const selectedBrand = [;
   const selectedCond = ;
   const selMinPrice =
-  const selMaxPrice = maxPrice.value;
-  const searchdata = [selectedType]; // iffillä kamat sisään*/
+  const selMaxPrice = maxPrice.value;*/
+  const searchdata = []; // iffillä kamat sisään
 
   let qDesc = [];
   let qImg = [];
@@ -55,7 +55,7 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if (cond.childElementCount != null) {
+  if (cond) {
     searchdata.push([cond.options[cond.selectedIndex].value])
   }
   else {
@@ -63,25 +63,25 @@ const getprd = (evt) => {
   }
 
 
-  if (type.childElementCount != 0) {
+  if (type) {
     searchdata.push([type.options[type.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (brand.childElementCount != 0) {
+  if (brand) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
   else {
     searchdata.push('*')
   }
-  if (minPrice.childElementCount != 0) {
+  if (minPrice) {
     searchdata.push([minPrice.value]);
   }
   else {
     searchdata.push('*')
   }
-  if (MaxPrice.childElementCount != 0) {
+  if (MaxPrice) {
     searchdata.push(maxPrice.value);
   }
   else {
