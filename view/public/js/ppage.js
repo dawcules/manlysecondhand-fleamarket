@@ -1,5 +1,5 @@
 'use strict';
-const form = document.querySelector('form');
+const form = document.querySelector('#search');
 const dynamic = document.querySelector('#dynamic'); // muutettava hakukenttä
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');

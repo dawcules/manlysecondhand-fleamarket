@@ -60,18 +60,18 @@
         <div class = "loggedIn">Your Username</div>
     </nav>
     <nav class="lower">
-        <form class = "items-menu">
-                <p>Select Gathegory (Javascript Tabs here for pants/shirts etc..)</p>
-                <p>Select A brand (checklist menu with known brands and "other")</p>
-                <p>Select Size (Dropdown menu for each cathegory if possible)</p>
-                <p>Price Range</p>
-                <input type="text" placeholder="MIN" name="min">
-                <input type="text" placeholder="MAX" name="max">
+       <div class ="items-menu">
 
-
-                <p>Ideal condition(at least) dropdown menu where you select a value from 1-10</p>
-
+        <h1>Product search</h1>
+        <button type="button" id="pbrand">Brand</button>
+        <button type="button" id="pprice">Price</button>
+        <button type="button" id="pcond">Condition</button>
+        <button type="button" id="ptype">Type</button>
+        <form id="search" class>
+            <div id="dynamic"></div>
+            <button type="submit">Search</button>
         </form>
+       </div>
         <div class = "items">Clothing</div>
         <ul class = "You">
             <li><a href ="#">Give us feedback</a></li>
@@ -85,7 +85,9 @@
 </header>
 
 </body>
+<div id="ppage"></div>
 <script src="js/burger.js"></script>
 <script src="js/tabs.js"></script>
 <script src="js/main.js"></script>
+<script src="js/ppage.js"></script>
 </html>

@@ -8,6 +8,10 @@
     font-family: "Fira Code Retina", sans-serif;
     font-size: 20px;
 }
+#ppage {
+    margin-left: 40%;
+    margin-top: 3%;
+}
 .higher input[type=text] {
     width: 40vh;
     padding: 6px;
