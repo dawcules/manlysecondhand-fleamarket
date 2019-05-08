@@ -148,7 +148,7 @@ const selectUserProducts = (data,callback)=>{
   console.log('querydata' + data);
     //Shows all products selected user has listed
     connection.query(
-        'SELECT * FROM Product INNER JOIN User ON User.uID = Product.uID WHERE UserName = ?;',data,
+        'SELECT * FROM Product JOIN User ON User.uID = Product.uID WHERE UserName = ?;',data,
         (err,results,fieds)=>{
                 callback(results);
                 console.log(err);
