@@ -1,6 +1,6 @@
 body {
     display: block;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-family: Arial sans-serif;
     background-color: #2f4f4f;
 }
@@ -16,15 +16,17 @@ body {
     align-items: center;
 }
 .cent-content {
-    width: 600px;
-    height: 400px;
+    width: 75%;
+    height: 20%;
     background-color: #cccccc;
     border-radius: 6px;
     text-align: center;
 }
 
 #ppage {
+    margin-top: 9%;
+    margin-left: 33%;
     background-color: white;
     color: #253f3f;
-    max-width: 23%;
+    max-width: 60%;
 }
