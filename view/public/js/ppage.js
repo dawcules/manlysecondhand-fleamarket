@@ -260,8 +260,6 @@ const showType = (evt) => {
   }
 };
 
-getprd('submit');
-
 form.addEventListener('submit', getprd);
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
