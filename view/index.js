@@ -130,7 +130,7 @@ app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = req.body.searchp.toString();
   const qdata = data.split(",");
-  const mysql = 'SELECT * FROM Product JOIN Image ON Image.pID = Product.pID WHERE ';
+  const mysql = 'SELECT * FROM Product JOIN User On User.uID = Product.uID JOIN Image ON Image.pID = Product.pID WHERE ';
   let q0;
   let q1;
   let q2;

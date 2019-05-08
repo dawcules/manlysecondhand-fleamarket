@@ -48,6 +48,8 @@ const getprd = (evt) => {
   let qBrand = [];
   let qName = [];
   let qAdded = [];
+  let qEmail = [];
+  let qEmailEle = [];
   let qDescEle = [];
   let qImgEle = [];
   let qCondEle = [];
@@ -55,8 +57,6 @@ const getprd = (evt) => {
   let qBrandEle = [];
   let qNameEle = [];
   let qAddedEle = [];
-
-
 
   if (type) {
     searchdata.push([type.options[type.selectedIndex].value]);
@@ -113,6 +113,7 @@ const getprd = (evt) => {
       qBrand.push(pdata[i].pBrand);
       qName.push(pdata[i].pName);
       qAdded.push(pdata[i].ProductAdded);
+      qEmail.push(pdata[i].Email)
     }
     console.log('qDesc ' + qDesc);
 
@@ -124,13 +125,15 @@ const getprd = (evt) => {
       qDescEle[i] = document.createElement('p');
       qDescEle[i].innerText = qDesc[i];
       qCondEle[i] = document.createElement('h3');
-      qCondEle[i].innerText = qCond[i];
+      qCondEle[i].innerText = 'Condition level: '+ qCond[i];
       qPriceEle[i] = document.createElement('p');
-      qPriceEle[i].innerText = qPrice[i] + ' €'
+      qPriceEle[i].innerText = qPrice[i] + ' €';
       qBrandEle[i] = document.createElement('h2');
       qBrandEle[i].innerText = qBrand[i];
       qAddedEle[i] = document.createElement('p');
       qAddedEle[i].innerText = qAdded[i];
+      qEmailEle[i] = document.createElement('p');
+      qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
     }
 
 
@@ -145,6 +148,7 @@ const getprd = (evt) => {
       pid.appendChild(qPriceEle[i]);
       pid.appendChild(qBrandEle[i]);
       pid.appendChild(qAddedEle[i]);
+      pid.appendChild(qEmailEle[i]);
       pid.style.border = '2px solid black';
       dv.appendChild(pid);
     };

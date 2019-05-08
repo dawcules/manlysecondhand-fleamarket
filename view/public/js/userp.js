@@ -14,6 +14,8 @@ let qPriceEle = [];
 let qBrandEle = [];
 let qNameEle = [];
 let qAddedEle = [];
+let qEmail = [];
+let qEmailEle = [];
 const dv = document.getElementById('ppage');
 
 
@@ -56,6 +58,8 @@ fetch('getown', {
     qBrand.push(pdata[i].pBrand);
     qName.push(pdata[i].pName);
     qAdded.push(pdata[i].ProductAdded);
+    qEmail.push(pdata[i].Email)
+
   }
 
   for (let i = 0; qDesc.length > i; i++) {
@@ -66,13 +70,15 @@ fetch('getown', {
     qDescEle[i] = document.createElement('p');
     qDescEle[i].innerText = qDesc[i];
     qCondEle[i] = document.createElement('h3');
-    qCondEle[i].innerText = qCond[i];
+    qCondEle[i].innerText = 'Condition level: ' + qCond[i];
     qPriceEle[i] = document.createElement('p');
-    qPriceEle[i].innerText = qPrice[i] + ' €'
+    qPriceEle[i].innerText = qPrice[i] + ' €';
     qBrandEle[i] = document.createElement('h2');
     qBrandEle[i].innerText = qBrand[i];
     qAddedEle[i] = document.createElement('p');
     qAddedEle[i].innerText = qAdded[i];
+    qEmailEle[i] = document.createElement('p');
+    qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
   }
 
   for (let i = 0; qDescEle.length > i; i++) {
@@ -85,6 +91,7 @@ fetch('getown', {
     pid.appendChild(qCondEle[i]);
     pid.appendChild(qPriceEle[i]);
     pid.appendChild(qBrandEle[i]);
+    pid.appendChild(qAddedEle[i]);
     pid.appendChild(qAddedEle[i]);
     pid.style.border = '2px solid black';
     dv.appendChild(pid);
