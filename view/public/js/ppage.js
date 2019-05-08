@@ -123,10 +123,13 @@ const getprd = (evt) => {
     }
 
     const dv = document.getElementById('ppage');
-    const pid = document.createElement('div');
-    pid.setAttribute('id','productdiv');
+
+
 
     for (let i=0;qDescEle.length>i;i++) {
+      const pid = document.createElement('div');
+      pid.setAttribute('id','productdiv' + i);
+
       pid.appendChild(qNameEle[i]);
       pid.appendChild(qImgEle[i]);
       pid.appendChild(qDescEle[i]);

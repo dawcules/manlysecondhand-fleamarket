@@ -9,10 +9,12 @@
     font-size: 20px;
 }
 #ppage {
-    margin-left: 40%;
-    margin-top: 3%;
+    display: inline-block;
+    margin-left: 33%;
+    margin-top: 1%;
     background-color: white;
     color: #253f3f;
+    max-width: 23%;
 }
 .higher input[type=text] {
     width: 40vh;
