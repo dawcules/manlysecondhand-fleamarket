@@ -33,16 +33,12 @@ const getprd = (evt) => {
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
-  console.log(brand);
-
-
-
-  /*const selectedType = ;
-  const selectedBrand = ;
+  const selectedType = ;
+  const selectedBrand = [;
   const selectedCond = ;
   const selMinPrice =
-  const selMaxPrice = ;*/
-  const searchdata = []; // iffillä kamat sisään
+  const selMaxPrice = maxPrice.value;
+  const searchdata = [selectedType]; // iffillä kamat sisään
 
   let qDesc = [];
   let qImg = [];
@@ -59,30 +55,29 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
-  if (type) {
-    searchdata.push([type.options[type.selectedIndex].value])
+  if (cond.childElementCount != 0) {
+    searchdata.push([cond.options[cond.selectedIndex].value])
+  }
+
+  if (type.childElementCount != 0) {
+    searchdata.push([type.options[type.selectedIndex].value]);
   }
   else {
-    searchdata.push('*');
+    searchdata.push('*')
   }
-  if (brand) {
+  if (brand.childElementCount != 0) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
   else {
+    searchdata.push('*')
   }
-  if (cond) {
-    searchdata.push([cond.options[cond.selectedIndex].value]);
+  if (minPrice.childElementCount != 0) {
+    searchdata.push([minPrice.value]);
   }
   else {
     searchdata.push('*')
   }
-  if (minPrice) {
-    searchdata.push(minPrice.value);
-  }
-  else {
-    searchdata.push('*')
-  }
-  if (maxPrice) {
+  if (MaxPrice.childElementCount != 0) {
     searchdata.push(maxPrice.value);
   }
   else {
