@@ -137,31 +137,32 @@ app.post('/getproduct', (req, res) => {
   let q3;
 
   if (qdata[0] != '*') {
-    q0 = 'pType = ' + '"'+qdata[0]+'"'
+    q0 = 'pType = ' + '"'+qdata[0]+'" AND '
   }
   else {
     q0 = ''
   }
   if (qdata[1] != '*') {
-    q1 = ' AND pBrand = ' + '"'+qdata[1]+'"'
+    q1 = 'pBrand = ' + '"'+qdata[1]+'" AND '
   }
   else {
     q1 = ''
   }
   if (qdata[2] != '*') {
-    q2 = ' AND pCondition BETWEEN ' + qdata[2] + ' AND 10'
+    q2 = 'pCondition BETWEEN ' + qdata[2] + ' AND 10 AND '
   }
   else {
     q2 = ''
   }
   if (qdata[3] != '*' && qdata[4] != '*') {
-    q3 = ' AND Price BETWEEN ' +qdata[3] + ' AND ' +qdata[4]
+    q3 = 'Price BETWEEN ' +qdata[3] + ' AND ' +qdata[4] +' AND '
   }
   else {
     q3 = ''
   }
 
-  const sql = [mysql+q0+q1+q2+q3+';'];
+
+  const sql = [mysql+q0+q1+q2+q3+'AND pID IS NOT NULL;'];
   console.log(sql);
 
 
