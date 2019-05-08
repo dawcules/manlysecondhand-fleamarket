@@ -66,11 +66,11 @@ const getprd = (evt) => {
   if (brand) {
     searchdata.push([brand.options[brand.selectedIndex].value]);
   }
-if (cond) {
+  else { console.log(searchdata.push('*'));
+  }
+  if (cond) {
   searchdata.push([cond.options[cond.selectedIndex].value])
-}
-else { console.log(searchdata.push('*'));
-}
+  }
   else {
     searchdata.push('*')
   }
