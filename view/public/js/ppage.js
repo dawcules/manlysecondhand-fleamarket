@@ -106,17 +106,35 @@ const getprd = (evt) => {
     console.log('qDesc ' + qDesc);
 
     for (let i=0;qDesc.length>i;i++) {
+      qNameEle[i] = document.createElement('h1');
+      qNameEle[i].innerText = qName[i];
+      qImgEle[i] = document.createElement('img');
+      qImgEle[i].setAttribute('src',qImg[i]);
       qDescEle[i] = document.createElement('p');
       qDescEle[i].innerText = qDesc[i];
+      qCondEle[i] = document.createElement('h3');
+      qCondEle[i].innerText = qCond[i];
+      qPriceEle[i] = document.createElement('p');
+      qPriceEle[i].innerText = qPrice[i] + ' €'
+      qBrandEle[i] = document.createElement('h2');
+      qBrandEle[i].innerText = qBrand[i];
+      qAddedEle[i] = document.createElement('p');
+      qAddedEle[i].innerText = qAdded[i];
     }
-    const title = document.createElement('h2');
-    const thumb = document.createElement('a');
-    thumb.setAttribute('href','');
 
     const dv = document.getElementById('ppage');
+    const pid = document.createElement('div');
+    pid.setAttribute('id','productdiv');
+
     for (let i=0;qDescEle.length>i;i++) {
-      dv.appendChild(qDescEle[i]);
-      console.log(qDescEle[i]);
+      pid.appendChild(qNameEle[i]);
+      pid.appendChild(qImgEle[i]);
+      pid.appendChild(qDescEle[i]);
+      pid.appendChild(qCondEle[i]);
+      pid.appendChild(qPriceEle[i]);
+      pid.appendChild(qBrandEle[i]);
+      pid.appendChild(qAddedEle[i]);
+      dv.appendChild(pid);
     };
     //tänne printit
   });
