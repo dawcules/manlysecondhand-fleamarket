@@ -115,7 +115,7 @@ const getprd = (evt) => {
 
     const dv = document.getElementById('ppage');
     for (let i=0;qDescEle>i;i++) {
-      dv.appendChild(desc);
+      dv.appendChild(qDescEle[i]);
     };
     //tänne printit
   });
