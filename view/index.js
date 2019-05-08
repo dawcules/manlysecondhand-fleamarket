@@ -117,7 +117,7 @@ app.use('/image', (req, res, next) => {
         req.body.title,
         'thumbs/' + req.file.filename,
         'medium/' + req.file.filename,
-        req.body.id, // dummy product ide
+        2, // dummy product ide
     ];
     query.insertImage(data, res);
     console.log(data)
