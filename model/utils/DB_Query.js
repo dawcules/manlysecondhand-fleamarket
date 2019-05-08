@@ -145,6 +145,7 @@ const selectProductInfo = (sql,callback) => {
 );
 };
 const selectUserProducts = (data,callback)=>{
+  console.log('querydata' + data);
     //Shows all products selected user has listed
     connection.query(
         'SELECT ? FROM Product WHERE UserName = ?;',data,
