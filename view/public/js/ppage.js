@@ -213,7 +213,7 @@ const showCond = (evt) => {
     for (let i=0;i < condlist.length;i++) {
       console.log('listan 1 ' + i);
       condoptions[i] = document.createElement('option');
-      condoptions[i].innerText = condlist[i];
+      condoptions[i].innerText = 'Condition: ' + condlist[i];
       condoptions[i].value = condlist[i];
     }
     if (selectCond.childElementCount === 0) {
