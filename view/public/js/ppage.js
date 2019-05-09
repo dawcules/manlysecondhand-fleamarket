@@ -131,7 +131,7 @@ const getprd = (evt) => {
       qBrandEle[i] = document.createElement('h2');
       qBrandEle[i].innerText = qBrand[i];
       qAddedEle[i] = document.createElement('p');
-      qAddedEle[i].innerText = qAdded[i];
+      qAddedEle[i].innerText = 'Adde on: ' + qAdded[i];
       qEmailEle[i] = document.createElement('p');
       qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
     }
