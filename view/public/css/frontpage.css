@@ -100,9 +100,10 @@
     border-bottom: 5px solid #2f4f4f;
     justify-content: space-around;
     background-color: #253f3f;
+    padding: 1em;
 }
 .logReg-form input{
-    padding: 2px;
+    padding: 0.2em;
     border: 1px solid azure;
     border-radius: 5px;
     background-color: azure;
