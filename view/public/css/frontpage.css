@@ -46,13 +46,12 @@ h1 {
 
 .productdiv {
     width: 26%;
-    margin: 1.5%;
+    margin: .5%;
     color: black;
     background-color: azure;
 }
 #ppage {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     margin-left: 1em;
     margin-right: 1em;
