@@ -5,6 +5,19 @@ const LoginRegister = () =>{
         form.classList.toggle('logReg-form-active');
     });
 };
+const closeLogReg = () =>{
+    const closeLog = document.querySelector('.closeLog');
+    const closeReg = document.querySelector('.closeReg');
+    const logRegForm = document.querySelector('.logReg-form');
+    closeLog.addEventListener('click', () => {
+        logRegForm.classList.toggle('logReg-form-active');
+    });
+    closeReg.addEventListener('click', () => {
+        logRegForm.classList.toggle('logReg-form-active');
+    });
+
+
+};
 const itemsMenu = () =>{
     const items= document.querySelector('.items');
     const menu = document.querySelector('.items-menu');
@@ -36,6 +49,7 @@ const addProduct = () =>{
     });
 };
 
+
 const myProducts = () =>{
     const loggedIn = document.querySelector('.loggedIn');
     const userMenu = document.querySelector('.userMenu');
@@ -51,6 +65,7 @@ const app = () =>{
     userMenu();
     userPage();
     addProduct();
+    closeLogReg();
 };
 
 app();
