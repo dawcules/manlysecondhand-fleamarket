@@ -44,7 +44,7 @@ h1 {
     width: 100%;
 }
 
-#productdiv {
+.productdiv {
     width: 26%;
     margin: 1.5%;
     color: black;
