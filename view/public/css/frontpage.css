@@ -87,6 +87,24 @@
     justify-content: space-around;
     background-color: #253f3f;
 }
+.logReg-form input{
+    padding: 2px;
+    border: 1px solid azure;
+    border-radius: 5px;
+    background-color: azure;
+    font-size: 1em;
+}
+.logReg-form #loginSubmit{
+    background-color: azure;
+    color: #121f1f;
+    padding: 0.1em;
+}
+.logReg-form #registerSubmit{
+    background-color: azure;
+    color: #121f1f;
+    padding: 0.1em;
+}
+
 /* Change .logReg display to block after editing*/
 .logReg{
     padding: 2px;
