@@ -1,11 +1,11 @@
 .higher{
     display: flex;
-    padding: 1vh;
+    padding: 10px;
     justify-content: space-around;
     align-items: center;
-    min-height: 6vh;
     background-color: darkslategray;
     font-size: 20px;
+    width: 100%;
 }
 
 .button {
@@ -56,12 +56,11 @@
     background: azure;
 }
 .lower{
-    position: fixed;
+    min-height: 5%;
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 1vh;
-    min-height: 3vh;
     background-color: #253f3f;
     font-size: 20px;
 }
@@ -203,10 +202,8 @@
     border-bottom: azure 1px solid;
 }
 .items-menu{
+
     display: flex;
-    position: fixed;
-    left: 0;
-    top: 20%;
     height: 100%;
     flex-direction: column;
     align-items:  center;
