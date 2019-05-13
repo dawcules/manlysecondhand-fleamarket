@@ -45,13 +45,13 @@ h1 {
 }
 
 #productdiv {
-
-    display: flex;
-    width: 30%;
+    width: 26%;
     margin: 1.5%;
     color: black;
+    background-color: azure;
 }
 #ppage {
+    display: flex;
     margin-left: 1em;
     margin-right: 1em;
     color: #253f3f;
