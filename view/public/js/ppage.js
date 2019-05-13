@@ -141,6 +141,7 @@ const getprd = (evt) => {
     for (let i=0;qDescEle.length>i;i++) {
       const pid = document.createElement('div');
       pid.setAttribute('id','productdiv' + i);
+      pid.setAttribute('class','productdiv');
 
       pid.appendChild(qNameEle[i]);
       pid.appendChild(qImgEle[i]);
