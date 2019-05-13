@@ -56,6 +56,8 @@
     background: azure;
 }
 .lower{
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 1vh;
@@ -184,16 +186,15 @@
 }
 .items-menu{
     display: flex;
-    position: absolute;
+    position: fixed;
     left: 0;
-    top: 11.5vh;
+    top: 20%;
     height: 100%;
     flex-direction: column;
     align-items:  center;
-    width:20%;
+    width:16%;
     background-color: #253f3f;
-    border-radius: 10px;
-    border-right: 5px solid #2f4f4f;
+    border-right: 2px solid #2f4f4f;
     border-bottom: 5px solid #2f4f4f;
     justify-content: flex-start;
 }
