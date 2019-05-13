@@ -38,22 +38,24 @@ h1 {
     width: 60%;
 }
 
+.home {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
 #productdiv {
 
-    display: inline-flex;
-    padding: 5%;
-    width: 100%;
-    margin-top: 1rem;
+    display: flex;
+    width: 30%;
+    margin: 1.5%;
     color: black;
 }
 #ppage {
-    display: inline-block;
-    margin-left: 33%;
-    margin-top: 1%;
-    background-color: azure;
+    margin-left: 1em;
+    margin-right: 1em;
     color: #253f3f;
-    max-width: 45%;
-    min-width: 30%;
+    width: 84%;
     justify-content: center;
 }
 .higher input[type=text] {
