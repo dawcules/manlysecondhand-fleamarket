@@ -22,6 +22,7 @@ const selectTab = (num) => {
       tablist.childNodes[i].style.padding = 1+'em';
       tablist.childNodes[i].style.border = 1 +'em';
       tablist.childNodes[i].style.borderRadius = 0.2 +'em';
+      tablist.childNodes[i].style.margin = 0.3+'em';
     } else {
       tablist.childNodes[i].style.background = '';
       tablist.childNodes[i].style.fontWeight = 400;
@@ -29,6 +30,7 @@ const selectTab = (num) => {
       tablist.childNodes[i].style.padding = 1+'em';
       tablist.childNodes[i].style.border = 1 +'em';
       tablist.childNodes[i].style.borderRadius = 0.2 +'em';
+      tablist.childNodes[i].style.margin = 0.3+'em';
 
     }
   }
