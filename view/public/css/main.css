@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     overflow-x: hidden;
+    font-family: "Fira Code Retina", "Helvetica",sans-serif;
 }
 body{
     background-color: #121f1f;
