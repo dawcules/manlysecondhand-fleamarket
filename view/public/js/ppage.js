@@ -9,7 +9,8 @@ const typeButton = document.querySelector('#ptypebut');
 
 const brandlist = ['Nike','Adidas','Reebok', 'Puma'];
 const typelist = ['Shirt','Pants','Coat','Accessory','Shoes', 8, 5];
-const condlist = [1,2,3,4,5,6,7,8,9,10];
+const condlist = [1,2,3,4,5];
+const condnames = ['Very bad', 'Bad', 'Not so good', 'Good', 'Very good'];
 
 let brandoptions = [];
 let typeoptions = [];
@@ -214,7 +215,7 @@ const showCond = (evt) => {
     for (let i=0;i < condlist.length;i++) {
       console.log('listan 1 ' + i);
       condoptions[i] = document.createElement('option');
-      condoptions[i].innerText = 'Condition: ' + condlist[i];
+      condoptions[i].innerText = condnames[i];
       condoptions[i].value = condlist[i];
     }
     if (selectCond.childElementCount === 0) {

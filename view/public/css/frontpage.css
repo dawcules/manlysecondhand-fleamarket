@@ -22,14 +22,15 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    padding: 0.5em;
 }
 
 .dynamic {
+    padding: 1em;
     display: flex;
     flex-direction: column;
     width: 60%;
 }
-
 
 #productdiv {
 
@@ -226,11 +227,7 @@
     border-bottom: 5px solid #2f4f4f;
     justify-content: start;
 }
-.items-menu input{
-    padding:5px;
-    margin-left:10px;
-    width:50%;
-}
+
 .items{
     padding: 2px;
     display: none;
