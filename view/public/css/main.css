@@ -5,8 +5,9 @@
     overflow-x: hidden;
     font-family: "Fira Code Retina", "Helvetica",sans-serif;
 }
-body{
+html, body{
     background-color: #121f1f;
+    height: 100%;
 }
 a{
     color: azure;
