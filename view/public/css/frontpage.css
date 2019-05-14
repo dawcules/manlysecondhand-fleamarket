@@ -46,6 +46,7 @@ h1 {
 
 .productdiv {
     width: 26%;
+    min-width: 26%;
     margin: .5%;
     color: black;
     background-color: azure;
