@@ -99,7 +99,7 @@ h1 {
     position: absolute;
     right: 3em;
     height: 26em;
-    top: 11.5vh;
+    top: 10em;
     flex-direction: column;
     align-items:  center;
     width:20%;
@@ -140,6 +140,7 @@ h1 {
     padding: 0.1em;
     font-size: 1em;
 }
+
 .logReg-form #loginSubmit{
     background-color: azure;
     color: #121f1f;
@@ -170,13 +171,13 @@ h1 {
 .userMenu{
     display: none;
     position: absolute;
-    right: 0;
-    height: 30vh;
-    top: 11.5vh;
+    right: 3em;
+    height: 20em;
+    top: 10em;
     flex-direction: column;
     align-items: center;
     width:20%;
-    transform: translateX(100%);
+    transform: translateX(200%);
     border-radius: 10px;
     background-color: #253f3f;
     border-left: 5px solid #2f4f4f;
@@ -215,11 +216,11 @@ h1 {
     display: flex;
     position: absolute;
     right: 25%;
-    height: 92vh;
-    top: 11.5vh;
+    height: 40em;
+    top: 7em;
     flex-direction: column;
     align-items: center;
-    width:40%;
+    width:30%;
     transform: translateX(500%);
     border-radius: 10px;
     background-color: #253f3f;
@@ -231,6 +232,39 @@ h1 {
     display: block;
     cursor: pointer;
     color: azure;
+}
+.closeUser{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: azure;
+    cursor: pointer;
+    border: none;
+    background-color: #253f3f;
+    padding: 0.1em;
+    font-size: 1em;
+}
+.closeProduct{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: azure;
+    cursor: pointer;
+    border: none;
+    background-color: #253f3f;
+    padding: 0.1em;
+    font-size: 1em;
+}
+.closeUP{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: azure;
+    cursor: pointer;
+    border: none;
+    background-color: #253f3f;
+    padding: 0.1em;
+    font-size: 1em;
 }
 /*change .loggedin  display to none after editing*/
 .loggedIn{

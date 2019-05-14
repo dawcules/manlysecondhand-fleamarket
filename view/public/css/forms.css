@@ -1,5 +1,5 @@
 .productForm{
-    background-color: #2f4f4f;
+    background-color: #253f3f;
 }
 .productForm a{
     color: azure;
@@ -13,7 +13,7 @@ Keep the log in / register form in check with labels
 */
 .productForm label {
     display: block;
-    padding: 1rem 0 .25rem;
+    padding: 0.1em 0 .25rem;
     text-transform: uppercase;
     font-size: 14px;
 }
@@ -100,8 +100,8 @@ Keep the log in / register form in check with labels
     display: block;
     color: azure;
     top: 12vh;
-    height: 100%;
-    background-color:#121f1f;
+    height: 80%;
+    background-color:#253f3f;
     flex-direction: column;
     align-items:  center;
     width:100%;
@@ -110,8 +110,8 @@ Keep the log in / register form in check with labels
     display: block;
     color: azure;
     top: 12vh;
-    height: 100%;
-    background-color:#121f1f;
+    height: 20%;
+    background-color:#253f3f;
     flex-direction: column;
     align-items:  center;
     width:100%;
