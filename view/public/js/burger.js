@@ -48,6 +48,27 @@ const addProduct = () =>{
         productForm.classList.toggle('productForm-active');
     });
 };
+const closeUser = () =>{
+    const userMenu = document.querySelector('.userMenu');
+    const closeUser = document.querySelector('.closeUser');
+    closeUser.addEventListener('click', () =>{
+        userMenu.classList.toggle('userMenu-active');
+    });
+};
+const closeProduct = () =>{
+    const productForm = document.querySelector('.productForm');
+    const closeProduct= document.querySelector('.closeProduct');
+    closeProduct.addEventListener('click', () =>{
+        productForm.classList.toggle('productForm-active');
+    });
+};
+const closeUP = () =>{
+    const userPage = document.querySelector('.userPage');
+    const closeUP= document.querySelector('.closeUP');
+    closeUP.addEventListener('click', () =>{
+        userPage.classList.toggle('userPage-active');
+    });
+};
 
 
 const myProducts = () =>{
@@ -66,6 +87,9 @@ const app = () =>{
     userPage();
     addProduct();
     closeLogReg();
+    closeUser();
+    closeProduct();
+    closeUP();
 };
 
 app();
