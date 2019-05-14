@@ -95,7 +95,7 @@ h1 {
     font-size: 30px;
 }
 .logReg-form{
-    display: flex;
+    display: none;
     position: absolute;
     right: 3em;
     height: 26em;
@@ -154,7 +154,7 @@ h1 {
 /* Change .logReg display to block after editing*/
 .logReg{
     padding: 2px;
-    display: block;
+    display: none;
     cursor: pointer;
     color: azure
 }
@@ -168,7 +168,7 @@ h1 {
     border-bottom: azure 1px solid;
 }
 .userMenu{
-    display: flex;
+    display: none;
     position: absolute;
     right: 0;
     height: 30vh;
@@ -235,7 +235,7 @@ h1 {
 /*change .loggedin  display to none after editing*/
 .loggedIn{
     padding: 2px;
-    display: none;
+    display: block;
     cursor: pointer;
     color: azure;
 }
@@ -361,9 +361,11 @@ h1 {
 /* Toggle Display */
 .logReg-form-active{
     transform: translateX(0%);
+    display: flex;
 }
 .userMenu-active{
     transform: translateX(0%);
+    display: flex;
 }
 .loggedIn-display{
     display: block;
