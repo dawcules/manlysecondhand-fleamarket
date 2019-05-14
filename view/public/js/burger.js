@@ -18,6 +18,7 @@ const closeLogReg = () =>{
 
 
 };
+
 const itemsMenu = () =>{
     const items= document.querySelector('.items');
     const menu = document.querySelector('.items-menu');
@@ -82,7 +83,6 @@ const myProducts = () =>{
 
 const app = () =>{
     LoginRegister();
-    itemsMenu();
     userMenu();
     userPage();
     addProduct();

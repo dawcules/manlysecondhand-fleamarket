@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(#4c7f7f, transparent);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    font-family: Arial sans-serif;
+}
+
+.container{
+    max-width: 800px;
+    height: auto;
+    background: #cccccc;
+    margin: 50px auto;
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+p{
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 40px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #2f4f4f, #4c7f7f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.abt,
+.msg .msgarea {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 2px solid #4c7f7f;
+    font-size: 14px;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.5s;
+}

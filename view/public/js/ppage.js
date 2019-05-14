@@ -105,6 +105,7 @@ const getprd = (evt) => {
   }).then((json) => {
     console.log('json' + json);
 
+    let splitadd = [];
     const pdata = json;
     for (let i=0;pdata.length>i;i++) {
       qDesc.push(pdata[i].Description);
@@ -113,7 +114,9 @@ const getprd = (evt) => {
       qPrice.push(pdata[i].Price);
       qBrand.push(pdata[i].pBrand);
       qName.push(pdata[i].pName);
-      qAdded.push(pdata[i].ProductAdded);
+      splitadd = [];
+      splitadd = pdata[i].ProductAdded.match(/.{10}/g);
+      qAdded.push(splitadd[0]);
       qEmail.push(pdata[i].Email)
     }
     console.log('qDesc ' + qDesc);
@@ -126,13 +129,13 @@ const getprd = (evt) => {
       qDescEle[i] = document.createElement('p');
       qDescEle[i].innerText = qDesc[i];
       qCondEle[i] = document.createElement('h3');
-      qCondEle[i].innerText = 'Condition level: '+ qCond[i];
+      qCondEle[i].innerText = 'Condition: '+ condnames[qCond[i]];
       qPriceEle[i] = document.createElement('p');
       qPriceEle[i].innerText = qPrice[i] + ' €';
       qBrandEle[i] = document.createElement('h2');
       qBrandEle[i].innerText = qBrand[i];
       qAddedEle[i] = document.createElement('p');
-      qAddedEle[i].innerText = 'Adde on: ' + qAdded[i];
+      qAddedEle[i].innerText = 'Added on: ' + qAdded[i];
       qEmailEle[i] = document.createElement('p');
       qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
     }
@@ -199,11 +202,10 @@ const showPrice = (evt) => {
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
     priceMax.setAttribute('id','pricemax');
-    //priceDiv.setAttribute('id','pricediv');
-    //priceDiv.appendChild(priceMin);
-    //priceDiv.appendChild(priceMax);
-    dynamic.appendChild(priceMin);
-    dynamic.appendChild(priceMax);
+    priceDiv.setAttribute('id','pricediv');
+    priceDiv.appendChild(priceMin);
+    priceDiv.appendChild(priceMax);
+    dynamic.appendChild(priceDiv);
     priceDiv.style.display = "inline";
     console.log('Tässä hinta');
   }
