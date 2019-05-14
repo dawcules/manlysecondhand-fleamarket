@@ -320,6 +320,10 @@ h1 {
     .logo{
         display:none;
     }
+    .productdiv {
+        min-width: 80%;
+        width: 80%;
+    }
 }
 
 
