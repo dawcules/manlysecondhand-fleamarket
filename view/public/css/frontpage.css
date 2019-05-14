@@ -24,6 +24,21 @@ h1 {
     min-width: 50%;
 }
 
+.floatb {
+    position: fixed;
+    bottom: 0;
+    background-color: #4c7f7f;
+    border: none;
+    color: azure;
+    padding: 1.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 1em 1em;
+    border-radius: 48%;
+}
+
 .ibutt {
     display: flex;
     flex-wrap: wrap;
@@ -295,6 +310,7 @@ h1 {
 
 @media screen and (max-width:1500px){
     .items-menu {
+        display: none;
         position: fixed;
         bottom: 0;
         height: 33%;
