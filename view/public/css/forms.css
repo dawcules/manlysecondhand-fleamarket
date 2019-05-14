@@ -20,11 +20,13 @@ Keep the log in / register form in check with labels
 
 #fsone {
     padding-top: 0.1em;
+    height: 100%;
 }
 
 #fstwo {
     margin: 0;
     padding: 0;
+    height: 100%
 }
 
 .brandd {
@@ -96,13 +98,11 @@ Keep the log in / register form in check with labels
 }
 
 #condi {
-    border: 1px solid darkslategrey;
 }
 
 #productAdd{
     display: block;
     color: azure;
-    top: 12vh;
     height: 80%;
     background-color:#253f3f;
     flex-direction: column;
@@ -112,7 +112,6 @@ Keep the log in / register form in check with labels
 #imageAdd{
     display: block;
     color: azure;
-    top: 12vh;
     height: 20%;
     background-color:#253f3f;
     flex-direction: column;
