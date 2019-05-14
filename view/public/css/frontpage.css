@@ -21,7 +21,7 @@ h1 {
     padding: 7px 16px;
     text-align: center;
     text-decoration: none;
-    min-width: 50%;
+    min-width: 45%;
 }
 
 .floatb {
@@ -37,6 +37,21 @@ h1 {
     font-size: 1em;
     margin: 1em 1em;
     border-radius: 48%;
+}
+
+.exitb {
+    background-color: #4c7f7f;
+    border: none;
+    color: azure;
+    padding: .3em .6em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.65em;
+    margin: 0.6em 0.6em;
+    border-radius: 48%;
+    position: absolute;
+    right: 0;
 }
 
 .ibutt {
@@ -307,6 +322,12 @@ h1 {
 .userMenu div{
     color:azure;
 }
+@media screen and (min-width:1501px) {
+.floatb {
+    display: none;
+}
+}
+
 
 @media screen and (max-width:1500px){
     .items-menu {

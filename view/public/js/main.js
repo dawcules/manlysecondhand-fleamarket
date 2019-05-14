@@ -150,6 +150,31 @@ const imageAdd = (product) => {
             imageForm.reset();
         });
 };
+const search = document.querySelector('.items-menu');
+const floatb = document.querySelector('.floatb');
+const exitb = document.querySelector('.exitb');
+
+
+
+const toggleProduct = (evt) => {
+    //alert('TOIMII');
+    evt.preventDefault();
+    if (floatb.style.display != 'none') {
+        floatb.style.display = 'none';
+        search.style.display = 'flex'
+    }
+    else {
+        floatb.style.display = null;
+        search.style.display = null
+    }
+
+};
+
+
+
+floatb.addEventListener('click', toggleProduct);
+exitb.addEventListener('click', toggleProduct);
+
 
 function validation() {
     const namef = document.getElementById('name').value;
@@ -170,6 +195,7 @@ function validation() {
 
 // make an event listener which calls upload function when the form is submitted
 // imageForm.addEventListener('submit', imageAdd);
+
 
 
 const mainApp = () => {
