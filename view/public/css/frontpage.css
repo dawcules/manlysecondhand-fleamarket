@@ -50,6 +50,7 @@ h1 {
     margin: .5%;
     color: black;
     background-color: azure;
+    justify-content: space-around;
 }
 #ppage {
     display: flex;
