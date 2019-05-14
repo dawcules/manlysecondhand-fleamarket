@@ -153,18 +153,7 @@ p{
 
 @media screen and (max-width: 768px){
 
-    .items-menu{
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 11vh;
-    height: 100%;
-    background-color:#121f1f;
-    flex-direction: column;
-    align-items:  center;
-    width:20%;
-    transform: translateX(-100%);
-    }
+
     .items{
         display: block;
     }

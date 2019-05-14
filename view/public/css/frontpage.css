@@ -24,6 +24,21 @@ h1 {
     min-width: 50%;
 }
 
+.floatb {
+    position: fixed;
+    bottom: 0;
+    background-color: #4c7f7f;
+    border: none;
+    color: azure;
+    padding: 1.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin: 1em 1em;
+    border-radius: 48%;
+}
+
 .ibutt {
     display: flex;
     flex-wrap: wrap;
@@ -46,9 +61,11 @@ h1 {
 
 .productdiv {
     width: 26%;
+    min-width: 26%;
     margin: .5%;
     color: black;
     background-color: azure;
+    text-align: center;
 }
 #ppage {
     display: flex;
@@ -288,6 +305,7 @@ h1 {
     flex-direction: column;
     align-items:  center;
     max-width:12%;
+    min-width: 15%;
     background-color: #1c2f2f;
     justify-content: start;
 }
@@ -324,7 +342,25 @@ h1 {
     color:azure;
 }
 
+@media screen and (max-width:1500px){
+    .items-menu {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        height: 33%;
+        width: 25%;
+        max-width: 100%;
+        min-width: 30%;
+    }
 
+    .home {
+        width: 100%;
+    }
+    .productdiv {
+        min-width: 40%;
+        width: 40%;
+    }
+}
 
 
 /* Tablets */
@@ -335,6 +371,10 @@ h1 {
     .logo{
         display:none;
     }
+    .productdiv {
+        min-width: 80%;
+        width: 80%;
+    }
 }
 
 
@@ -342,16 +382,7 @@ h1 {
 @media screen and (max-width: 768px){
 
     .items-menu{
-        display: flex;
-        position: absolute;
-        left: 0;
-        top: 11vh;
-        height: 100%;
-        background-color:#121f1f;
-        flex-direction: column;
-        align-items:  center;
-        width:20%;
-        transform: translateX(-100%);
+        width:33%;
     }
     .items{
         display: block;
@@ -373,23 +404,24 @@ h1 {
         width: 20vh;
         font-size: 15px;
     }
+    .items-menu {
+        width: 36%;
+    }
 }
-@media sreen and (max-width: 320px){
+@media sreen and (max-width: 350px){
     .higher{
         display: block;
     }
     .lower{
         display: block;
     }
+
 }
 
 /* Toggle Display */
 .logReg-form-active{
     transform: translateX(0%);
     display: flex;
-}
-.items-menu-active{
-    transform: translateX(0%);
 }
 .userMenu-active{
     transform: translateX(0%);
