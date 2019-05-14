@@ -129,7 +129,7 @@ const getprd = (evt) => {
       qDescEle[i] = document.createElement('p');
       qDescEle[i].innerText = qDesc[i];
       qCondEle[i] = document.createElement('h3');
-      qCondEle[i].innerText = 'Condition level: '+ qCond[i];
+      qCondEle[i].innerText = 'Condition: '+ condnames[qCond[i]];
       qPriceEle[i] = document.createElement('p');
       qPriceEle[i].innerText = qPrice[i] + ' €';
       qBrandEle[i] = document.createElement('h2');
