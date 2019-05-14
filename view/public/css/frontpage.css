@@ -305,6 +305,10 @@ h1 {
     .home {
         width: 100%;
     }
+    .productdiv {
+        min-width: 50%;
+        width: 50%;
+    }
 }
 
 
