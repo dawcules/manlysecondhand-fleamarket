@@ -105,6 +105,7 @@ const getprd = (evt) => {
   }).then((json) => {
     console.log('json' + json);
 
+    let splitadd = [];
     const pdata = json;
     for (let i=0;pdata.length>i;i++) {
       qDesc.push(pdata[i].Description);
@@ -113,7 +114,9 @@ const getprd = (evt) => {
       qPrice.push(pdata[i].Price);
       qBrand.push(pdata[i].pBrand);
       qName.push(pdata[i].pName);
-      qAdded.push(pdata[i].ProductAdded);
+      splitadd = [];
+      splitadd = pdata[i].ProductAdded.match(/.{10}/g);
+      qAdded.push(splitadd[0]);
       qEmail.push(pdata[i].Email)
     }
     console.log('qDesc ' + qDesc);
@@ -132,7 +135,7 @@ const getprd = (evt) => {
       qBrandEle[i] = document.createElement('h2');
       qBrandEle[i].innerText = qBrand[i];
       qAddedEle[i] = document.createElement('p');
-      qAddedEle[i].innerText = 'Adde on: ' + qAdded[i];
+      qAddedEle[i].innerText = 'Added on: ' + qAdded[i];
       qEmailEle[i] = document.createElement('p');
       qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
     }
