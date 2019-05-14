@@ -360,6 +360,9 @@ h1 {
 .floatb {
     display: none;
 }
+.exitb {
+    display: none;
+    }
 }
 
 
