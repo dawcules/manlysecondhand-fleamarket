@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give us feedback</title>
+</head>
+<body>
+<div class="mainfb" id="feedb">
+    <h1>We value your feedback</h1>
+<form align="center" onsubmit="onClick()">
+    <table>
+        <tr>
+            <td>Name :</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Password :</td>
+            <td><input type="password"></td>
+        </tr>
+        <tr>
+            <td>Gender :</td>
+            <td>
+                <input type="radio" name="Gender"> Male
+                <input type="radio" name="Gender"> Female
+            </td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input type="email"></td>
+        </tr>
+        <tr>
+            <td>Phone no :</td>
+            <td>
+                <select>
+                    <option>+358</option>
+                </select>
+                <input type="phone">
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</div>
+<script>
+  function onClick() {
+    alert("Thanks for the feedback, we're constantly trying to improve our user's experience and your feedback helps!");
+  }
+</script>
+</body>
+</html>
