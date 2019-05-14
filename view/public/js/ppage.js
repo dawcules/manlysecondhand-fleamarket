@@ -202,11 +202,10 @@ const showPrice = (evt) => {
     priceMax.setAttribute('type', 'number');
     priceMax.setAttribute('placeholder', 'Price max');
     priceMax.setAttribute('id','pricemax');
-    //priceDiv.setAttribute('id','pricediv');
-    //priceDiv.appendChild(priceMin);
-    //priceDiv.appendChild(priceMax);
-    dynamic.appendChild(priceMin);
-    dynamic.appendChild(priceMax);
+    priceDiv.setAttribute('id','pricediv');
+    priceDiv.appendChild(priceMin);
+    priceDiv.appendChild(priceMax);
+    dynamic.appendChild(priceDiv);
     priceDiv.style.display = "inline";
     console.log('Tässä hinta');
   }
