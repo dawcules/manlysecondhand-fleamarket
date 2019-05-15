@@ -128,7 +128,7 @@ app.get('/getsession', (req, res) => {
 app.get('/logout', (req,res)=>{
    req.logout();
    req.session.destroy();
-   res.redirect('/');
+   res.send("logged out");
 });
 
 app.post('/getproduct', (req, res) => {
