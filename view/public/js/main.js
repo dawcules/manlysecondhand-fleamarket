@@ -74,6 +74,36 @@ const login = (evt) => {
 };
 loginForm.addEventListener('submit', login);
 
+
+
+let logOutForm = document.querySelector('.logOut');
+const logOut = () =>{
+    evt.preventDefault();
+// - makes FormData -object and adds the file selected byt the user into the object
+    const data = new URLSearchParams();
+    for (const pair of new FormData(logOutForm)) {
+        data.append(pair[0], pair[1]);
+    }
+    console.log(data);
+// - send the file to the same url as in task a by using fetch -method
+    const options = {
+        method: 'post',
+        body: data,
+    };
+    fetch('logout', options).then((response) => {
+        return response.json();
+    }).then((json) => {
+        console.log(json);
+        console.log("logout fetch");
+        let logout = json;
+        console.log(uData);
+        getSession();
+        window.alert("You have logged out!");
+        console.log("logged out");
+        console.log(logout);
+    });
+};
+logOutForm.addEventListener('submit',logOut);
 // Function used for getting the user Session data
 const getSession = () => {
     fetch('getsession', {
