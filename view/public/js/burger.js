@@ -1,6 +1,5 @@
-
+'use strict';
 // "Burgers" for different menus. Used to toggle the visibility of the html elements.
-
 const LoginRegister = () =>{
     const logReg = document.querySelector('.logReg');
     const form = document.querySelector('.logReg-form');
