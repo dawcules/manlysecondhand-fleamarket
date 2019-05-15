@@ -465,10 +465,6 @@ h1 {
         top: 12em;
         font-size: 1em;
     }
-    .productdiv {
-        min-width: 80%;
-        width: 80%;
-    }
 
 /* Small screens */
 }
@@ -480,8 +476,6 @@ h1 {
     .lower{
         display: block;
     }
-    .items-menu{
-        width:33%;
 }
 
 /* Toggle Display */
