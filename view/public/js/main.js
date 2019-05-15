@@ -7,12 +7,12 @@ const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
     let loggedIn = document.querySelector('.loggedIn');
     let logRegMenu = document.querySelector('.logReg-form');
-    showUserInfo();
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
     console.log("display");
     logRegMenu.style.display = "none";
+    showUserInfo(uData);
 };
 
 let registerForm = document.querySelector('#register');
@@ -199,7 +199,7 @@ const unData = [
     "hah"
 ];
 */
-const showUserInfo = () =>{
+const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
     for(let userInfo of uData){
         let info = document.createElement('div');
