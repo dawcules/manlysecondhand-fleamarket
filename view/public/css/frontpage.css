@@ -215,22 +215,22 @@ h1 {
     border-left: 5px solid #2f4f4f;
     border-bottom: 5px solid #2f4f4f;
     justify-content: space-around;
-}
-.userMenu div{
-    font-size: 20px;
+    font-size: 1em;
+    padding: 0.5em;
 }
 .userMenu a{
-    font-size:20px;
+    font-size: 1em;
 }
+
 .userPage{
     display: flex;
     position: absolute;
     right: 25%;
-    height: 40vh;
+    height: 20em;
     top: 6em;
     flex-direction: column;
     align-items: center;
-    width:40%;
+    width:30%;
     transform: translateX(500%);
     border-radius: 10px;
     background-color: #253f3f;
@@ -238,7 +238,7 @@ h1 {
     border-bottom: 5px solid #2f4f4f;
     justify-content: space-around;
     color: azure;
-    font-size: 2em;
+    font-size: 1em;
 }
 .userInfo{
     padding: 2px;
@@ -384,6 +384,20 @@ h1 {
         min-width: 40%;
         width: 40%;
     }
+    .logReg-form{
+        width: 40%;
+    }
+    .userMenu{
+        width: 40%;
+    }
+    .userPage{
+        right: 45%;
+        width: 40%;
+    }
+    .productForm{
+        right: 45%;
+        width: 40%;
+    }
 }
 
 
@@ -393,6 +407,10 @@ h1 {
     .logReg-form{
         width: 60%;
     }
+    .userMenu{
+        width: 60%;
+        top: 6em;
+    }
     .logo{
         display:none;
     }
@@ -400,6 +418,21 @@ h1 {
         min-width: 80%;
         width: 80%;
     }
+    .productForm{
+        width: 80%;
+        height: 100%;
+        font-size: 0.5em;
+        right: 5%;
+
+    }
+    .userPage{
+        width: 50%;
+        height: 50%;
+        top: 3em;
+        font-size: 2em;
+        right: 5%;
+    }
+
 }
 
 
@@ -411,8 +444,8 @@ h1 {
     .items{
         display: block;
     }
-    .higher{
-        font-size: 10px;
+    .higher div{
+        font-size: 0.5em;
     }
     .lower{
         font-size: 15px;
@@ -420,18 +453,25 @@ h1 {
     .logo{
         display: none;
     }
+    .userMenu{
+        width: 80%;
+        height: 50em;
+        top: 12em;
+        font-size: 1em;
+    }
+    .productForm{
+        width: 80%;
+        height: 50em;
+        top: 12em;
+        font-size: 1em;
+    }
 
 /* Small screens */
 }
-@media screen and (max-width: 540px){
-    .higher input[type=text] {
-        width: 20vh;
-        font-size: 15px;
-    }
-}
-@media sreen and (max-width: 350px){
-    .higher{
+@media screen and (max-width: 350px){
+    .higher div{
         display: block;
+        font-size: 0.1em;
     }
     .lower{
         display: block;
