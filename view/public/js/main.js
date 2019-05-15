@@ -75,7 +75,7 @@ const login = (evt) => {
 loginForm.addEventListener('submit', login);
 
 let logOutForm = document.querySelector('#logOut');
-const logOut = () =>{
+const logOut = (evt) =>{
     evt.preventDefault();
 // - makes FormData -object and adds the file selected byt the user into the object
     const data = new URLSearchParams();
