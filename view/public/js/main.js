@@ -86,6 +86,7 @@ const getSession = () => {
         //showHide(json);
         changeLayout(uData);
         window.alert('Successfully logged in');
+        showUserInfo();
     });
 };
 const productForm = document.querySelector('#productAdd');
@@ -190,6 +191,22 @@ function validation() {
         return true;
     }
 }
+/*
+const unData = [
+    "hahaa",
+    "huhuu",
+    "hehee",
+    "hah"
+];
+*/
+const showUserInfo = () =>{
+    let userPage = document.querySelector('.userPage');
+    for(let userInfo of uData){
+        let info = document.createElement('div');
+        info.innerHTML = userInfo;
+        userPage.appendChild(info)
+    }
+};
 // - when file upload is complete, writes server response to 'message' element
 // function ends
 
