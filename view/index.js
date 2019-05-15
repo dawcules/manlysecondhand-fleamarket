@@ -116,8 +116,9 @@ app.get('/getsession', (req, res) => {
 });
 app.get('/logout', (req,res)=>{
    req.logout();
-   req.session.destroy();
-   res.redirect('/');
+   req.session.destroy( (err) =>{
+       res.redirect('/app/');
+   });
 });
 
 // Use user selected filters to run a SQL query

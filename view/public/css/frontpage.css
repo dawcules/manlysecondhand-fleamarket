@@ -187,7 +187,7 @@ h1 {
 /* Change .logReg display to block after editing*/
 .logReg{
     padding: 2px;
-    display: block;
+    display: none;
     cursor: pointer;
     color: azure
 }
@@ -237,6 +237,8 @@ h1 {
     border-left: 5px solid #2f4f4f;
     border-bottom: 5px solid #2f4f4f;
     justify-content: space-around;
+    color: azure;
+    font-size: 2em;
 }
 .userInfo{
     padding: 2px;
@@ -301,7 +303,7 @@ h1 {
 /*change .loggedin  display to none after editing*/
 .loggedIn{
     padding: 2px;
-    display: none;
+    display: block;
     cursor: pointer;
     color: azure;
 }
@@ -388,7 +390,7 @@ h1 {
 
 /* Tablets */
 @media screen and (max-width:1024px){
-    .nav-links{
+    .logReg-form{
         width: 60%;
     }
     .logo{
@@ -403,7 +405,6 @@ h1 {
 
 /* Bigger mobiles screens */
 @media screen and (max-width: 768px){
-
     .items-menu{
         width:33%;
     }

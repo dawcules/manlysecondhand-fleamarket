@@ -72,15 +72,6 @@ const closeUP = () =>{
 };
 
 
-const myProducts = () =>{
-    const loggedIn = document.querySelector('.loggedIn');
-    const userMenu = document.querySelector('.userMenu');
-    loggedIn.addEventListener('click', () =>{
-        userMenu.classList.toggle('userMenu-active');
-    });
-
-};
-
 const app = () =>{
     LoginRegister();
     userMenu();
