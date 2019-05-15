@@ -74,6 +74,35 @@ const login = (evt) => {
 };
 loginForm.addEventListener('submit', login);
 
+let logOutForm = document.querySelector('#logOut');
+const logOut = () =>{
+    evt.preventDefault();
+// - makes FormData -object and adds the file selected byt the user into the object
+    const data = new URLSearchParams();
+    for (const pair of new FormData(logOutForm)) {
+        data.append(pair[0], pair[1]);
+    }
+    console.log(data);
+// - send the file to the same url as in task a by using fetch -method
+    const options = {
+        method: 'post',
+        body: data,
+    };
+    fetch('logout', options).then((response) => {
+        return response.json();
+    }).then((json) => {
+        console.log(json);
+        console.log("logout fetch");
+        let logout = json;
+        console.log(uData);
+        getSession();
+        window.alert("You have logged out!");
+        console.log("logged out");
+        console.log(logout);
+    });
+};
+logOutForm.addEventListener('submit', logOut);
+
 // Function used for getting the user Session data
 const getSession = () => {
     fetch('getsession', {
@@ -191,14 +220,6 @@ function validation() {
         return true;
     }
 }
-/*
-const unData = [
-    "hahaa",
-    "huhuu",
-    "hehee",
-    "hah"
-];
-*/
 const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
     let userName = document.createElement('div');
@@ -206,11 +227,11 @@ const showUserInfo = (uData) =>{
     let phone = document.createElement('div');
     let location = document.createElement('div');
     let accountCreated = document.createElement('div');
-    userName.innerHTML = uData.UserName;
-    email.innerHTML = uData.Email;
-    phone.innerHTML = uData.Phone;
-    location.innerHTML = uData.Location
-    accountCreated.innerHTML = uData.AccCreated;
+    userName.innerHTML = 'Your Username: '+uData.UserName;
+    email.innerHTML = 'Email Address: '+uData.Email;
+    phone.innerHTML = 'Phone number: '+uData.Phone;
+    location.innerHTML = 'Location: '+uData.Location
+    accountCreated.innerHTML = 'Account Created: '+uData.AccCreated;
     userPage.appendChild(userName);
     userPage.appendChild(email);
     userPage.appendChild(phone);

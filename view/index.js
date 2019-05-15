@@ -114,6 +114,11 @@ app.use('/image', (req, res, next) => {
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
+app.get('/logout', (req,res)=>{
+   req.logout();
+   req.session.destroy();
+   res.redirect('/');
+});
 
 // Use user selected filters to run a SQL query
 app.post('/getproduct', (req, res) => {
