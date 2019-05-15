@@ -468,14 +468,19 @@ h1 {
 
 /* Small screens */
 }
-@media screen and (max-width: 350px){
-    .higher div{
+@media screen and (max-width: 350px) {
+    .higher div {
         display: block;
         font-size: 0.1em;
     }
-    .lower{
+
+    .lower {
         display: block;
     }
+    .items-menu {
+        width: 33%;
+    }
+
 }
 
 /* Toggle Display */
