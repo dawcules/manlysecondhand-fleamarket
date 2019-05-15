@@ -1,21 +1,28 @@
 'use strict';
+// This file contains everything related to fetching and showing product information
+
+// Elements for event listeners
 const form = document.querySelector('#search');
-const dynamic = document.querySelector('.dynamic'); // muutettava hakukenttä
+const dynamic = document.querySelector('.dynamic');
 const dv = document.getElementById('ppage');
 const brandButton = document.querySelector('#pbrand');
 const priceButton = document.querySelector('#pprice');
 const condButton = document.querySelector('#pcond');
 const typeButton = document.querySelector('#ptypebut');
 
+
+// Constant selections for filters. Could be dynamically generated from SQL. But they are not.
 const brandlist = ['Nike','Adidas','Reebok', 'Puma'];
-const typelist = ['Shirt','Pants','Coat','Accessory','Shoes', 8, 5];
+const typelist = ['Shirt','Pants','Coat','Accessory','Shoes'];
 const condlist = [1,2,3,4,5];
 const condnames = ['Very bad', 'Bad', 'Not so good', 'Good', 'Very good'];
 
+//Create buttons with listed values later
 let brandoptions = [];
 let typeoptions = [];
 let condoptions = [];
 
+//Create elements for filter selections
 const selectBrand = document.createElement('select');
 const selectType = document.createElement('select');
 const selectCond = document.createElement('select');
@@ -23,25 +30,22 @@ const priceDiv = document.createElement('div');
 const priceMin = document.createElement('input');
 const priceMax = document.createElement('input');
 
-
+// Get, create and display products from SQL based on user selected filters
 const getprd = (evt) => {
 
   evt.preventDefault();
-  dv.innerHTML="";
+  dv.innerHTML=""; // New round => Destroy previous HTML
 
+  //Select all filters by predetermined IDs
   const brand = document.getElementById('brandname');
   const type = document.getElementById('typename');
   const cond = document.getElementById('condname');
   const minPrice = document.getElementById('pricemin');
   const maxPrice = document.getElementById('pricemax');
 
- /* const selectedType = ;
-  const selectedBrand = [;
-  const selectedCond = ;
-  const selMinPrice =
-  const selMaxPrice = maxPrice.value;*/
-  const searchdata = []; // iffillä kamat sisään
+  const searchdata = []; // Generate searchdata from selected filters
 
+  // Reset all the previous selections
   let qDesc = [];
   let qImg = [];
   let qCond = [];
@@ -59,6 +63,9 @@ const getprd = (evt) => {
   let qNameEle = [];
   let qAddedEle = [];
 
+
+  //Check if selected filter has been selected and push its value to searchdata
+  //If filter is not selected (Value = null), place a placeholder '*'
   if (type) {
     searchdata.push([type.options[type.selectedIndex].value]);
   }
@@ -90,6 +97,7 @@ const getprd = (evt) => {
   }
   console.log(searchdata);
 
+  // Fetch information based on selected values. Index.js /getproduct
   fetch('getproduct', {
     method: "post",
     headers: {
@@ -97,16 +105,16 @@ const getprd = (evt) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      searchp: searchdata
-
+      searchp: searchdata // == selected filters as an array
     })
   }).then((res) => {
     return res.json();
   }).then((json) => {
     console.log('json' + json);
 
-    let splitadd = [];
-    const pdata = json;
+    let splitadd = []; // Used for splitting the date (Added on)
+    const pdata = json; // Returned SQL results
+    // Cycle trough the whole data and add the results to corresponding slots
     for (let i=0;pdata.length>i;i++) {
       qDesc.push(pdata[i].Description);
       qImg.push(pdata[i].Thumb);
@@ -115,12 +123,13 @@ const getprd = (evt) => {
       qBrand.push(pdata[i].pBrand);
       qName.push(pdata[i].pName);
       splitadd = [];
-      splitadd = pdata[i].ProductAdded.match(/.{10}/g);
+      splitadd = pdata[i].ProductAdded.match(/.{10}/g); // A very sophisticated way to display just the date
       qAdded.push(splitadd[0]);
       qEmail.push(pdata[i].Email)
     }
     console.log('qDesc ' + qDesc);
 
+    //Create HTML elements and throw in the data previously generated
     for (let i=0;qDesc.length>i;i++) {
       qNameEle[i] = document.createElement('h1');
       qNameEle[i].innerText = qName[i];
@@ -140,7 +149,7 @@ const getprd = (evt) => {
       qEmailEle[i].innerText = 'Contact seller: ' + qEmail[i]
     }
 
-
+    //Create divs with all the previous elements. One cycle at a time.
     for (let i=0;qDescEle.length>i;i++) {
       const pid = document.createElement('div');
       pid.setAttribute('id','productdiv' + i);
@@ -155,25 +164,21 @@ const getprd = (evt) => {
       pid.appendChild(qAddedEle[i]);
       pid.appendChild(qEmailEle[i]);
       pid.style.border = '2px solid black';
-      dv.appendChild(pid);
+      dv.appendChild(pid); // Display the product on the frontpage
     };
-    //tänne printit
   });
 };
-
+// Toogle filter display
 const showBrand = (evt) => {
   if (brandoptions.length == 0) {
-    console.log('Tässä merkki');
     console.log(brandlist.length);
     for (let i=0;i < brandlist.length;i++) {
-      console.log('listan 1 ' + i);
       brandoptions[i] = document.createElement('option');
       brandoptions[i].innerText = brandlist[i];
       brandoptions[i].value = brandlist[i];
     }
     if (selectBrand.childElementCount === 0) {
       for (let i = 0; i < brandoptions.length; i++) {
-        console.log('listan 2 ' + i);
         selectBrand.appendChild(brandoptions[i])
       }
     }
@@ -189,6 +194,7 @@ const showBrand = (evt) => {
     brandoptions = [];
   }
 };
+// Toogle filter display
 
 const showPrice = (evt) => {
   if (document.querySelector('#pricediv')) {
@@ -207,23 +213,20 @@ const showPrice = (evt) => {
     priceDiv.appendChild(priceMax);
     dynamic.appendChild(priceDiv);
     priceDiv.style.display = "inline";
-    console.log('Tässä hinta');
   }
 };
+// Toogle filter display
 
 const showCond = (evt) => {
   if (condoptions.length == 0) {
-    console.log('Tässä merkki');
     console.log(condlist.length);
     for (let i=0;i < condlist.length;i++) {
-      console.log('listan 1 ' + i);
       condoptions[i] = document.createElement('option');
       condoptions[i].innerText = condnames[i];
       condoptions[i].value = condlist[i];
     }
     if (selectCond.childElementCount === 0) {
       for (let i = 0; i < condoptions.length; i++) {
-        console.log('listan 2 ' + i);
         selectCond.appendChild(condoptions[i])
       }
     }
@@ -239,20 +242,18 @@ const showCond = (evt) => {
     condoptions = [];
   }
 };
+// Toogle filter display
 
 const showType = (evt) => {
-  console.log('Tässä tyyppi');
   if (typeoptions.length == 0) {
     console.log(typelist.length);
     for (let i=0;i < typelist.length;i++) {
-      console.log('listan 1 ' + i);
       typeoptions[i] = document.createElement('option');
       typeoptions[i].innerText = typelist[i];
       typeoptions[i].value = typelist[i];
     }
     if (selectType.childElementCount === 0) {
       for (let i = 0; i < typeoptions.length; i++) {
-        console.log('listan 2 ' + i);
         selectType.appendChild(typeoptions[i])
       }
     }
@@ -269,10 +270,12 @@ const showType = (evt) => {
   }
 };
 
-form.addEventListener('submit', getprd);
+
+// Event listeners for filters and product displays
+form.addEventListener('submit', getprd); // Apply filters
 brandButton.addEventListener('click', showBrand);
 priceButton.addEventListener('click', showPrice);
 condButton.addEventListener('click', showCond);
 typeButton.addEventListener('click', showType);
-window.addEventListener('load', getprd);
+window.addEventListener('load', getprd); // Show all products by default
 
