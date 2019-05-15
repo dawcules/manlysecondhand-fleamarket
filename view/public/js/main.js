@@ -73,9 +73,7 @@ const login = (evt) => {
     });
 };
 loginForm.addEventListener('submit', login);
-
-
-
+/*
 let logOutForm = document.querySelector('.logOut');
 const logOut = () =>{
     evt.preventDefault();
@@ -104,6 +102,7 @@ const logOut = () =>{
     });
 };
 logOutForm.addEventListener('submit',logOut);
+*/
 // Function used for getting the user Session data
 const getSession = () => {
     fetch('getsession', {
