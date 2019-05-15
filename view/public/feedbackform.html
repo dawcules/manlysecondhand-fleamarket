@@ -3,47 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Give us feedback</title>
+    <title>Title</title>
     <link href="css/aboutfeed.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="mainfb" id="feedb" style="display: inline-block; text-align: center;">
-    <h1>We value your feedback</h1>
-<form align="center" onsubmit="onClick()">
-    <table>
-        <tr>
-            <td>Name :</td>
-            <td><input type="text"></td>
-        </tr>
-        <tr>
-            <td>Password :</td>
-            <td><input type="password"></td>
-        </tr>
-        <tr>
-            <td>Gender :</td>
-            <td>
-                <input type="radio" name="Gender"> Male
-                <input type="radio" name="Gender"> Female
-            </td>
-        </tr>
-        <tr>
-            <td>Email :</td>
-            <td><input type="email"></td>
-        </tr>
-        <tr>
-            <td>Phone no :</td>
-            <td>
-                <select>
-                    <option>+358</option>
-                </select>
-                <input type="phone">
-            </td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Submit"></td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    <p>Contact Us</p>
+
+<div class="info">
+    <input type="text" name="" placeholder="Name:" class="abt">
+    <input type="email" name="" placeholder="Email:" class="abt">
+</div>
+
+<div class="about">
+    <input type="email" name="" placeholder="Subject:" class="abt">
+</div>
+
+<div class="msg">
+    <textarea class="msgarea" placeholder="Leave a message:"></textarea>
+</div>
+
+<div class="submit" onclick="onClick()">
+    <a href="https://wwf.fi/" class="btn">Send Message</a>
+</div>
 </div>
 <script>
   function onClick() {
