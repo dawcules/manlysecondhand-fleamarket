@@ -48,13 +48,13 @@ const loginForm = document.querySelector('#login');
 const login = (evt) => {
     // - prevents the form from sending
     evt.preventDefault();
-// - makes FormData -object and adds the file selected byt the user into the object
+    //creating URL search params object for sending data that is not multiform.
     const data = new URLSearchParams();
+    //appending formfields to the urlsearchparams
     for (const pair of new FormData(loginForm)) {
         data.append(pair[0], pair[1]);
     }
     console.log(data);
-// - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
         body: data,
