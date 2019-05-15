@@ -3,6 +3,7 @@
 let uData;
 let product;
 
+// Function to change the layout when user logs in or refreshes the page while logged in.
 const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
     let loggedIn = document.querySelector('.loggedIn');
@@ -15,18 +16,18 @@ const changeLayout = (uData) =>{
     showUserInfo(uData);
 };
 
+//Function used for registering
 let registerForm = document.querySelector('#register');
-// insert a form
 const register = (evt) => {
     // - prevents the form from sending
     evt.preventDefault();
-// - makes FormData -object and adds the file selected byt the user into the object
+    //creating URL search params object for sending data that is not multiform.
     const data = new URLSearchParams();
+    //appending formfields to the urlsearchparams
     for (const pair of new FormData(registerForm)) {
         data.append(pair[0], pair[1]);
     }
     console.log(data);
-// - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
         body: data,
@@ -84,24 +85,24 @@ const getSession = () => {
         console.log(json);
         uData = json;
         console.log(uData.UserName);
-        //showHide(json);
+        //changing the layout if the session returns as uData object
         changeLayout(uData);
     });
 };
 const productForm = document.querySelector('#productAdd');
-// insert a form
+
 const productAdd = (evt) => {
-    // - prevents the form from sending
+
     evt.preventDefault();
     console.log(uData.uID);
-// - makes FormData -object and adds the file selected byt the user into the object
+
     const data = new URLSearchParams();
     for (const pair of new FormData(productForm)) {
         data.append(pair[0], pair[1]);
     }
     data.append('id' , uData.uID);
     console.log(data);
-// - send the file to the same url as in task a by using fetch -method
+
     const options = {
         method: 'post',
         body: data,
@@ -122,16 +123,14 @@ productForm.addEventListener('submit', productAdd);
 
 const imageForm = document.querySelector('#imageAdd');
 const image = document.getElementById('imgA');
-// make function 'upload' which
+
+// function used for adding the image
 const imageAdd = (product) => {
-    // - prevents the form from sending
-  //  evt.preventDefault();
     console.log(product);
     console.log(product[0].pID);
-// - makes FormData -object and adds the file selected byt the user into the object
+
     const imgForm = new FormData(imageForm);
     imgForm.append('id',product[0].pID);
-// - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
         body: imgForm,
@@ -155,9 +154,8 @@ const floatb = document.querySelector('.floatb');
 const exitb = document.querySelector('.exitb');
 
 
-
+//Toggling the diplay of the filter menu
 const toggleProduct = (evt) => {
-    //alert('TOIMII');
     evt.preventDefault();
     if (floatb.style.display != 'none') {
         floatb.style.display = 'none';
@@ -175,7 +173,7 @@ const toggleProduct = (evt) => {
 floatb.addEventListener('click', toggleProduct);
 exitb.addEventListener('click', toggleProduct);
 
-
+//used for validating the product form
 function validation() {
     const namef = document.getElementById('name').value;
     const brandf = document.getElementById('brand').value;
@@ -190,6 +188,7 @@ function validation() {
         return true;
     }
 }
+//  Function used for putting the user data to user information screen.
 const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
     let userName = document.createElement('div');
@@ -208,14 +207,8 @@ const showUserInfo = (uData) =>{
     userPage.appendChild(location);
     userPage.appendChild(accountCreated);
 };
-// - when file upload is complete, writes server response to 'message' element
-// function ends
 
-// make an event listener which calls upload function when the form is submitted
-// imageForm.addEventListener('submit', imageAdd);
-
-
-
+// running the getsession every time page i loaded.
 const mainApp = () => {
     getSession();
 };
