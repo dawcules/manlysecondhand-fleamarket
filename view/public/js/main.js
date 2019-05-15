@@ -12,6 +12,7 @@ const changeLayout = (uData) =>{
     logReg.style.display = "none";
     console.log("display");
     logRegMenu.style.display = "none";
+    showUserInfo(uData);
 };
 
 let registerForm = document.querySelector('#register');
@@ -66,7 +67,6 @@ const login = (evt) => {
         uData = json;
         console.log(uData);
         getSession();
-        showUserInfo(uData);
         window.alert("Welcome "+uData.UserName);
         console.log("login end")
 
@@ -201,11 +201,21 @@ const unData = [
 */
 const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
-    for(let userInfo of uData){
-        let info = document.createElement('div');
-        info.innerHTML = userInfo;
-        userPage.appendChild(info)
-    }
+    let userName = document.createElement('div');
+    let email = document.createElement('div');
+    let phone = document.createElement('div');
+    let location = document.createElement('div');
+    let accountCreated = document.createElement('div');
+    userName.innerHTML = uData.UserName;
+    email.innerHTML = uData.Email;
+    phone.innerHTML = uData.Phone;
+    location.innerHTML = uData.Location
+    accountCreated.innerHTML = uData.AccCreated;
+    userPage.appendChild(userName);
+    userPage.appendChild(email);
+    userPage.appendChild(phone);
+    userPage.appendChild(location);
+    userPage.appendChild(accountCreated);
 };
 // - when file upload is complete, writes server response to 'message' element
 // function ends
