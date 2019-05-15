@@ -85,7 +85,6 @@ const getSession = () => {
         console.log(json);
         uData = json;
         console.log(uData.UserName);
-        //changing the layout if the session returns as uData object
         changeLayout(uData);
     });
 };
