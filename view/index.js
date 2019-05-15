@@ -19,16 +19,7 @@ const options = {
   key: sslkey,
   cert: sslcert
 };
-//Setting storage to store the files
-/*const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/uploads/')
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
-  }
-}); */ //Uploading file
-//const upload = multer({storage: storage});
+
 app.use(express.static('view/public'));
 app.use(require('serve-static')(__dirname + './public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -37,7 +28,6 @@ app.use(session({
   secret: 'keyboardcat',
   resave: false,
   saveUninitialized: true,
-  //cookie: {secure: false},
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -69,7 +59,6 @@ app.get('/user', pass.loggedIn, (req, res) => {
 });
 
 app.use('/product', (req, res) => {
-            // lisää tuotteen tiedot tietokantaan
             const data = [
                 req.body.name,
                 req.body.brand,
@@ -107,7 +96,7 @@ app.use('/image', (req, res, next) => {
     });
 });
 app.use('/image', (req, res, next) => {
-    // lisää kuvan tiedot tietokantaan
+    // Add user to database
     //Title, Location, Alt, Thumb, Medium, pID
     console.log(req);
     console.log("adding image to the database")
@@ -131,21 +120,23 @@ app.get('/logout', (req,res)=>{
    res.send("logged out");
 });
 
+// Use user selected filters to run a SQL query
 app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
   const data = req.body.searchp.toString();
   const qdata = data.split(",");
+  //Bake a sweet custom SQL query
   const mysql = 'SELECT * FROM Product JOIN User On User.uID = Product.uID JOIN Image ON Image.pID = Product.pID WHERE ';
   let q0;
   let q1;
   let q2;
   let q3;
-
+// searchp (selected filters) contain '*' if the filter was not selected. SQL query is built based on this information
   if (qdata[0] != '*') {
-    q0 = 'pType = ' + '"'+qdata[0]+'" AND '
+    q0 = 'pType = ' + '"'+qdata[0]+'" AND ' // IF filter == selected DO use this part
   }
   else {
-    q0 = ''
+    q0 = '' // IF not, be empty
   }
   if (qdata[1] != '*') {
     q1 = 'pBrand = ' + '"'+qdata[1]+'" AND '
@@ -167,10 +158,9 @@ app.post('/getproduct', (req, res) => {
   }
 
 
-  const sql = [mysql+q0+q1+q2+q3+'Product.pID IS NOT NULL;'];
+  const sql = [mysql+q0+q1+q2+q3+'Product.pID IS NOT NULL;']; // Previous parts end in AND so this is a failsafe to make a complete query. pID IS NOT NULL returns always true.
   console.log(sql);
-
-
+  // Run a callback SQL query based on the previous Build-A-SQL setup.
   query.selectProductInfo(sql, (result) => {
   console.log('2. queryn jälkeen');
   res.send(result);

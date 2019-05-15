@@ -124,7 +124,7 @@ const getusername = (data, res) =>{
       },
   );
 };
-
+//Here we get the results based on the custom SQL query (index.js /getproduct). Which again is based on user selected filters on ppage.js getprd().
 const selectProductInfo = (sql,callback) => {
   sql = sql.toString();
   console.log(sql);
@@ -136,12 +136,7 @@ const selectProductInfo = (sql,callback) => {
             console.log(err);
           callback(results);
         }
- /* const selectedType = [type.options[type.selectedIndex].value];
-  const selectedBrand = [brand.options[brand.selectedIndex].value];
-  const selectedCond = [cond.options[cond.selectedIndex].value];
-  const selMinPrice = minPrice.value;
-  const selMaxPrice = maxPrice.value;
-*/
+
 );
 };
 const selectUserProducts = (data,callback)=>{
