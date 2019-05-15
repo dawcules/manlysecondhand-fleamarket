@@ -86,7 +86,6 @@ const getSession = () => {
         console.log(uData.UserName);
         //showHide(json);
         changeLayout(uData);
-        window.alert('Successfully logged in');
     });
 };
 const productForm = document.querySelector('#productAdd');
