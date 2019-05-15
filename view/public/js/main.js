@@ -12,7 +12,6 @@ const changeLayout = (uData) =>{
     logReg.style.display = "none";
     console.log("display");
     logRegMenu.style.display = "none";
-    showUserInfo(uData);
 };
 
 let registerForm = document.querySelector('#register');
@@ -67,6 +66,7 @@ const login = (evt) => {
         uData = json;
         console.log(uData);
         getSession();
+        showUserInfo(uData);
         window.alert("Welcome "+uData.UserName);
         console.log("login end")
 
