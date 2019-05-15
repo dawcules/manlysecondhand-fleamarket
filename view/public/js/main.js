@@ -7,6 +7,7 @@ const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
     let loggedIn = document.querySelector('.loggedIn');
     let logRegMenu = document.querySelector('.logReg-form');
+    showUserInfo();
     loggedIn.innerHTML = "Logged in: "+uData.UserName;
     loggedIn.style.display = "block";
     logReg.style.display = "none";
@@ -86,7 +87,6 @@ const getSession = () => {
         //showHide(json);
         changeLayout(uData);
         window.alert('Successfully logged in');
-        showUserInfo();
     });
 };
 const productForm = document.querySelector('#productAdd');
