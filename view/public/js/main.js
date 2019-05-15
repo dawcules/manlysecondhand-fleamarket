@@ -191,14 +191,6 @@ function validation() {
         return true;
     }
 }
-/*
-const unData = [
-    "hahaa",
-    "huhuu",
-    "hehee",
-    "hah"
-];
-*/
 const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
     let userName = document.createElement('div');
@@ -206,11 +198,11 @@ const showUserInfo = (uData) =>{
     let phone = document.createElement('div');
     let location = document.createElement('div');
     let accountCreated = document.createElement('div');
-    userName.innerHTML = uData.UserName;
-    email.innerHTML = uData.Email;
-    phone.innerHTML = uData.Phone;
-    location.innerHTML = uData.Location
-    accountCreated.innerHTML = uData.AccCreated;
+    userName.innerHTML = 'Your Username: '+uData.UserName;
+    email.innerHTML = 'Email Address: '+uData.Email;
+    phone.innerHTML = 'Phone number: '+uData.Phone;
+    location.innerHTML = 'Location: '+uData.Location
+    accountCreated.innerHTML = 'Account Created: '+uData.AccCreated;
     userPage.appendChild(userName);
     userPage.appendChild(email);
     userPage.appendChild(phone);
