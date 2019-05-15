@@ -6,6 +6,7 @@ const session = require('express-session');
 const app = express();
 const multer = require('multer');
 const bodyParser = require('body-parser');
+const path = require('path');
 const passport = require('passport');
 const resize = require('../model/utils/resize');
 const pass = require('../model/utils/pass');
@@ -41,14 +42,22 @@ app.post('/register', pass.register, pass.login);
 //Handling post form when form is submitted
 const upload = multer({dest: 'view/public/uploads/'});
 
+/*
+app.get('/', (req, res) => {
+  res.send('This is a test!');
+  //res.render('index');
+  //res.sendfile('view/public/index.html');
+});
+*/
 
 app.get('/user', pass.loggedIn, (req, res) => {
   const sess = req.session.user;
   console.log('userp app käyty');
   console.log(sess.UserName);
   res.send(sess);
+  /*res.redirect('/app/index.html');*/
 });
-// adding the product information to database
+
 app.use('/product', (req, res) => {
             const data = [
                 req.body.name,
@@ -64,7 +73,6 @@ app.use('/product', (req, res) => {
                 query.insertProduct(data);
                 query.selectLatestProduct((result) => {
                     console.log(result);
-                    //sending the product information to frontend.
                     res.send(result);
                 });
 });
@@ -88,7 +96,7 @@ app.use('/image', (req, res, next) => {
     });
 });
 app.use('/image', (req, res, next) => {
-    // Add image to database
+    // Add user to database
     //Title, Location, Alt, Thumb, Medium, pID
     console.log(req);
     console.log("adding image to the database")
@@ -103,10 +111,15 @@ app.use('/image', (req, res, next) => {
     query.insertImage(data, res);
     console.log(data)
 });
-//used for getting the session data to frontend.
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
+app.get('/logout', (req,res)=>{
+   req.logout();
+   req.session.destroy();
+   res.redirect('/app/');
+});
+
 // Use user selected filters to run a SQL query
 app.post('/getproduct', (req, res) => {
   console.log('1. Funktio alkaa');
@@ -167,3 +180,5 @@ https.createServer(options, app).listen(8000); //https traffic
 
 console.log('Server is starting');
 console.log('Rullaa');
+
+//testi commit
