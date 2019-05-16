@@ -2,7 +2,7 @@
 
 let uData;
 let product;
-
+//This is used to change the layout when user is logged in
 const changeLayout = (uData) =>{
     let logReg = document.querySelector('.logReg');
     let loggedIn = document.querySelector('.loggedIn');
@@ -16,17 +16,18 @@ const changeLayout = (uData) =>{
 };
 
 let registerForm = document.querySelector('#register');
-// insert a form
+
 const register = (evt) => {
-    // - prevents the form from sending
+
     evt.preventDefault();
-// - makes FormData -object and adds the file selected byt the user into the object
+    //creating a urlsearchparams object for transfering non multiform data
     const data = new URLSearchParams();
+    //appending form fields to the urlsearchparams
     for (const pair of new FormData(registerForm)) {
         data.append(pair[0], pair[1]);
     }
     console.log(data);
-// - send the file to the same url as in task a by using fetch -method
+
     const options = {
         method: 'post',
         body: data,
@@ -44,9 +45,8 @@ const register = (evt) => {
 registerForm.addEventListener('submit', register);
 
 const loginForm = document.querySelector('#login');
-// insert a form
+
 const login = (evt) => {
-    // - prevents the form from sending
     evt.preventDefault();
     //creating URL search params object for sending data that is not multiform.
     const data = new URLSearchParams();
@@ -89,19 +89,19 @@ const getSession = () => {
     });
 };
 const productForm = document.querySelector('#productAdd');
-// insert a form
+
 const productAdd = (evt) => {
-    // - prevents the form from sending
+
     evt.preventDefault();
     console.log(uData.uID);
-// - makes FormData -object and adds the file selected byt the user into the object
+
     const data = new URLSearchParams();
     for (const pair of new FormData(productForm)) {
         data.append(pair[0], pair[1]);
     }
     data.append('id' , uData.uID);
     console.log(data);
-// - send the file to the same url as in task a by using fetch -method
+
     const options = {
         method: 'post',
         body: data,
@@ -122,16 +122,13 @@ productForm.addEventListener('submit', productAdd);
 
 const imageForm = document.querySelector('#imageAdd');
 const image = document.getElementById('imgA');
-// make function 'upload' which
+// Function used for adding images.
 const imageAdd = (product) => {
-    // - prevents the form from sending
-  //  evt.preventDefault();
     console.log(product);
     console.log(product[0].pID);
-// - makes FormData -object and adds the file selected byt the user into the object
+    // creating formdata object and appending products id to it so they're linked. (original idea was that each product could have multiple images  but we ran out of time)
     const imgForm = new FormData(imageForm);
     imgForm.append('id',product[0].pID);
-// - send the file to the same url as in task a by using fetch -method
     const options = {
         method: 'post',
         body: imgForm,
@@ -155,7 +152,7 @@ const floatb = document.querySelector('.floatb');
 const exitb = document.querySelector('.exitb');
 
 
-
+// another toggle display function. used for filter menu
 const toggleProduct = (evt) => {
     //alert('TOIMII');
     evt.preventDefault();
@@ -175,7 +172,7 @@ const toggleProduct = (evt) => {
 floatb.addEventListener('click', toggleProduct);
 exitb.addEventListener('click', toggleProduct);
 
-
+// form validation for products
 function validation() {
     const namef = document.getElementById('name').value;
     const brandf = document.getElementById('brand').value;
@@ -190,6 +187,7 @@ function validation() {
         return true;
     }
 }
+//Users personal information, shown on his personal page.
 const showUserInfo = (uData) =>{
     let userPage = document.querySelector('.userPage');
     let userName = document.createElement('div');
@@ -208,11 +206,6 @@ const showUserInfo = (uData) =>{
     userPage.appendChild(location);
     userPage.appendChild(accountCreated);
 };
-// - when file upload is complete, writes server response to 'message' element
-// function ends
-
-// make an event listener which calls upload function when the form is submitted
-// imageForm.addEventListener('submit', imageAdd);
 
 
 
