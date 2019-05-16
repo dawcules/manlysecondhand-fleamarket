@@ -32,30 +32,22 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+//logging in, redirecting to pass.login
 app.post('/login', pass.login, (req, res) => {
   console.log('login consolessa on käyty');
   console.log(req.session.user);
 });
+//registering, redirecting to pass.register and pass.login.
 app.post('/register', pass.register, pass.login);
 
-//Handling post form when form is submitted
+//folder used for storing the images
 const upload = multer({dest: 'view/public/uploads/'});
-
-/*
-app.get('/', (req, res) => {
-  res.send('This is a test!');
-  //res.render('index');
-  //res.sendfile('view/public/index.html');
-});
-*/
 
 app.get('/user', pass.loggedIn, (req, res) => {
   const sess = req.session.user;
   console.log('userp app käyty');
   console.log(sess.UserName);
   res.send(sess);
-  /*res.redirect('/app/index.html');*/
 });
 
 app.use('/product', (req, res) => {
@@ -76,7 +68,7 @@ app.use('/product', (req, res) => {
                     res.send(result);
                 });
 });
-
+// adding the images, resizing them
 app.post('/image', upload.single('imgA'), (req, res, next) => {
     console.log("adding the image");
     next();
@@ -96,7 +88,7 @@ app.use('/image', (req, res, next) => {
     });
 });
 app.use('/image', (req, res, next) => {
-    // Add user to database
+    // Add image to the database
     //Title, Location, Alt, Thumb, Medium, pID
     console.log(req);
     console.log("adding image to the database")
@@ -106,14 +98,16 @@ app.use('/image', (req, res, next) => {
         req.body.title,
         'thumbs/' + req.file.filename,
         'medium/' + req.file.filename,
-        req.body.id, // dummy product ide
+        req.body.id, // linked product's id
     ];
     query.insertImage(data, res);
     console.log(data)
 });
+//getting the usersession to frontend
 app.get('/getsession', (req, res) => {
   res.json(req.session.user);
 });
+//used for logging out
 app.get('/logout', (req,res)=>{
    req.logout();
    req.session.destroy();
@@ -180,5 +174,3 @@ https.createServer(options, app).listen(8000); //https traffic
 
 console.log('Server is starting');
 console.log('Rullaa');
-
-//testi commit

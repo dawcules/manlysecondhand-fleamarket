@@ -1,3 +1,4 @@
+// Display functions used for toggling the visibility of all the menus.
 const LoginRegister = () =>{
     const logReg = document.querySelector('.logReg');
     const form = document.querySelector('.logReg-form');
