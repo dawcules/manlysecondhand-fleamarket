@@ -1,6 +1,14 @@
-# manlysecondhand
-Miesten kirpputori / Flea market app
+# Miesten kirpputori / Online flea market platform
 
+<div style="width:60px ; height:60px">
+![Logo](manlysecondhand/master/view/public/img/secondmand.jpg?raw=true "Logo")
+<div>
+
+Reponsive online marketplace tailored for the sell of men's clothing.
+
+Built on React Native.
+
+## Instructions
 You need Node to use this app
 
 1. Download or clone the repository
