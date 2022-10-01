@@ -1,8 +1,6 @@
 # Miesten kirpputori / Online flea market platform
 
-<div style="width:60px ; height:60px">
-![Logo](manlysecondhand/master/view/public/img/secondmand.jpg?raw=true "Logo")
-<div>
+ <img alt="Project logo" width="350px" src="view/public/img/secondmand.jpg" />]
 
 Reponsive online marketplace tailored for the sell of men's clothing.
 
